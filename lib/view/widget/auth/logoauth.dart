@@ -1,0 +1,15 @@
+import 'package:flutter/material.dart';
+import 'package:tasawoqi/core/constant/imagess.dart';
+
+class Logoauth extends StatelessWidget {
+  const Logoauth({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Image.asset(
+      AppImagess.Logo,
+      height: 200,
+      width: 150,
+    );
+  }
+}
