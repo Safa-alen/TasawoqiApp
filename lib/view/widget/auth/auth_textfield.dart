@@ -21,8 +21,8 @@ class AuthTextfield extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(bottom: 30),
       child: TextFormField(
+        textAlign: TextAlign.right,
         obscureText: obscuretext == null || obscuretext == false ? false : true,
         keyboardType: isNumber
             ? TextInputType.numberWithOptions(decimal: true)
@@ -30,14 +30,33 @@ class AuthTextfield extends StatelessWidget {
         validator: valid,
         controller: mycontroller,
         decoration: InputDecoration(
-            hintText: hinttext,
-            hintStyle: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                  fontSize: 12,
-                ),
-            floatingLabelBehavior: FloatingLabelBehavior.always,
-            contentPadding: EdgeInsets.symmetric(vertical: 5, horizontal: 30),
-            border:
-                OutlineInputBorder(borderRadius: BorderRadius.circular(15))),
+          hintText: hinttext,
+          hintStyle: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                fontSize: 12,
+              ),
+          floatingLabelBehavior: FloatingLabelBehavior.always,
+          contentPadding: EdgeInsets.symmetric(vertical: 5, horizontal: 30),
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(15),
+            borderSide: BorderSide(color: Colors.white),
+          ),
+          enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(15),
+            borderSide:
+                BorderSide(color: const Color.fromARGB(255, 225, 224, 224)),
+          ),
+          prefixIcon: onTapIcon != null
+              ? IconButton(
+                  icon: Icon(
+                    obscuretext == true
+                        ? Icons.visibility_off
+                        : Icons.visibility,
+                    color: Colors.grey,
+                  ),
+                  onPressed: onTapIcon,
+                )
+              : null,
+        ),
       ),
     );
   }

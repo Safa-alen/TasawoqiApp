@@ -1,6 +1,7 @@
 class AppImagess {
   static const String rootImage = "assets/images";
   static const String Logo = "$rootImage/logo.png";
+  static const String google = "$rootImage/google.png";
 
   static const String onBoardingimageone = "$rootImage/onboarding1.png";
 
