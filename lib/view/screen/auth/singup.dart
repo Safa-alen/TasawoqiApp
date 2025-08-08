@@ -90,6 +90,17 @@ class Signup extends StatelessWidget {
                   TextButtom(
                     text: " إذا كان لديك حساب بالفعل قم بتسجيل الدخول من",
                   ),
+                  GestureDetector(
+                      onTap: () {
+                        Get.toNamed(AppRoute.Login);
+                      },
+                      child: Text(
+                        " هنا",
+                        style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                              color: Colors.blue,
+                              decoration: TextDecoration.underline,
+                            ),
+                      ))
                 ],
               ),
             ),
