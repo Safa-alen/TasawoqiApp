@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_instance/get_instance.dart';
 import 'package:tasawoqi/controller/onboarding_controller.dart';
-import 'package:tasawoqi/core/constant/color.dart';
 import 'package:tasawoqi/view/widget/onboarding/custom_dot.dart';
 import 'package:tasawoqi/view/widget/onboarding/custom_slider.dart';
 

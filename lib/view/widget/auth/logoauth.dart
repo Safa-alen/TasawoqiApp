@@ -8,12 +8,15 @@ class Logoauth extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        SizedBox(
-          height: 64,
-        ),
+        // SizedBox(
+        //   height: 50,
+        // ),
         Image.asset(
           AppImagess.Logo,
         ),
+        // SizedBox(
+        //   height: 64,
+        // )
       ],
     );
   }

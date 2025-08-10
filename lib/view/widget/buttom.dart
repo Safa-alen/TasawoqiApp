@@ -5,24 +5,28 @@ class Buttom extends StatelessWidget {
   const Buttom({
     super.key,
     required this.text,
+    this.onPressed,
   });
   final String text;
-
+  final void Function()? onPressed;
   @override
   Widget build(BuildContext context) {
     return Container(
       height: 56,
-      margin: EdgeInsets.only(top: 16),
+      margin: EdgeInsets.only(
+        top: 16,
+      ),
       width: double.infinity,
       decoration: BoxDecoration(
           color: Appcolor.aqua, borderRadius: BorderRadius.circular(15)),
       child: MaterialButton(
-        onPressed: () {},
+        onPressed: onPressed,
         child: Center(
-            child: Text(
-          text,
-          style: TextStyle(color: Colors.white),
-        )),
+            child: Text(text,
+                style: Theme.of(context)
+                    .textTheme
+                    .titleSmall!
+                    .copyWith(color: Appcolor.white))),
       ),
     );
   }

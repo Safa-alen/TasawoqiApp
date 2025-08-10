@@ -4,7 +4,6 @@ import 'package:tasawoqi/core/constant/route.dart';
 
 abstract class SignupController extends GetxController {
   Signup();
-  goTologin(); //sigin
 }
 
 class SignupcontrollerImp extends SignupController {
@@ -25,15 +24,10 @@ class SignupcontrollerImp extends SignupController {
   @override
   Signup() {
     if (formstate.currentState!.validate()) {
-      Get.offNamed(AppRoute.verfyCode);
+      Get.toNamed(AppRoute.Verfycode);
     } else {
       print("Not Valid");
     }
-  }
-
-  @override
-  goTologin() {
-    Get.offAllNamed(AppRoute.Login);
   }
 
   @override

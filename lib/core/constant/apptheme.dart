@@ -12,7 +12,10 @@ ThemeData themeapp = ThemeData(
         fontWeight: FontWeight.w200),
     bodyLarge: TextStyle(
         fontWeight: FontWeight.bold, fontSize: 26, color: Appcolor.black),
-    titleSmall: TextStyle(fontSize: 14, color: Appcolor.black),
+    titleSmall: TextStyle(
+      fontSize: 12,
+      color: Appcolor.black,
+    ),
   ),
 );
 
@@ -27,6 +30,7 @@ ThemeData themeapp2 = ThemeData(
         fontWeight: FontWeight.w200),
     bodyLarge: TextStyle(
         fontWeight: FontWeight.bold, fontSize: 26, color: Appcolor.black),
-    titleSmall: TextStyle(fontSize: 14, color: Appcolor.black),
+    titleSmall: TextStyle(
+        fontSize: 16, color: Appcolor.black, fontWeight: FontWeight.bold),
   ),
 );

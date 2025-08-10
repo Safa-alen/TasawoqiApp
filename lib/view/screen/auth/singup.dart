@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:tasawoqi/controller/auth/signup_controller.dart';
-import 'package:tasawoqi/core/constant/color.dart';
 import 'package:tasawoqi/core/constant/imagess.dart';
 import 'package:tasawoqi/core/constant/route.dart';
 import 'package:tasawoqi/core/function/validateput.dart';
@@ -30,7 +29,6 @@ class Signup extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Center(child: Logoauth()),
-                  const SizedBox(height: 40),
                   AuthText(
                     title: 'حساب جديد',
                     style: Theme.of(context).textTheme.titleMedium!,
@@ -41,8 +39,7 @@ class Signup extends StatelessWidget {
                   ),
                   const SizedBox(height: 40),
                   AuthTextfield(
-                    valid: (val) =>
-                        ValidatInp(val!, 5, 100, "username"), // اسم المستخدم
+                    valid: (val) => ValidatInp(val!, 5, 100, "username"),
                     hinttext: "اسم المستخدم",
                     mycontroller: controller.username,
                     isNumber: false,
@@ -79,6 +76,9 @@ class Signup extends StatelessWidget {
                           )),
                   Buttom(
                     text: 'متابعة',
+                    onPressed: () {
+                      controller.Signup();
+                    },
                   ),
                   SizedBox(
                     height: 40,
@@ -90,17 +90,6 @@ class Signup extends StatelessWidget {
                   TextButtom(
                     text: " إذا كان لديك حساب بالفعل قم بتسجيل الدخول من",
                   ),
-                  GestureDetector(
-                      onTap: () {
-                        Get.toNamed(AppRoute.Login);
-                      },
-                      child: Text(
-                        " هنا",
-                        style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                              color: Colors.blue,
-                              decoration: TextDecoration.underline,
-                            ),
-                      ))
                 ],
               ),
             ),
