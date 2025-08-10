@@ -3,7 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:tasawoqi/core/constant/color.dart';
 import 'package:tasawoqi/core/constant/imagess.dart';
 import 'package:tasawoqi/data/datasource/categoy.dart';
-import 'package:tasawoqi/view/widget/auth/buttom_navi_bar.dart';
+import 'package:tasawoqi/view/widget/home/buttom_navi_bar.dart';
 import 'package:tasawoqi/view/widget/home/appbar_home.dart';
 import 'package:tasawoqi/view/widget/home/category_best_use.dart';
 import 'package:tasawoqi/view/widget/home/ecommstore_list_home.dart';
@@ -23,11 +23,11 @@ class Homepage extends StatelessWidget {
         extendBody: true,
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         floatingActionButton: SizedBox(
-          height: 70,
-          width: 70,
+          height: 60,
+          width: 60,
           child: FloatingActionButton(
             shape: const CircleBorder(),
-            backgroundColor: Appcolor.aqua, // لون الزر الأوسط
+            backgroundColor: Appcolor.aqua,
             onPressed: () {},
             child: SvgPicture.asset(
               AppImagess.icon7,

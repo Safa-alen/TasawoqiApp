@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tasawoqi/data/datasource/categoy.dart';
+import 'package:tasawoqi/view/widget/home/list_images.dart';
 import 'package:tasawoqi/view/widget/home/title_only.dart';
 
 class CategoryHome extends StatelessWidget {
@@ -7,21 +8,17 @@ class CategoryHome extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: ListView(
-        children: [
-          TitleOnly(title: "الفئات"),
-          SizedBox(
-            height: 40,
-          ),
-          GridView.builder(
-              gridDelegate:
-                  SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3),
-              itemBuilder: (context, i) => Padding(
-                    padding: EdgeInsets.all(23),
-                    child: Image.asset(categories[i].image),
-                  ))
-        ],
+    return Directionality(
+      textDirection: TextDirection.ltr,
+      child: Scaffold(
+        appBar: AppBar(
+          title: Align(
+              alignment: Alignment.centerRight,
+              child: TitleOnly(
+                title: "الفئات",
+              )),
+        ),
+        body: List_Images(),
       ),
     );
   }

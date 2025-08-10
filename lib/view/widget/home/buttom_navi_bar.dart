@@ -1,4 +1,10 @@
+// import 'package:flutter/material.dart';
+// import 'package:flutter_svg/svg.dart';
+// import 'package:tasawoqi/core/constant/color.dart';
+// import 'package:tasawoqi/core/constant/imagess.dart';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:tasawoqi/core/constant/color.dart';
 import 'package:tasawoqi/core/constant/imagess.dart';
@@ -12,8 +18,7 @@ class buttom_navig_bar extends StatelessWidget {
       Icons.color_lens_outlined,
       color: Appcolor.medigrey,
     ),
-    // SvgPicture.asset(AppImagess.icon5, color: Appcolor.aqua),
-    const SizedBox(width: 60), // مكان الزر الأوسط
+    const SizedBox(width: 60),
     SvgPicture.asset(AppImagess.icon6, color: Appcolor.medigrey),
     SvgPicture.asset(AppImagess.icon9, color: Appcolor.medigrey),
   ];
@@ -44,7 +49,7 @@ class buttom_navig_bar extends StatelessWidget {
 }
 
 class BNBCustomPainter extends CustomPainter {
-  final double borderRadius = 30;
+  final double borderRadius = 20;
   @override
   void paint(Canvas canvas, Size size) {
     final paint = Paint()
@@ -57,7 +62,7 @@ class BNBCustomPainter extends CustomPainter {
     path.lineTo(size.width * 0.35, 0);
     path.quadraticBezierTo(size.width * 0.40, 0, size.width * 0.40, 20);
     path.arcToPoint(
-      Offset(size.width * 0.60, 20),
+      Offset(size.width * 0.60, 0),
       radius: const Radius.circular(20),
       clockwise: false,
     );
