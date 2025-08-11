@@ -12,6 +12,8 @@ class AppImagess {
   static const String reco1 = "$rootImage/reco1.png";
   static const String reco2 = "$rootImage/reco2.png";
   static const String reco3 = "$rootImage/reco3.png";
+  static const String drink1 = "$rootImage/drink1.png";
+  static const String drink2 = "$rootImage/drink2.png";
 
   ///svg///
   static const String rootImage2 = "assets/icon";

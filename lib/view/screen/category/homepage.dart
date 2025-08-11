@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
+import 'package:tasawoqi/controller/home/home_controller.dart';
 import 'package:tasawoqi/core/constant/color.dart';
 import 'package:tasawoqi/core/constant/imagess.dart';
-import 'package:tasawoqi/data/datasource/categoy.dart';
 import 'package:tasawoqi/view/widget/home/buttom_navi_bar.dart';
 import 'package:tasawoqi/view/widget/home/appbar_home.dart';
 import 'package:tasawoqi/view/widget/home/category_best_use.dart';
@@ -12,7 +13,7 @@ import 'package:tasawoqi/view/widget/home/search_home.dart';
 import 'package:tasawoqi/view/widget/home/title_only.dart';
 import '../../widget/home/category_list_home.dart';
 
-class Homepage extends StatelessWidget {
+class Homepage extends GetView<HomeController> {
   const Homepage({super.key});
 
   @override

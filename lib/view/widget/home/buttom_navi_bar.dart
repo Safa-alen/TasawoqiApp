@@ -1,7 +1,5 @@
 // import 'package:flutter/material.dart';
-// import 'package:flutter_svg/svg.dart';
-// import 'package:tasawoqi/core/constant/color.dart';
-// import 'package:tasawoqi/core/constant/imagess.dart';
+
 
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -10,8 +8,14 @@ import 'package:tasawoqi/core/constant/color.dart';
 import 'package:tasawoqi/core/constant/imagess.dart';
 
 class buttom_navig_bar extends StatelessWidget {
-  buttom_navig_bar({super.key});
-
+  buttom_navig_bar({super.key, });
+  // final Function(int) ? onTap;
+  //  final int selectedIndex;
+  
+  
+  @override
+  Widget build(BuildContext context) {
+    
   final items = <Widget>[
     SvgPicture.asset(AppImagess.icon8, color: Appcolor.medigrey),
     Icon(
@@ -22,9 +26,6 @@ class buttom_navig_bar extends StatelessWidget {
     SvgPicture.asset(AppImagess.icon6, color: Appcolor.medigrey),
     SvgPicture.asset(AppImagess.icon9, color: Appcolor.medigrey),
   ];
-
-  @override
-  Widget build(BuildContext context) {
     return SizedBox(
       height: 75,
       child: Stack(
@@ -39,10 +40,10 @@ class buttom_navig_bar extends StatelessWidget {
             heightFactor: 3,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: items,
-            ),
+              children: items
+              
           ),
-        ],
+      )],
       ),
     );
   }

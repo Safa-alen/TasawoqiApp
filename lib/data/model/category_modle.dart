@@ -1,8 +1,18 @@
 class CategoryModle {
+  final String id;
   final String title;
   final String image;
 
-  CategoryModle({required this.title, required this.image});
+  const CategoryModle(
+      {required this.id, required this.title, required this.image});
+}
+
+class ObjctModle {
+  final List<String> categories;
+  final String Image;
+  final int id;
+
+  ObjctModle({required this.categories, required this.Image, required this.id});
 }
 
 class RecommstoresModle {
