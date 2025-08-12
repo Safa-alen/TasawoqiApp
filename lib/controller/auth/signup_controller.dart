@@ -24,7 +24,7 @@ class SignupcontrollerImp extends SignupController {
   @override
   Signup() {
     if (formstate.currentState!.validate()) {
-      Get.toNamed(AppRoute.Verfycode);
+      Get.toNamed(AppRoute.verfycode);
     } else {
       print("Not Valid");
     }

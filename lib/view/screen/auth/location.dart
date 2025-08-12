@@ -78,7 +78,7 @@ class Location extends StatelessWidget {
               child: Buttom(
                 text: "متابعة",
                 onPressed: () {
-                  Get.toNamed(AppRoute.Homepage);
+                  Get.toNamed(AppRoute.homepage);
                 },
               ),
             )

@@ -27,7 +27,7 @@ class TextButtom extends StatelessWidget {
           ),
           GestureDetector(
             onTap: () {
-              Get.toNamed(AppRoute.Login); // اسم المسار حسب الموجود عندك
+              Get.toNamed(AppRoute.login); // اسم المسار حسب الموجود عندك
             },
             child: Text(
               " هنا",

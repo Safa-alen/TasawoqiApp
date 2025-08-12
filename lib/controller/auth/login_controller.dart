@@ -5,7 +5,7 @@ import 'package:tasawoqi/core/constant/route.dart';
 abstract class LoginController extends GetxController {
   login();
   goToSignUp();
- 
+
   GlobalKey<FormState> formstate = GlobalKey<FormState>();
 }
 
@@ -28,7 +28,7 @@ class LogincontrollerImp extends LoginController {
   @override
   login() {
     if (formstate.currentState!.validate()) {
-      Get.toNamed(AppRoute.Location);
+      Get.toNamed(AppRoute.location);
       print("Valid");
     } else {
       print("Not Valid");
@@ -51,6 +51,4 @@ class LogincontrollerImp extends LoginController {
     password.dispose();
     super.dispose();
   }
-
-  
 }

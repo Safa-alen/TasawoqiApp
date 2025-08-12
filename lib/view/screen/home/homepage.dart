@@ -1,12 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:tasawoqi/controller/home/home_controller.dart';
-import 'package:tasawoqi/core/constant/color.dart';
 import 'package:tasawoqi/core/constant/imagess.dart';
 import 'package:tasawoqi/data/datasource/categoy.dart';
-import 'package:tasawoqi/data/model/category_modle.dart';
-import 'package:tasawoqi/view/widget/home/buttom_navi_bar.dart';
 import 'package:tasawoqi/view/widget/home/appbar_home.dart';
 import 'package:tasawoqi/view/widget/home/category_best_use.dart';
 import 'package:tasawoqi/view/widget/home/ecommstore_list_home.dart';
@@ -20,27 +16,10 @@ class Homepage extends GetView<HomeController> {
 
   @override
   Widget build(BuildContext context) {
-    return Directionality(
-      textDirection: TextDirection.rtl,
-      child: Scaffold(
-        extendBody: true,
-        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-        floatingActionButton: SizedBox(
-          height: 60,
-          width: 60,
-          child: FloatingActionButton(
-            shape: const CircleBorder(),
-            backgroundColor: Appcolor.aqua,
-            onPressed: () {},
-            child: SvgPicture.asset(
-              AppImagess.icon7,
-              color: Colors.white,
-            ),
-          ),
-        ),
-        bottomNavigationBar: buttom_navig_bar(),
-        appBar: appbar_home(),
-        body: Padding(
+    return Column(children: [
+      appbar_home(),
+      Expanded(
+        child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 15.0, horizontal: 20.0),
           child: ListView(
             children: [
@@ -75,6 +54,6 @@ class Homepage extends GetView<HomeController> {
           ),
         ),
       ),
-    );
+    ]);
   }
 }

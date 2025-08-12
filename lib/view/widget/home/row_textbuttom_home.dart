@@ -28,7 +28,7 @@ class Row_textbuttom extends StatelessWidget {
                 tapTargetSize: MaterialTapTargetSize.shrinkWrap,
               ),
               onPressed: () {
-                Get.toNamed(AppRoute.CatogeryHome);
+                Get.toNamed(AppRoute.catogeryHome);
               },
               child: Text("عرض الكل",
                   style: Theme.of(context)

@@ -3,34 +3,35 @@ import 'package:tasawoqi/core/constant/route.dart';
 import 'package:tasawoqi/view/screen/auth/location.dart';
 import 'package:tasawoqi/view/screen/auth/login.dart';
 import 'package:tasawoqi/view/screen/auth/verfycode.dart';
-import 'package:tasawoqi/view/screen/category/Personal_profile.dart';
-import 'package:tasawoqi/view/screen/category/Stores_home.dart';
-import 'package:tasawoqi/view/screen/category/ask_home.dart';
-import 'package:tasawoqi/view/screen/category/category_home.dart';
-import 'package:tasawoqi/view/screen/category/category_type.dart';
-import 'package:tasawoqi/view/screen/category/homepage.dart';
-import 'package:tasawoqi/view/screen/category/offers_home.dart';
-import 'package:tasawoqi/view/screen/onboarding.dart';
+import 'package:tasawoqi/view/screen/home/Personal_profile.dart';
+import 'package:tasawoqi/view/screen/home/Stores_home.dart';
+import 'package:tasawoqi/view/screen/home/buttom_navi_bar.dart';
+import 'package:tasawoqi/view/screen/home/category_home.dart';
+import 'package:tasawoqi/view/screen/home/category_type.dart';
+import 'package:tasawoqi/view/screen/home/homepage.dart';
+import 'package:tasawoqi/view/screen/home/offers_home.dart';
+import 'package:tasawoqi/view/screen/home/order_home.dart';
 
 import 'view/screen/auth/singup.dart';
 
 List<GetPage<dynamic>>? routes = [
-  GetPage(name: '/', page: () => Onboarding()),
-  GetPage(name: AppRoute.Signup, page: () => Signup()),
-  GetPage(name: AppRoute.Verfycode, page: () => Verfycode()),
-  GetPage(name: AppRoute.Login, page: () => Login()),
-  GetPage(name: AppRoute.Location, page: () => Location()),
-  GetPage(name: AppRoute.Homepage, page: () => Homepage()),
-  GetPage(name: AppRoute.CatogeryHome, page: () => CategoryHome()),
+  GetPage(name: '/', page: () => ButtomNaviBar()),
+  GetPage(name: AppRoute.signup, page: () => Signup()),
+  GetPage(name: AppRoute.verfycode, page: () => Verfycode()),
+  GetPage(name: AppRoute.login, page: () => Login()),
+  GetPage(name: AppRoute.location, page: () => Location()),
+  GetPage(name: AppRoute.homepage, page: () => Homepage()),
+  GetPage(name: AppRoute.catogeryHome, page: () => CategoryHome()),
   GetPage(
-    name: AppRoute.CatogerType,
+    name: AppRoute.catogerType,
     page: () => CategoryType(
       categoryId: Get.parameters['id'] ?? '',
       categoryTitle: Get.parameters['title'] ?? '',
     ),
   ),
-  GetPage(name: AppRoute.StoresHome, page: () => StoresHome()),
-  GetPage(name: AppRoute.OffersHome, page: () => OffersHome()),
+  GetPage(name: AppRoute.buttomBar, page: () => ButtomNaviBar()),
+  GetPage(name: AppRoute.storesHome, page: () => StoresHome()),
+  GetPage(name: AppRoute.offersHome, page: () => OffersHome()),
   GetPage(name: AppRoute.personalPofileHome, page: () => PersonalProfile()),
-  GetPage(name: AppRoute.askHome, page: () => AskHome()),
+  GetPage(name: AppRoute.orderHome, page: () => OrderHome()),
 ];

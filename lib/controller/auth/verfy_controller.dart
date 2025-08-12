@@ -10,7 +10,7 @@ class VeryfircodeControllerImp extends VeryfircodeController {
   late String Verfycode;
   @override
   GoToLocation() {
-    Get.offAllNamed(AppRoute.Location);
+    Get.offAllNamed(AppRoute.location);
   }
 
   @override

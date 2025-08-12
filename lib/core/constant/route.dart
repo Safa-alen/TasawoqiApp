@@ -1,16 +1,17 @@
 class AppRoute {
-  static const String Signup = "/signup";
-  static const String Login = "/login";
-  static const String Verfycode = "/verfycode";
-  static const String Location = "/location";
-  static const String Homepage = "/homepage";
-  static const String CatogeryHome = "/catogeryhome";
-  static const String CatogerType = "/catogerytype";
+  static const String signup = "/signup";
+  static const String login = "/login";
+  static const String verfycode = "/verfycode";
+  static const String location = "/location";
+  static const String homepage = "/homepage";
+  static const String catogeryHome = "/catogeryhome";
+  static const String catogerType = "/catogerytype";
+  static const String buttomBar = "/buttombar";
 
-  static const String OffersHome = "/offershome";
-  static const String StoresHome = "/storeshome";
+  static const String offersHome = "/offershome";
+  static const String storesHome = "/storeshome";
   static const String personalPofileHome = "/personalprofilehome";
-  static const String askHome = "/askhome";
+  static const String orderHome = "/orderhome";
 
   static const String onboarding = "/onboarding";
 }

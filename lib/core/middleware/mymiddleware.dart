@@ -12,6 +12,6 @@ class Mymiddleware extends GetMiddleware {
   int? get Priority => 1;
   RouteSettings? redirect(String? route) {
     if (services.sharedpreferences.getString("onboarding") == "1")
-      return RouteSettings(name: AppRoute.Login);
+      return RouteSettings(name: AppRoute.login);
   }
 }
