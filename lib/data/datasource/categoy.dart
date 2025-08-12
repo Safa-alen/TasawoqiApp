@@ -48,52 +48,111 @@ List<CategoryModle> categories = [
 ];
 List<ObjctModle> object = [
   ObjctModle(
-      id: 1,
-      categories: ["عصير برتقال", "عصائر الآغا", "/قطعة"],
-      Image: AppImagess.drink1),
+      id: 2,
+      Image: AppImagess.drink1,
+      title1: 'عصير ايكرفون',
+      title2: 'عصائر الملك',
+      title3: '60/'),
   ObjctModle(
-      id: 1,
-      categories: [" عصير ايكرفون", "عصائر الملك ", "/قطعة"],
-      Image: AppImagess.drink2)
+      title1: ' عصائر الملك',
+      title2: 'عصائر الآغا',
+      title3: '60/',
+      id: 2,
+      Image: AppImagess.drink2),
+  ObjctModle(
+      id: 3, title1: '', title2: '', title3: '', Image: AppImagess.drink2),
+  ObjctModle(
+      id: 4, title1: '', title2: '', title3: '', Image: AppImagess.drink2),
+  ObjctModle(
+      id: 5, title1: '', title2: '', title3: '', Image: AppImagess.drink2),
+  ObjctModle(
+      id: 6, title1: '', title2: '', title3: '', Image: AppImagess.drink2),
+  ObjctModle(
+      id: 7, title1: '', title2: '', title3: '', Image: AppImagess.drink2),
+  ObjctModle(
+      id: 8, title1: '', title2: '', title3: '', Image: AppImagess.drink2),
+  ObjctModle(
+      id: 9, title1: '', title2: '', title3: '', Image: AppImagess.drink2),
+  ObjctModle(
+      id: 10, title1: '', title2: '', title3: '', Image: AppImagess.drink2),
+  ObjctModle(
+      id: 11, title1: '', title2: '', title3: '', Image: AppImagess.drink2),
+  ObjctModle(
+      id: 12, title1: '', title2: '', title3: '', Image: AppImagess.drink2),
+  ObjctModle(
+      id: 13, title1: '', title2: '', title3: '', Image: AppImagess.drink2),
+  ObjctModle(
+      id: 14, title1: '', title2: '', title3: '', Image: AppImagess.drink2),
+  ObjctModle(
+      id: 15, title1: '', title2: '', title3: '', Image: AppImagess.drink2),
+  ObjctModle(
+      id: 16, title1: '', title2: '', title3: '', Image: AppImagess.drink2),
+  ObjctModle(
+      id: 17, title1: '', title2: '', title3: '', Image: AppImagess.drink2),
+  ObjctModle(
+      id: 18, title1: '', title2: '', title3: '', Image: AppImagess.drink2),
+  ObjctModle(
+      id: 19, title1: '', title2: '', title3: '', Image: AppImagess.drink2),
+  ObjctModle(
+      id: 20, title1: '', title2: '', title3: '', Image: AppImagess.drink2),
+  ObjctModle(
+      id: 21, title1: '', title2: '', title3: '', Image: AppImagess.drink2),
+  ObjctModle(
+      id: 22, title1: '', title2: '', title3: '', Image: AppImagess.drink2),
+  ObjctModle(
+      id: 23, title1: '', title2: '', title3: '', Image: AppImagess.drink2),
+  ObjctModle(
+      id: 24, title1: '', title2: '', title3: '', Image: AppImagess.drink2),
+  ObjctModle(
+      id: 25, title1: '', title2: '', title3: '', Image: AppImagess.drink2),
+  ObjctModle(
+      id: 26, title1: '', title2: '', title3: '', Image: AppImagess.drink2),
+  ObjctModle(
+      id: 27, title1: '', title2: '', title3: '', Image: AppImagess.drink2),
+  ObjctModle(
+      id: 28, title1: '', title2: '', title3: '', Image: AppImagess.drink2),
+  ObjctModle(
+      id: 29, title1: '', title2: '', title3: '', Image: AppImagess.drink2),
 ];
 
 List<RecommstoresModle> Recommstores = [
   RecommstoresModle(
       title1: "العائلة للخضراوات",
-      titl2: "كافة أنواع الخضراوات والفواكه",
+      title2: "كافة أنواع الخضراوات والفواكه",
       image: AppImagess.reco1),
   RecommstoresModle(
       title1: "برغر كينغ",
-      titl2: "كافة الوجبات السريعة الغربية ",
+      title2: "كافة الوجبات السريعة الغربية ",
       image: AppImagess.reco2),
   RecommstoresModle(
       title1: "برغر كينغ",
-      titl2: "كافة الوجبات السريعة الغربية ",
+      title2: "كافة الوجبات السريعة الغربية ",
       image: AppImagess.reco2),
   RecommstoresModle(
       title1: "برغر كينغ",
-      titl2: "كافة الوجبات السريعة الغربية ",
+      title2: "كافة الوجبات السريعة الغربية ",
       image: AppImagess.reco2),
 ];
+
 List<BestCategoryModle> BestCategories = [
   BestCategoryModle(
       image: AppImagess.reco3,
       title1: "برغر لحمة",
-      titl2: "برغر كينغ للوجبات السريعة",
+      title2: "برغر كينغ للوجبات السريعة",
       title3: "60/قطعة"),
   BestCategoryModle(
       image: AppImagess.reco1,
       title1: "برغر لحمة",
-      titl2: "برغر كينغ للوجبات السريعة",
+      title2: "برغر كينغ للوجبات السريعة",
       title3: "60/قطعة"),
   BestCategoryModle(
       image: AppImagess.reco3,
       title1: "برغر لحمة",
-      titl2: "برغر كينغ للوجبات السريعة",
+      title2: "برغر كينغ للوجبات السريعة",
       title3: "60/قطعة"),
   BestCategoryModle(
       image: AppImagess.reco1,
       title1: "برغر لحمة",
-      titl2: "برغر كينغ للوجبات السريعة",
+      title2: "برغر كينغ للوجبات السريعة",
       title3: "60/قطعة"),
 ];

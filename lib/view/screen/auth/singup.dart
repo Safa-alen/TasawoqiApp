@@ -19,6 +19,11 @@ class Signup extends StatelessWidget {
   Widget build(BuildContext context) {
     final controller = Get.put(SignupcontrollerImp());
     return Scaffold(
+      appBar: AppBar(
+        title: Center(
+          child: Logoauth(),
+        ),
+      ),
       body: GetBuilder<SignupcontrollerImp>(
         builder: (controller) => SingleChildScrollView(
           child: Padding(
@@ -28,10 +33,11 @@ class Signup extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Center(child: Logoauth()),
-                  AuthText(
-                    title: 'حساب جديد',
-                    style: Theme.of(context).textTheme.titleMedium!,
+                  Center(
+                    child: AuthText(
+                      title: ' حساب جديد',
+                      style: Theme.of(context).textTheme.titleMedium!,
+                    ),
                   ),
                   AuthText(
                     title: ' الرجاء إدخال بياناتك للمتابعة',

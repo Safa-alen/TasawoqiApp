@@ -45,7 +45,7 @@ class AuthTextfield extends StatelessWidget {
             borderSide:
                 BorderSide(color: const Color.fromARGB(255, 225, 224, 224)),
           ),
-          prefixIcon: onTapIcon != null
+          suffixIcon: onTapIcon != null
               ? IconButton(
                   icon: Icon(
                     obscuretext == true

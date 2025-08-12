@@ -11,15 +11,14 @@ class CategoryHome extends StatelessWidget {
     return Directionality(
       textDirection: TextDirection.ltr,
       child: Scaffold(
-        appBar: AppBar(
-          title: Align(
-              alignment: Alignment.centerRight,
-              child: TitleOnly(
-                title: "الفئات",
-              )),
-        ),
-        body: List_Images(),
-      ),
+          appBar: AppBar(
+            title: Align(
+                alignment: Alignment.centerRight,
+                child: TitleOnly(
+                  title: "الفئات",
+                )),
+          ),
+          body: List_Images()),
     );
   }
 }

@@ -14,7 +14,6 @@ class Custom_Buttom extends GetView<OnBordingControllerImp> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Text("تجاهل"),
         Container(
           height: 35,
           width: 87,
@@ -32,7 +31,8 @@ class Custom_Buttom extends GetView<OnBordingControllerImp> {
                   TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
             ),
           ),
-        )
+        ),
+        Text("تجاهل"),
       ],
     );
   }

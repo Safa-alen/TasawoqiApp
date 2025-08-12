@@ -5,6 +5,8 @@ class AppRoute {
   static const String Location = "/location";
   static const String Homepage = "/homepage";
   static const String CatogeryHome = "/catogeryhome";
+  static const String CatogerType = "/catogerytype";
+
   static const String OffersHome = "/offershome";
   static const String StoresHome = "/storeshome";
   static const String personalPofileHome = "/personalprofilehome";

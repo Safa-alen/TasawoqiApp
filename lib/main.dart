@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:tasawoqi/binding.dart';
 import 'package:tasawoqi/core/constant/apptheme.dart';
 import 'package:tasawoqi/core/services/services.dart';
@@ -14,15 +15,25 @@ void main() async {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       theme: themeapp,
       initialBinding: MyBinding(),
       getPages: routes,
+
+      // دعم اللغة العربية من ناحية الترجمة والاتجاه
+      locale: const Locale('ar'), // لغة التطبيق الافتراضية: العربية
+      supportedLocales: const [
+        Locale('ar'), // العربية
+        Locale('en'), // الإنجليزية لو حبيت تضيف دعم لغات ثانية
+      ],
+      localizationsDelegates: const [
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
     );
   }
 }

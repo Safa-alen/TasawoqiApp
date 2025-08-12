@@ -5,16 +5,23 @@ import 'package:tasawoqi/data/datasource/categoy.dart';
 class category_best_use extends StatelessWidget {
   const category_best_use({
     super.key,
+    required this.images,
+    required this.titles1,
+    required this.titles2,
+    required this.titles3,
   });
-
+  final List<String> images;
+  final List<String> titles1;
+  final List<String> titles2;
+  final List<String> titles3;
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
       shrinkWrap: true,
       physics: NeverScrollableScrollPhysics(),
-      itemCount: BestCategories.length,
+      itemCount: images.length,
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          mainAxisSpacing: 16, crossAxisCount: 2, mainAxisExtent: 255.0),
+          crossAxisSpacing: 10, crossAxisCount: 2, mainAxisExtent: 250.0),
       itemBuilder: (context, i) => Card(
         elevation: 4,
         shape: RoundedRectangleBorder(
@@ -27,7 +34,7 @@ class category_best_use extends StatelessWidget {
               borderRadius:
                   const BorderRadius.vertical(top: Radius.circular(12)),
               child: Image.asset(
-                BestCategories[i].image,
+                images[i],
                 height: 132,
                 width: double.infinity,
                 fit: BoxFit.cover,
@@ -41,12 +48,12 @@ class category_best_use extends StatelessWidget {
                   children: [
                     Text(
                       //  overflow: TextOverflow.ellipsis,
-                      BestCategories[i].title1,
+                      titles1[i],
                       style: Theme.of(context).textTheme.bodySmall,
                     ),
                     SizedBox(height: 5),
                     Text(
-                      BestCategories[i].titl2,
+                      titles2[i],
                       maxLines: 1,
                       // overflow: TextOverflow.ellipsis,
                       style: Theme.of(context).textTheme.bodySmall!.copyWith(
@@ -55,7 +62,7 @@ class category_best_use extends StatelessWidget {
                           ),
                     ),
                     Text(
-                      BestCategories[i].title3,
+                      titles3[i],
                       maxLines: 1,
                       // overflow: TextOverflow.ellipsis,
                       style: Theme.of(context).textTheme.titleSmall!.copyWith(
@@ -65,11 +72,14 @@ class category_best_use extends StatelessWidget {
                     ),
                   ],
                 )),
+            SizedBox(
+              height: 5,
+            ),
             Padding(
-              padding: const EdgeInsets.only(right: 6.0),
+              padding: const EdgeInsets.only(right: 12.0),
               child: Container(
                 height: 28,
-                width: 160,
+                width: 150,
                 decoration: BoxDecoration(
                   color: Appcolor.aqua,
                   borderRadius: BorderRadius.circular(6),
@@ -84,7 +94,7 @@ class category_best_use extends StatelessWidget {
               ),
             ),
             SizedBox(
-              height: 20,
+              height: 10,
             )
           ],
         ),

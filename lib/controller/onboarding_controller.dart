@@ -21,7 +21,7 @@ class OnBordingControllerImp extends OnBordingController {
     currentpage++;
     if (currentpage > onboardingList.length - 1) {
       services.sharedpreferences.setString('onboarding', "1");
-      Get.toNamed(AppRoute.Signup);
+      Get.offNamed(AppRoute.Signup);
     } else {
       pagecontroller!.animateToPage(currentpage,
           duration: Duration(milliseconds: 900), curve: Curves.easeIn);

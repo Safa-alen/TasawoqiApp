@@ -1,5 +1,10 @@
+import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:tasawoqi/core/constant/route.dart';
 import 'package:tasawoqi/data/datasource/categoy.dart';
+import 'package:tasawoqi/view/screen/category/category_type.dart';
 
 class List_Images extends StatelessWidget {
   const List_Images({
@@ -24,9 +29,20 @@ class List_Images extends StatelessWidget {
             itemCount: categories.length,
             itemBuilder: (context, i) => Padding(
               padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 2),
-              child: Image.asset(
-                categories[i].image,
-                fit: BoxFit.cover,
+              child: InkWell(
+                onTap: () {
+                  Get.toNamed(
+                    AppRoute.CatogerType,
+                    parameters: {
+                      'id': categories[i].id,
+                      'title': categories[i].title,
+                    },
+                  );
+                },
+                child: Image.asset(
+                  categories[i].image,
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
           ),

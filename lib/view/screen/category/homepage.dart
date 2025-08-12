@@ -4,6 +4,8 @@ import 'package:get/get.dart';
 import 'package:tasawoqi/controller/home/home_controller.dart';
 import 'package:tasawoqi/core/constant/color.dart';
 import 'package:tasawoqi/core/constant/imagess.dart';
+import 'package:tasawoqi/data/datasource/categoy.dart';
+import 'package:tasawoqi/data/model/category_modle.dart';
 import 'package:tasawoqi/view/widget/home/buttom_navi_bar.dart';
 import 'package:tasawoqi/view/widget/home/appbar_home.dart';
 import 'package:tasawoqi/view/widget/home/category_best_use.dart';
@@ -39,7 +41,7 @@ class Homepage extends GetView<HomeController> {
         bottomNavigationBar: buttom_navig_bar(),
         appBar: appbar_home(),
         body: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 25.0),
+          padding: const EdgeInsets.symmetric(vertical: 15.0, horizontal: 20.0),
           child: ListView(
             children: [
               search_home(),
@@ -59,7 +61,13 @@ class Homepage extends GetView<HomeController> {
               const SizedBox(height: 25),
               TitleOnly(title: "المنتجات الأكثر طلبا  "),
               const SizedBox(height: 25),
-              category_best_use(),
+              category_best_use(
+                images: BestCategories.map((e) => e.image).toList(),
+                titles1: BestCategories.map((e) => e.title1).toList(),
+                titles2: BestCategories.map((e) => e.title2)
+                    .toList(), // انتبه هنا اسم الحقل 'titl2' مش 'title2'
+                titles3: BestCategories.map((e) => e.title3).toList(),
+              ),
               SizedBox(
                 height: 15,
               )

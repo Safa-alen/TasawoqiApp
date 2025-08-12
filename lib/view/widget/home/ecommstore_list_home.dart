@@ -44,7 +44,7 @@ class Recommstore_list extends StatelessWidget {
                         Text(
                           maxLines: 1, // سطر واحد فقط
                           overflow: TextOverflow.ellipsis,
-                          Recommstores[i].titl2,
+                          Recommstores[i].title2,
                           style: Theme.of(context)
                               .textTheme
                               .titleSmall!

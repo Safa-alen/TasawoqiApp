@@ -18,89 +18,99 @@ class Login extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = Get.put(LogincontrollerImp());
-    return Scaffold(
-      body: GetBuilder<LogincontrollerImp>(
-        builder: (controller) => SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.all(20),
-            child: Form(
-              key: controller.formstate,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Center(child: Logoauth()),
-                  AuthText(
-                    title: 'تسجيل الدخول ',
-                    style: Theme.of(context).textTheme.titleMedium!,
-                  ),
-                  AuthText(
-                    title: ' الرجاء إدخال بياناتك للمتابعة',
-                    style: Theme.of(context).textTheme.bodyMedium!,
-                  ),
-                  const SizedBox(height: 40),
-                  AuthTextfield(
-                      valid: (Value) {
-                        return ValidatInp(Value!, 5, 100, "Email");
-                      },
-                      hinttext: " البريد الالكتروني أو رقم الموبايل",
-                      mycontroller: controller.email,
-                      isNumber: false),
-                  const SizedBox(height: 16),
-                  GetBuilder<LogincontrollerImp>(
-                      builder: (controller) => AuthTextfield(
-                            valid: (Value) {
-                              return ValidatInp(Value!, 5, 30, "password");
-                            },
-                            hinttext: "كلمة المرور ",
-                            obscuretext: controller.isshowpassword,
-                            onTapIcon: () {
-                              controller.showpassword();
-                            },
-                            isNumber: true,
-                            mycontroller: controller.password,
-                          )),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      TextButton(
-                        onPressed: () {},
-                        child: Text(
-                          "نسيت كلمة المرور؟",
-                          style: Theme.of(context).textTheme.bodyMedium,
-                        ),
-                      ),
-                      Row(
-                        children: [
-                          Text(
-                            "تذكرني",
+    return Directionality(
+      textDirection: TextDirection.ltr,
+      child: Scaffold(
+        appBar: AppBar(
+          title: Center(
+            child: Logoauth(),
+          ),
+        ),
+        body: GetBuilder<LogincontrollerImp>(
+          builder: (controller) => SingleChildScrollView(
+            child: Padding(
+              padding: const EdgeInsets.all(20),
+              child: Form(
+                key: controller.formstate,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    SizedBox(
+                      height: 20,
+                    ),
+                    AuthText(
+                      title: 'تسجيل الدخول ',
+                      style: Theme.of(context).textTheme.titleMedium!,
+                    ),
+                    AuthText(
+                      title: ' الرجاء إدخال بياناتك للمتابعة',
+                      style: Theme.of(context).textTheme.bodyMedium!,
+                    ),
+                    const SizedBox(height: 40),
+                    AuthTextfield(
+                        valid: (Value) {
+                          return ValidatInp(Value!, 5, 100, "Email");
+                        },
+                        hinttext: " البريد الالكتروني أو رقم الموبايل",
+                        mycontroller: controller.email,
+                        isNumber: false),
+                    const SizedBox(height: 16),
+                    GetBuilder<LogincontrollerImp>(
+                        builder: (controller) => AuthTextfield(
+                              valid: (Value) {
+                                return ValidatInp(Value!, 5, 30, "password");
+                              },
+                              hinttext: "كلمة المرور ",
+                              obscuretext: controller.isshowpassword,
+                              onTapIcon: () {
+                                controller.showpassword();
+                              },
+                              isNumber: true,
+                              mycontroller: controller.password,
+                            )),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        TextButton(
+                          onPressed: () {},
+                          child: Text(
+                            "نسيت كلمة المرور؟",
                             style: Theme.of(context).textTheme.bodyMedium,
                           ),
-                          Checkbox(
-                            focusColor: Appcolor.grey,
-                            value: controller.remember,
-                            onChanged: (bool? value) {},
-                          ),
-                        ],
-                      )
-                    ],
-                  ),
-                  Buttom(
-                    text: 'تسجيل الدخول',
-                    onPressed: () {
-                      controller.login();
-                    },
-                  ),
-                  SizedBox(
-                    height: 40,
-                  ),
-                  Image.asset(AppImagess.google),
-                  SizedBox(
-                    height: 24,
-                  ),
-                  TextButtom(
-                    text: "ليس لديك حساب؟ قم بإنشاء حساب جديد من ",
-                  ),
-                ],
+                        ),
+                        Row(
+                          children: [
+                            Text(
+                              "تذكرني",
+                              style: Theme.of(context).textTheme.bodyMedium,
+                            ),
+                            Checkbox(
+                              focusColor: Appcolor.grey,
+                              value: controller.remember,
+                              onChanged: (bool? value) {},
+                            ),
+                          ],
+                        )
+                      ],
+                    ),
+                    Buttom(
+                      text: 'تسجيل الدخول',
+                      onPressed: () {
+                        controller.login();
+                      },
+                    ),
+                    SizedBox(
+                      height: 40,
+                    ),
+                    Image.asset(AppImagess.google),
+                    SizedBox(
+                      height: 24,
+                    ),
+                    TextButtom(
+                      text: "ليس لديك حساب؟ قم بإنشاء حساب جديد من ",
+                    ),
+                  ],
+                ),
               ),
             ),
           ),
