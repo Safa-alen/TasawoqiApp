@@ -28,12 +28,11 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:tasawoqi/data/datasource/categoy.dart';
-import 'package:tasawoqi/view/widget/home/category_best_use.dart';
+import 'package:tasawoqi/view/widget/home/category_type_widget.dart';
 import 'package:tasawoqi/view/widget/home/search_home.dart';
-import 'package:tasawoqi/view/widget/home/title_only.dart';
 
-class CategoryType extends StatelessWidget {
-  const CategoryType(
+class CategoryTypeHome extends StatelessWidget {
+  const CategoryTypeHome(
       {super.key, required this.categoryId, required this.categoryTitle});
   final String categoryId;
   final String categoryTitle;
@@ -45,36 +44,32 @@ class CategoryType extends StatelessWidget {
     final filterCategory = object.where((category) {
       return category.id.toString() == categoryId;
     }).toList();
-    return Scaffold(
-      appBar: AppBar(
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back),
-          onPressed: () {
-            Get.back();
-          },
+    return Directionality(
+      textDirection: TextDirection.ltr,
+      child: Scaffold(
+        appBar: AppBar(
+          title: Align(
+              alignment: Alignment.centerRight, child: Text(categoryTitle)),
         ),
-        title: Align(
-            alignment: Alignment.centerRight,
-            child: TitleOnly(title: categoryTitle)),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(20.0),
-        child: ListView(
-          children: [
-            SizedBox(
-              height: 24,
-            ),
-            search_home(),
-            SizedBox(
-              height: 24,
-            ),
-            category_best_use(
-              images: filterCategory.map((e) => e.Image).toList(),
-              titles1: filterCategory.map((e) => e.title1).toList(),
-              titles2: filterCategory.map((e) => e.title2).toList(),
-              titles3: filterCategory.map((e) => e.title3).toList(),
-            ),
-          ],
+        body: Padding(
+          padding: const EdgeInsets.all(20.0),
+          child: ListView(
+            children: [
+              SizedBox(
+                height: 24,
+              ),
+              search_home(),
+              SizedBox(
+                height: 24,
+              ),
+              CategoryTypeWidget(
+                images: filterCategory.map((e) => e.Image).toList(),
+                titles1: filterCategory.map((e) => e.title1).toList(),
+                titles2: filterCategory.map((e) => e.title2).toList(),
+                titles3: filterCategory.map((e) => e.title3).toList(),
+              ),
+            ],
+          ),
         ),
       ),
     );

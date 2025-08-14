@@ -6,7 +6,7 @@ import 'package:tasawoqi/core/constant/imagess.dart';
 import 'package:tasawoqi/core/constant/route.dart';
 import 'package:tasawoqi/core/function/validateput.dart';
 import 'package:tasawoqi/view/widget/auth/auth_textfield.dart';
-import 'package:tasawoqi/view/widget/auth/buttom_text.dart';
+import 'package:tasawoqi/view/widget/auth/text_buttom.dart';
 import 'package:tasawoqi/view/widget/auth/logoauth.dart';
 
 import '../../widget/auth/authtext.dart';

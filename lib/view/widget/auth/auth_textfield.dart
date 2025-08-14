@@ -20,7 +20,10 @@ class AuthTextfield extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return Material(
+      elevation: 3, // درجة الظل
+      shadowColor: Colors.black26,
+      borderRadius: BorderRadius.circular(15),
       child: TextFormField(
         textAlign: TextAlign.right,
         obscureText: obscuretext == null || obscuretext == false ? false : true,
@@ -45,7 +48,7 @@ class AuthTextfield extends StatelessWidget {
             borderSide:
                 BorderSide(color: const Color.fromARGB(255, 225, 224, 224)),
           ),
-          suffixIcon: onTapIcon != null
+          prefixIcon: onTapIcon != null
               ? IconButton(
                   icon: Icon(
                     obscuretext == true

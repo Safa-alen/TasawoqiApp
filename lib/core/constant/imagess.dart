@@ -14,6 +14,7 @@ class AppImagess {
   static const String reco3 = "$rootImage/reco3.png";
   static const String drink1 = "$rootImage/drink1.png";
   static const String drink2 = "$rootImage/drink2.png";
+  static const String personal = "$rootImage/personal.png";
 
   ///svg///
   static const String rootImage2 = "assets/icon";
@@ -28,6 +29,16 @@ class AppImagess {
   static const String icon7 = "$rootImage2/icon7.svg";
   static const String icon8 = "$rootImage2/icon8.svg";
   static const String icon9 = "$rootImage2/icon9.svg";
+  static const String icon10 = "$rootImage2/icon10.svg";
+  static const String icon11 = "$rootImage2/icon11.svg";
+  static const String icon12 = "$rootImage2/icon12.svg";
+  static const String icon13 = "$rootImage2/icon13.svg";
+  static const String icon14 = "$rootImage2/icon14.svg";
+  static const String icon15 = "$rootImage2/icon15.svg";
+  static const String icon16 = "$rootImage2/icon16.svg";
+  static const String icon17 = "$rootImage2/icon17.svg";
+  static const String icon18 = "$rootImage2/icon18.svg";
+  static const String icon19 = "$rootImage2/icon19.svg";
 
   //json
 

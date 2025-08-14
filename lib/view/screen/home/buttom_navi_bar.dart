@@ -1,95 +1,142 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:tasawoqi/controller/home/home_screen_controller.dart';
 import 'package:tasawoqi/core/constant/color.dart';
 import 'package:tasawoqi/core/constant/imagess.dart';
+import 'package:tasawoqi/view/widget/home/appbar_home.dart';
 
 class ButtomNaviBar extends StatelessWidget {
   const ButtomNaviBar({super.key});
 
   @override
   Widget build(BuildContext context) {
-    Get.put(HomeScreenControllerImp());
-    return GetBuilder<HomeScreenControllerImp>(
-        builder: (controller) => Scaffold(
-              extendBody: true,
+    // تسجيل الكنترولر
+    final controller = Get.put(HomeScreenControllerImp());
 
-              floatingActionButton: SizedBox(
-                height: 70,
-                width: 70,
-                child: FloatingActionButton(
-                  shape: CircleBorder(),
-                  backgroundColor: Appcolor.aqua,
-                  onPressed: () {
-                    controller.changPage(2);
-                  },
-                  child: SvgPicture.asset(
-                    AppImagess.icon7,
-                    color: Colors.white,
+    return GetBuilder<HomeScreenControllerImp>(
+      builder: (_) => Scaffold(
+        // AppBarHome يظهر في كل الصفحات
+        appBar: const PreferredSize(
+          preferredSize: Size.fromHeight(kToolbarHeight),
+          child: appbar_home(),
+        ),
+        // Drawer موجود في Scaffold الرئيسي
+        drawer: DrawerWidget(
+            // controller: controller
+            ),
+        extendBody: true,
+        floatingActionButton: FloatingActionButton(
+          shape: const CircleBorder(),
+          backgroundColor: Appcolor.aqua,
+          onPressed: () => controller.changPage(2),
+          child: SvgPicture.asset(
+            AppImagess.icon7,
+            color: Colors.white,
+            height: 28,
+          ),
+        ),
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+        bottomNavigationBar: SizedBox(
+          height: 88,
+          child: Stack(
+            clipBehavior: Clip.none,
+            children: [
+              BottomAppBar(
+                shape: const CircularNotchedRectangle(),
+                notchMargin: 8,
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 12),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      _buildNavButton(
+                        icon: SvgPicture.asset(
+                          AppImagess.icon8,
+                          color: Appcolor.medigrey,
+                          height: 26,
+                        ),
+                        index: 0,
+                        controller: controller,
+                      ),
+                      _buildNavButton(
+                        icon: Icon(
+                          Icons.color_lens_outlined,
+                          color: Appcolor.medigrey,
+                          size: 26,
+                        ),
+                        index: 1,
+                        controller: controller,
+                      ),
+                      const SizedBox(width: 60),
+                      _buildNavButton(
+                        icon: SvgPicture.asset(
+                          AppImagess.icon6,
+                          color: Appcolor.medigrey,
+                          height: 26,
+                        ),
+                        index: 3,
+                        controller: controller,
+                      ),
+                      _buildNavButton(
+                        icon: SvgPicture.asset(
+                          AppImagess.icon9,
+                          color: Appcolor.medigrey,
+                          height: 26,
+                        ),
+                        index: 4,
+                        controller: controller,
+                      ),
+                    ],
                   ),
                 ),
               ),
-              floatingActionButtonLocation:
-                  FloatingActionButtonLocation.centerDocked,
-              //  floatingActionButton: SizedBox(
-              //       height: 60,
-              //       width: 60,
-              //       child: FloatingActionButton(
-              //         shape: const CircleBorder(),
-              //         backgroundColor: Appcolor.aqua,)),
-
-              bottomNavigationBar: BottomAppBar(
-                shape: CircularNotchedRectangle(),
-                notchMargin: 10,
-                child: Row(
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        MaterialButton(
-                          onPressed: () {
-                            controller.changPage(0);
-                          },
-                          child: SvgPicture.asset(AppImagess.icon8,
-                              color: Appcolor.medigrey),
-                        ),
-                        MaterialButton(
-                          onPressed: () {
-                            controller.changPage(1);
-                          },
-                          child: Icon(
-                            Icons.color_lens_outlined,
-                            color: Appcolor.medigrey,
-                          ),
-                        ),
-                      ],
+              if (controller.currentpage == 2)
+                Positioned(
+                  bottom: 25,
+                  left: MediaQuery.of(context).size.width / 2 - 5,
+                  child: Container(
+                    height: 6,
+                    width: 6,
+                    decoration: BoxDecoration(
+                      color: Appcolor.aqua,
+                      shape: BoxShape.circle,
                     ),
-                    Spacer(),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        MaterialButton(
-                          onPressed: () {
-                            controller.changPage(3);
-                          },
-                          child: SvgPicture.asset(AppImagess.icon6,
-                              color: Appcolor.medigrey),
-                        ),
-                        MaterialButton(
-                          onPressed: () {
-                            controller.changPage(4);
-                          },
-                          child: SvgPicture.asset(AppImagess.icon9,
-                              color: Appcolor.medigrey),
-                        ),
-                      ],
-                    ),
-                  ],
+                  ),
                 ),
+            ],
+          ),
+        ),
+        // عرض الصفحة الحالية من listpage
+        body: controller.listpage.elementAt(controller.currentpage),
+      ),
+    );
+  }
+
+  Widget _buildNavButton({
+    required Widget icon,
+    required int index,
+    required HomeScreenControllerImp controller,
+  }) {
+    return MaterialButton(
+      minWidth: 50,
+      onPressed: () => controller.changPage(index),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          icon,
+          const SizedBox(height: 8),
+          if (controller.currentpage == index)
+            Container(
+              height: 6,
+              width: 6,
+              decoration: BoxDecoration(
+                color: Appcolor.aqua,
+                shape: BoxShape.circle,
               ),
-              body: controller.listpage.elementAt(controller.currentpage),
-            ));
+            ),
+        ],
+      ),
+    );
   }
 }

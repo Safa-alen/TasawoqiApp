@@ -5,6 +5,7 @@ import 'package:tasawoqi/core/constant/imagess.dart';
 import 'package:tasawoqi/core/constant/route.dart';
 
 import 'package:tasawoqi/view/widget/auth/logoauth.dart';
+import 'package:tasawoqi/view/widget/auth/textfield_location.dart';
 import 'package:tasawoqi/view/widget/buttom.dart';
 
 import '../../widget/auth/authtext.dart';
@@ -15,74 +16,49 @@ class Location extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-          leading: IconButton(
-            icon: Icon(Icons.arrow_back),
-            onPressed: () {
-              Get.back();
-            },
+    return Directionality(
+      textDirection: TextDirection.ltr,
+      child: Scaffold(
+          appBar: AppBar(
+            leading: IconButton(
+              icon: Icon(Icons.arrow_back),
+              onPressed: () {
+                Get.back();
+              },
+            ),
+            title: Center(child: Logoauth()),
           ),
-          title: Center(child: Logoauth()),
-        ),
-        body: Padding(
-          padding: const EdgeInsets.all(20.0),
-          child:
-              Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
-            const SizedBox(height: 64),
-            AuthText(
-              title: 'المدينة ',
-              style: Theme.of(context).textTheme.titleMedium!,
-            ),
-            AuthText(
-              title: ' يمكنك تغيير موقعك في اي وقت تريده   ',
-              style: Theme.of(context).textTheme.bodyMedium!,
-            ),
-            SizedBox(
-              height: 64,
-            ),
-            Container(
-              child: TextFormField(
-                readOnly: true,
-                textAlign: TextAlign.right,
-                decoration: InputDecoration(
-                  hintText: 'المدينة',
-                  hintStyle: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                        fontSize: 12,
-                      ),
-                  contentPadding:
-                      const EdgeInsets.symmetric(vertical: 15, horizontal: 20),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(15),
-                    borderSide: BorderSide(color: Colors.white),
+          body: Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  const SizedBox(height: 64),
+                  AuthText(
+                    title: 'المدينة ',
+                    style: Theme.of(context).textTheme.titleMedium!,
                   ),
-                  enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(15),
-                    borderSide: BorderSide(
-                        color: const Color.fromARGB(255, 225, 224, 224)),
+                  AuthText(
+                    title: ' يمكنك تغيير موقعك في اي وقت تريده   ',
+                    style: Theme.of(context).textTheme.bodyMedium!,
                   ),
-                  prefixIcon: Padding(
-                    padding: const EdgeInsets.all(16.0),
-                    child: SvgPicture.asset(
-                      AppImagess.icon1,
+                  SizedBox(
+                    height: 64,
+                  ),
+                  TextfieldLocation(),
+                  SizedBox(
+                    height: 136,
+                  ),
+                  Container(
+                    child: Buttom(
+                      text: "متابعة",
+                      onPressed: () {
+                        Get.toNamed(AppRoute.buttomNavBar);
+                      },
                     ),
-                  ),
-                ),
-                onTap: () {},
-              ),
-            ),
-            SizedBox(
-              height: 136,
-            ),
-            Container(
-              child: Buttom(
-                text: "متابعة",
-                onPressed: () {
-                  Get.toNamed(AppRoute.homepage);
-                },
-              ),
-            )
-          ]),
-        ));
+                  )
+                ]),
+          )),
+    );
   }
 }

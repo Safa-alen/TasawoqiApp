@@ -1,16 +1,28 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+import 'package:tasawoqi/view/widget/home/appbar_home.dart';
 
-class OffersHome extends StatefulWidget {
+import 'package:tasawoqi/view/widget/home/search_home.dart';
+import 'package:tasawoqi/view/widget/home/title_only.dart';
+
+class OffersHome extends StatelessWidget {
   const OffersHome({super.key});
 
   @override
-  State<OffersHome> createState() => _OffersState();
-}
-
-class _OffersState extends State<OffersHome> {
-  @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Padding(
+        padding: const EdgeInsets.only(
+          left: 24,
+          top: 74,
+        ),
+        child: Column(children: [
+          SizedBox(
+            height: 24,
+          ),
+          Align(alignment: Alignment.center, child: TitleOnly(title: "العروض")),
+          SizedBox(
+            height: 24,
+          ),
+          search_home(),
+        ]));
   }
 }
