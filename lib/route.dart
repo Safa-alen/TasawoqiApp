@@ -10,6 +10,7 @@ import 'package:tasawoqi/view/screen/home/buttom_navi_bar.dart';
 import 'package:tasawoqi/view/screen/home/category_home.dart';
 import 'package:tasawoqi/view/screen/home/category_type.dart';
 import 'package:tasawoqi/view/screen/home/homepage.dart';
+import 'package:tasawoqi/view/screen/home/product_details.dart';
 import 'package:tasawoqi/view/screen/home/storehome.dart';
 import 'package:tasawoqi/view/screen/home/order_home.dart';
 import 'package:tasawoqi/view/screen/onboarding.dart';
@@ -24,6 +25,8 @@ List<GetPage<dynamic>>? routes = [
   GetPage(name: AppRoute.location, page: () => Location()),
   GetPage(name: AppRoute.catogeryHome, page: () => CategoryHome()),
   GetPage(name: AppRoute.homepage, page: () => Homepage()),
+  GetPage(name: AppRoute.productDetails, page: () => ProductDetails()),
+
   //GetPage(name: AppRoute.favoriteHome, page: () => FavoritesHome()),
   GetPage(
     name: AppRoute.catogerType,

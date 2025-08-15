@@ -26,7 +26,7 @@ class Buttom extends StatelessWidget {
                 style: Theme.of(context)
                     .textTheme
                     .titleSmall!
-                    .copyWith(color: Appcolor.white))),
+                    .copyWith(color: Appcolor.white, fontSize: 16))),
       ),
     );
   }

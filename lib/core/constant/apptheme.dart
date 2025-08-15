@@ -13,9 +13,7 @@ ThemeData themeapp = ThemeData(
     bodyLarge: TextStyle(
         fontWeight: FontWeight.bold, fontSize: 26, color: Appcolor.black),
     titleSmall: TextStyle(
-      fontSize: 12,
-      color: Appcolor.black,
-    ),
+        fontSize: 12, color: Appcolor.black, fontWeight: FontWeight.normal),
   ),
 );
 

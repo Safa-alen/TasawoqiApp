@@ -129,7 +129,7 @@ class CategoryTypeWidget extends StatelessWidget {
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisSpacing: 10,
         crossAxisCount: 2,
-        mainAxisExtent: 250.0,
+        mainAxisExtent: 270.0,
       ),
       itemBuilder: (context, i) => Card(
         elevation: 4,

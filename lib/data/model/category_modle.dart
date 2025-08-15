@@ -8,19 +8,31 @@ class CategoryModle {
 }
 
 class ObjctModle {
+  final int id;
   final String title1;
   final String title2;
   final String title3;
-
+  final String title4;
+  final String point;
+  final List<String> sizes;
+  final List<int> colorHexes;
+  final String prepTime;
+  final List<String> quantity;
   final String Image;
-  final int id;
 
-  ObjctModle(
-      {required this.title1,
-      required this.title2,
-      required this.title3,
-      required this.Image,
-      required this.id});
+  ObjctModle({
+    required this.id,
+    required this.title1,
+    required this.title2,
+    required this.title3,
+    required this.title4,
+    required this.Image,
+    this.point = '',
+    this.sizes = const [],
+    this.colorHexes = const [],
+    this.prepTime = '',
+    this.quantity = const [],
+  });
 }
 
 class RecommstoresModle {
