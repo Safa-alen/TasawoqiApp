@@ -53,11 +53,25 @@ class Homepage extends StatelessWidget {
             const SizedBox(height: 25),
             Padding(
               padding: const EdgeInsets.only(left: 20),
-              child: CategoryTypeWidget(
-                images: BestCategories.map((e) => e.image).toList(),
-                titles1: BestCategories.map((e) => e.title1).toList(),
-                titles2: BestCategories.map((e) => e.title2).toList(),
-                titles3: BestCategories.map((e) => e.title3).toList(),
+              child: GridView.builder(
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  crossAxisSpacing: 10,
+                  mainAxisExtent: 265,
+                ),
+                itemCount: BestCategories.length,
+                itemBuilder: (context, index) {
+                  final product = BestCategories[index];
+                  return CategoryTypeWidget(
+                    image: product.image,
+                    title1: product.title1,
+                    title2: product.title2,
+                    title3: product.title3,
+                    index: index,
+                  );
+                },
               ),
             ),
           ],

@@ -16,7 +16,7 @@ class search_home extends StatelessWidget {
       borderRadius: BorderRadius.circular(15),
       child: Container(
         height: 48,
-        width: 350,
+        width: 380,
         child: TextField(
           decoration: InputDecoration(
               suffixIcon: Padding(

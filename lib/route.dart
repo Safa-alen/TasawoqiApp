@@ -12,7 +12,7 @@ import 'package:tasawoqi/view/screen/home/category_type.dart';
 import 'package:tasawoqi/view/screen/home/homepage.dart';
 import 'package:tasawoqi/view/screen/home/product_details.dart';
 import 'package:tasawoqi/view/screen/home/storehome.dart';
-import 'package:tasawoqi/view/screen/home/order_home.dart';
+import 'package:tasawoqi/view/screen/home/cart_home.dart';
 import 'package:tasawoqi/view/screen/onboarding.dart';
 
 import 'view/screen/auth/singup.dart';
@@ -26,8 +26,7 @@ List<GetPage<dynamic>>? routes = [
   GetPage(name: AppRoute.catogeryHome, page: () => CategoryHome()),
   GetPage(name: AppRoute.homepage, page: () => Homepage()),
   GetPage(name: AppRoute.productDetails, page: () => ProductDetails()),
-
-  //GetPage(name: AppRoute.favoriteHome, page: () => FavoritesHome()),
+  GetPage(name: AppRoute.favoriteHome, page: () => FavoritesHome()),
   GetPage(
     name: AppRoute.catogerType,
     page: () => CategoryTypeHome(
@@ -39,5 +38,5 @@ List<GetPage<dynamic>>? routes = [
   GetPage(name: AppRoute.storesHome, page: () => StoresHome()),
   GetPage(name: AppRoute.offersHome, page: () => OffersHome()),
   GetPage(name: AppRoute.personalPofileHome, page: () => PersonalProfile()),
-  GetPage(name: AppRoute.orderHome, page: () => OrderHome()),
+  GetPage(name: AppRoute.cartHome, page: () => CartHome()),
 ];

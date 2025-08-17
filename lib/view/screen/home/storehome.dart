@@ -11,10 +11,7 @@ class StoresHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(
-        left: 24,
-        top: 74,
-      ),
+      padding: const EdgeInsets.all(24),
       child: Column(
         children: [
           SizedBox(
@@ -26,9 +23,9 @@ class StoresHome extends StatelessWidget {
             height: 24,
           ),
           search_home(),
-          // SizedBox(
-          //   height: 24,
-          // ),
+          SizedBox(
+            height: 24,
+          ),
           RecommstoreList(
             isGrid: true,
           ),

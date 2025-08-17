@@ -1,39 +1,36 @@
+// // }
 // import 'package:flutter/material.dart';
+// import 'package:flutter/widgets.dart';
 // import 'package:tasawoqi/core/constant/color.dart';
 
-// class categoryType extends StatelessWidget {
-//   const categoryType({
+// class CategoryTypeWidget extends StatelessWidget {
+//   const CategoryTypeWidget({
 //     super.key,
-//     required this.images,
-//     required this.titles1,
-//     required this.titles2,
-//     required this.titles3,
+//     required this.image,
+//     required this.title1,
+//     required this.title2,
+//     required this.title3,
 //   });
-//   final List<String> images;
-//   final List<String> titles1;
-//   final List<String> titles2;
-//   final List<String> titles3;
+
+//   final String image;
+//   final String title1;
+//   final String title2;
+//   final String title3;
+
 //   @override
 //   Widget build(BuildContext context) {
-//     return GridView.builder(
-//       shrinkWrap: true,
-//       physics: NeverScrollableScrollPhysics(),
-//       itemCount: images.length,
-//       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-//           crossAxisSpacing: 10, crossAxisCount: 2, mainAxisExtent: 250.0),
-//       itemBuilder: (context, i) => Card(
-//         elevation: 4,
-//         shape: RoundedRectangleBorder(
-//           borderRadius: BorderRadius.circular(12),
-//         ),
-//         child: Column(
+//     return Card(
+//       elevation: 4,
+//       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+//       child:Stack (
+//         children:[ Column(
 //           crossAxisAlignment: CrossAxisAlignment.start,
 //           children: [
+//             // صورة
 //             ClipRRect(
-//               borderRadius:
-//                   const BorderRadius.vertical(top: Radius.circular(12)),
+//               borderRadius: const BorderRadius.vertical(top: Radius.circular(12)),
 //               child: Image.asset(
-//                 images[i],
+//                 image,
 //                 height: 132,
 //                 width: double.infinity,
 //                 fit: BoxFit.cover,
@@ -41,41 +38,37 @@
 //             ),
 //             const SizedBox(height: 8),
 //             Padding(
-//                 padding: EdgeInsets.only(right: 9),
-//                 child: Column(
-//                   crossAxisAlignment: CrossAxisAlignment.start,
-//                   children: [
-//                     Text(
-//                       //  overflow: TextOverflow.ellipsis,
-//                       titles1[i],
-//                       style: Theme.of(context).textTheme.bodySmall,
-//                     ),
-//                     SizedBox(height: 5),
-//                     Text(
-//                       titles2[i],
-//                       maxLines: 1,
-//                       // overflow: TextOverflow.ellipsis,
-//                       style: Theme.of(context).textTheme.bodySmall!.copyWith(
-//                             fontFamily: 'Poppins',
-//                             fontWeight: FontWeight.w500,
-//                           ),
-//                     ),
-//                     Text(
-//                       titles3[i],
-//                       maxLines: 1,
-//                       // overflow: TextOverflow.ellipsis,
-//                       style: Theme.of(context).textTheme.titleSmall!.copyWith(
+//               padding: const EdgeInsets.only(right: 9),
+//               child: Column(
+//                 crossAxisAlignment: CrossAxisAlignment.start,
+//                 children: [
+//                   Text(title1, style: Theme.of(context).textTheme.bodySmall),
+//                   const SizedBox(height: 5),
+//                   Text(
+//                     title2,
+//                     maxLines: 1,
+//                     style: Theme.of(context).textTheme.bodySmall!.copyWith(
 //                           fontFamily: 'Poppins',
-//                           // fontWeight: FontWeight.normal,
-//                           color: Appcolor.aqua),
-//                     ),
-//                   ],
-//                 )),
-//             SizedBox(
-//               height: 5,
+//                           fontWeight: FontWeight.w500,
+//                         ),
+//                   ),
+//                   Text(
+//                     title3,
+//                     maxLines: 1,
+//                     style: Theme.of(context).textTheme.titleSmall!.copyWith(
+//                           fontFamily: 'Poppins',
+//                           color: Appcolor.aqua,
+//                         ),
+//                   ),
+//                 ],
+//               ),
 //             ),
+//             SizedBox(
+//               height: 4,
+//             ),
+//             //const Spacer(),
 //             Padding(
-//               padding: const EdgeInsets.only(right: 12.0),
+//               padding: const EdgeInsets.only(right: 12.0, bottom: 10),
 //               child: Container(
 //                 height: 28,
 //                 width: 150,
@@ -83,21 +76,18 @@
 //                   color: Appcolor.aqua,
 //                   borderRadius: BorderRadius.circular(6),
 //                 ),
-//                 child: MaterialButton(
+//                 child: IconButton(
+//                   icon: const Icon(Icons.add, color: Colors.white),
 //                   onPressed: () {},
-//                   child: Icon(
-//                     Icons.add,
-//                     color: Appcolor.white,
-//                   ),
 //                 ),
 //               ),
 //             ),
 //             SizedBox(
-//               height: 10,
+//               height: 5,
 //             )
 //           ],
 //         ),
-//       ),
+//      ] ),
 //     );
 //   }
 // }
@@ -107,124 +97,113 @@ import 'package:tasawoqi/controller/home/favorite_controller.dart';
 import 'package:tasawoqi/core/constant/color.dart';
 
 class CategoryTypeWidget extends StatelessWidget {
+  final String image;
+  final String title1;
+  final String title2;
+  final dynamic title3;
+  final int index;
+
   const CategoryTypeWidget({
     super.key,
-    required this.images,
-    required this.titles1,
-    required this.titles2,
-    required this.titles3,
+    required this.image,
+    required this.title1,
+    required this.title2,
+    required this.title3,
+    required this.index,
   });
-
-  final List<String> images;
-  final List<String> titles1;
-  final List<String> titles2;
-  final List<String> titles3;
 
   @override
   Widget build(BuildContext context) {
-    return GridView.builder(
-      shrinkWrap: true,
-      physics: NeverScrollableScrollPhysics(),
-      itemCount: images.length,
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisSpacing: 10,
-        crossAxisCount: 2,
-        mainAxisExtent: 270.0,
-      ),
-      itemBuilder: (context, i) => Card(
-        elevation: 4,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(12),
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Stack(
-              children: [
-                // صورة المنتج
-                ClipRRect(
-                  borderRadius: const BorderRadius.vertical(
-                    top: Radius.circular(12),
-                  ),
-                  child: Image.asset(
-                    images[i],
-                    height: 132,
-                    width: double.infinity,
-                    fit: BoxFit.cover,
-                  ),
-                ),
-                Positioned(
-                  top: 8,
-                  right: 8,
-                  // child: GetBuilder<FavoriteController>(
-                  //   builder: (controller) => InkWell(
-                  //     onTap: () {
-                  //       controller.toggleFavorite(i);
-                  //     },
-                  child: Icon(
-                    // controller.isFavorite(i)
-                    // ? Icons.favorite
-                    // :
-                    Icons.favorite_border,
-                    color: Appcolor.white,
-                  ),
-                ),
+    final FavoriteController controller = Get.find<FavoriteController>();
 
-                // أيقونة القلب
-              ],
-            ),
-            const SizedBox(height: 8),
-            Padding(
-              padding: EdgeInsets.only(right: 9),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    titles1[i],
-                    style: Theme.of(context).textTheme.bodySmall,
+    return Card(
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+      child: Stack(
+        children: [
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Expanded(
+                child: ClipRRect(
+                  borderRadius:
+                      const BorderRadius.vertical(top: Radius.circular(12)),
+                  child: Image.asset(
+                    image,
+                    fit: BoxFit.cover,
+                    width: double.infinity,
                   ),
-                  SizedBox(height: 5),
-                  Text(
-                    titles2[i],
-                    maxLines: 1,
-                    style: Theme.of(context).textTheme.bodySmall!.copyWith(
-                          fontFamily: 'Poppins',
-                          fontWeight: FontWeight.w500,
-                        ),
-                  ),
-                  Text(
-                    titles3[i],
-                    maxLines: 1,
-                    style: Theme.of(context).textTheme.titleSmall!.copyWith(
-                          fontFamily: 'Poppins',
-                          color: Appcolor.aqua,
-                        ),
-                  ),
-                ],
-              ),
-            ),
-            SizedBox(height: 5),
-            Padding(
-              padding: const EdgeInsets.only(right: 12.0),
-              child: Container(
-                height: 28,
-                width: 150,
-                decoration: BoxDecoration(
-                  color: Appcolor.aqua,
-                  borderRadius: BorderRadius.circular(6),
                 ),
-                child: MaterialButton(
-                  onPressed: () {},
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(title1, style: Theme.of(context).textTheme.bodySmall),
+                    const SizedBox(height: 5),
+                    Text(
+                      title2,
+                      maxLines: 1,
+                      style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                            fontFamily: 'Poppins',
+                            fontWeight: FontWeight.w500,
+                          ),
+                    ),
+                    Text(
+                      title3.toString(),
+                      maxLines: 1,
+                      style: Theme.of(context).textTheme.titleSmall!.copyWith(
+                            fontFamily: 'Poppins',
+                            color: Appcolor.aqua,
+                          ),
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(
+                height: 4,
+              ),
+              //const Spacer(),
+              Padding(
+                padding: const EdgeInsets.only(right: 12.0, bottom: 10),
+                child: Container(
+                  height: 28,
+                  width: 150,
+                  decoration: BoxDecoration(
+                    color: Appcolor.aqua,
+                    borderRadius: BorderRadius.circular(6),
+                  ),
+                  child: IconButton(
+                    icon: const Icon(Icons.add, color: Colors.white),
+                    onPressed: () {},
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: 5,
+              )
+            ],
+          ),
+
+          // القلب باستخدام GetBuilder
+          Positioned(
+            top: 4,
+            right: 4,
+            child: GetBuilder<FavoriteController>(
+              builder: (controller) {
+                final isFav = controller.isFavorite(index);
+                return GestureDetector(
+                  onTap: () => controller.toggleFavorite(index),
                   child: Icon(
-                    Icons.add,
-                    color: Appcolor.white,
+                    isFav ? Icons.favorite : Icons.favorite_border,
+                    color: isFav ? Colors.red : Colors.grey,
+                    size: 25,
                   ),
-                ),
-              ),
+                );
+              },
             ),
-            SizedBox(height: 10),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

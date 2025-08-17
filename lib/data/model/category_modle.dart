@@ -8,10 +8,10 @@ class CategoryModle {
 }
 
 class ObjctModle {
-  final int id;
+  final String id;
   final String title1;
   final String title2;
-  final String title3;
+  final int title3;
   final String title4;
   final String point;
   final List<String> sizes;
@@ -46,14 +46,29 @@ class RecommstoresModle {
 }
 
 class BestCategoryModle {
+  final String id;
   final String image;
   final String title1;
   final String title2;
   final String title3;
 
   BestCategoryModle(
-      {required this.image,
+      {required this.id,
+      required this.image,
       required this.title1,
       required this.title2,
       required this.title3});
+}
+
+class OffersModle {
+  final String imageo;
+  final String title1o;
+  final String title2o;
+  final String title3o;
+
+  OffersModle(
+      {required this.imageo,
+      required this.title1o,
+      required this.title2o,
+      required this.title3o});
 }

@@ -2,12 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:tasawoqi/binding.dart';
+import 'package:tasawoqi/controller/home/favorite_controller.dart';
+import 'package:tasawoqi/controller/home/home_screen_controller.dart';
 import 'package:tasawoqi/core/constant/apptheme.dart';
 import 'package:tasawoqi/core/services/services.dart';
 import 'package:tasawoqi/route.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  Get.put(HomeScreenControllerImp()); // <-- تأكدي من هذا السطر
+
+  Get.put(FavoriteController()); // تسجيل الكونترولر لمرة وحدة
+
   await initialservices();
   runApp(const MyApp());
 }

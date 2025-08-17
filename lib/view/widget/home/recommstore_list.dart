@@ -22,7 +22,7 @@ class RecommstoreList extends StatelessWidget {
             childAspectRatio: 0.75, // نسبة العرض للارتفاع
 
             crossAxisSpacing: 10,
-            mainAxisExtent: 210.0),
+            mainAxisExtent: 215.0),
         itemCount: Recommstores.length,
         itemBuilder: (context, i) => _buildCard(context, i),
       );

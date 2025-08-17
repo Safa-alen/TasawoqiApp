@@ -13,36 +13,39 @@ class Onboarding extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Get.put(OnBordingControllerImp());
-    return Scaffold(
-      backgroundColor: Colors.white,
-      body: Column(
-        children: [
-          SizedBox(
-            height: 184,
-          ),
-          Expanded(
-            flex: 2,
-            child: CustomSlider(),
-          ),
-          // SizedBox(
-          //   height: 20,
-          // ),
-          Expanded(
-              flex: 1,
-              child: Column(
-                children: [
-                  CustomDot(),
-                  SizedBox(
-                    height: 72,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(
-                        vertical: 24, horizontal: 24),
-                    child: Custom_Buttom(),
-                  )
-                ],
-              ))
-        ],
+    return Directionality(
+      textDirection: TextDirection.ltr,
+      child: Scaffold(
+        backgroundColor: Colors.white,
+        body: Column(
+          children: [
+            SizedBox(
+              height: 184,
+            ),
+            Expanded(
+              flex: 2,
+              child: CustomSlider(),
+            ),
+            // SizedBox(
+            //   height: 20,
+            // ),
+            Expanded(
+                flex: 1,
+                child: Column(
+                  children: [
+                    CustomDot(),
+                    SizedBox(
+                      height: 72,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 24, horizontal: 24),
+                      child: Custom_Buttom(),
+                    )
+                  ],
+                ))
+          ],
+        ),
       ),
     );
   }

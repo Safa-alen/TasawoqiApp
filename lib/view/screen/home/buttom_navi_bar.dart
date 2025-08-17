@@ -108,7 +108,7 @@ class ButtomNaviBar extends StatelessWidget {
           ),
         ),
         // عرض الصفحة الحالية من listpage
-        body: controller.listpage.elementAt(controller.currentpage),
+        body: controller.listpage[controller.currentpage](),
       ),
     );
   }
