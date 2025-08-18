@@ -1,44 +1,17 @@
-// import 'package:flutter/material.dart';
-// import 'package:flutter_svg/svg.dart';
-// import 'package:tasawoqi/core/constant/imagess.dart';
-// import 'package:tasawoqi/view/widget/auth/logoauth.dart';
-
-// class appbar_home extends StatelessWidget implements PreferredSizeWidget {
-//   const appbar_home({
-//     super.key,
-//   });
-
-//   @override
-//   Size get preferredSize => Size.fromHeight(kToolbarHeight);
-//   Widget build(BuildContext context) {
-//     return AppBar(
-//       // elevation: 0,
-//       automaticallyImplyLeading: false, // عشان ما يضيف زر افتراضي
-//       title: Row(
-//         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//         children: [
-//           Logoauth(),
-//          Builder(
-//   builder: (context) {
-//     return InkWell(
-//       onTap: () {
-//         Scaffold.of(context).openDrawer();
-//       },
-//       child: SvgPicture.asset(AppImagess.icon4),
-//     );})
-//         ],
-//       ),
-//     );
-//   }
-// }
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:get/get_state_manager/src/simple/get_state.dart';
+import 'package:get/get.dart';
+import 'package:get/state_manager.dart';
 import 'package:tasawoqi/controller/home/home_screen_controller.dart';
 import 'package:tasawoqi/core/constant/color.dart';
 import 'package:tasawoqi/core/constant/imagess.dart';
+import 'package:tasawoqi/core/constant/route.dart';
+import 'package:tasawoqi/view/screen/home/address_home.dart';
 import 'package:tasawoqi/view/widget/auth/logoauth.dart';
 import 'package:tasawoqi/view/widget/home/title_only.dart';
+import 'package:tasawoqi/view/screen/home/address_home.dart';
+
+import '../../screen/home/address_home.dart';
 
 // هذا AppBar مع زر يفتح Drawer
 class appbar_home extends StatelessWidget implements PreferredSizeWidget {
@@ -145,10 +118,16 @@ class DrawerWidget extends StatelessWidget {
           ListTileWidget(
             icon: SvgPicture.asset(AppImagess.icon19),
             text: 'عناويني ',
+            onTap: () {
+              Get.toNamed(AppRoute.addressHome);
+            },
           ),
           ListTileWidget(
             icon: Icon(Icons.favorite_border_outlined),
             text: 'المفضلة ',
+            onTap: () {
+              Get.toNamed(AppRoute.favoriteHome);
+            },
           ),
           SizedBox(
             height: 80,
