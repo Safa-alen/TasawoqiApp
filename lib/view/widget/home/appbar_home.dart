@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:get/state_manager.dart';
+import 'package:tasawoqi/controller/home/Personal_controller.dart';
 import 'package:tasawoqi/controller/home/home_screen_controller.dart';
 import 'package:tasawoqi/core/constant/color.dart';
 import 'package:tasawoqi/core/constant/imagess.dart';
@@ -65,7 +66,7 @@ class DrawerWidget extends StatelessWidget {
               SizedBox(
                 height: 30,
               ),
-              GetBuilder<HomeScreenControllerImp>(
+              GetBuilder<PersonalController>(
                 builder: (controller) => ClipRRect(
                   borderRadius: BorderRadius.circular(50),
                   child: Image.asset(

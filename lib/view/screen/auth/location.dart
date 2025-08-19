@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
-import 'package:tasawoqi/core/constant/imagess.dart';
 import 'package:tasawoqi/core/constant/route.dart';
 
 import 'package:tasawoqi/view/widget/auth/logoauth.dart';
@@ -9,7 +7,6 @@ import 'package:tasawoqi/view/widget/auth/textfield_location.dart';
 import 'package:tasawoqi/view/widget/buttom.dart';
 
 import '../../widget/auth/authtext.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 class Location extends StatelessWidget {
   const Location({super.key});
@@ -26,7 +23,7 @@ class Location extends StatelessWidget {
                 Get.back();
               },
             ),
-            title: Center(child: Logoauth()),
+            title: const Center(child: Logoauth()),
           ),
           body: Padding(
             padding: const EdgeInsets.all(20.0),
@@ -42,11 +39,13 @@ class Location extends StatelessWidget {
                     title: ' يمكنك تغيير موقعك في اي وقت تريده   ',
                     style: Theme.of(context).textTheme.bodyMedium!,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 64,
                   ),
-                  TextfieldLocation(),
-                  SizedBox(
+                  const TextfieldLocation(
+                    hinttext: "المدينة",
+                  ),
+                  const SizedBox(
                     height: 136,
                   ),
                   Container(

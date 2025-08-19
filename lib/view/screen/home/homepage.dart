@@ -41,13 +41,13 @@ class Homepage extends StatelessWidget {
             const SizedBox(height: 10),
             category_list_home(),
             const SizedBox(height: 30),
-            Align(
+            const Align(
                 alignment: Alignment.centerRight,
                 child: TitleOnly(title: "متاجر موصى بها")),
             const SizedBox(height: 16),
             RecommstoreList(),
             const SizedBox(height: 25),
-            Align(
+            const Align(
                 alignment: Alignment.centerRight,
                 child: TitleOnly(title: "المنتجات الأكثر طلبا  ")),
             const SizedBox(height: 25),

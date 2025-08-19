@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:tasawoqi/controller/home/home_screen_controller.dart';
 import 'package:tasawoqi/core/constant/color.dart';
 import 'package:tasawoqi/core/constant/imagess.dart';
+import 'package:tasawoqi/view/widget/buttombar/build_navbutton.dart';
 import 'package:tasawoqi/view/widget/home/appbar_home.dart';
 
 class ButtomNaviBar extends StatelessWidget {
@@ -50,7 +51,7 @@ class ButtomNaviBar extends StatelessWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      _buildNavButton(
+                      buildNavButton(
                         icon: SvgPicture.asset(
                           AppImagess.icon8,
                           color: Appcolor.medigrey,
@@ -59,7 +60,7 @@ class ButtomNaviBar extends StatelessWidget {
                         index: 0,
                         controller: controller,
                       ),
-                      _buildNavButton(
+                      buildNavButton(
                         icon: Icon(
                           Icons.color_lens_outlined,
                           color: Appcolor.medigrey,
@@ -69,7 +70,7 @@ class ButtomNaviBar extends StatelessWidget {
                         controller: controller,
                       ),
                       const SizedBox(width: 60),
-                      _buildNavButton(
+                      buildNavButton(
                         icon: SvgPicture.asset(
                           AppImagess.icon6,
                           color: Appcolor.medigrey,
@@ -78,7 +79,7 @@ class ButtomNaviBar extends StatelessWidget {
                         index: 3,
                         controller: controller,
                       ),
-                      _buildNavButton(
+                      buildNavButton(
                         icon: SvgPicture.asset(
                           AppImagess.icon9,
                           color: Appcolor.medigrey,
@@ -108,34 +109,10 @@ class ButtomNaviBar extends StatelessWidget {
           ),
         ),
         // عرض الصفحة الحالية من listpage
-        body: controller.listpage[controller.currentpage](),
-      ),
-    );
-  }
-
-  Widget _buildNavButton({
-    required Widget icon,
-    required int index,
-    required HomeScreenControllerImp controller,
-  }) {
-    return MaterialButton(
-      minWidth: 50,
-      onPressed: () => controller.changPage(index),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          icon,
-          const SizedBox(height: 8),
-          if (controller.currentpage == index)
-            Container(
-              height: 6,
-              width: 6,
-              decoration: BoxDecoration(
-                color: Appcolor.aqua,
-                shape: BoxShape.circle,
-              ),
-            ),
-        ],
+        body: KeyedSubtree(
+          key: ValueKey(controller.currentpage),
+          child: controller.listpage[controller.currentpage](),
+        ),
       ),
     );
   }

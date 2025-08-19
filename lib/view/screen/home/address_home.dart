@@ -25,7 +25,7 @@ class AddressHome extends StatelessWidget {
         textDirection: TextDirection.ltr,
         child: Scaffold(
             appBar: AppBar(
-              title: Align(
+              title:const Align(
                 alignment: Alignment.centerRight,
                 child: Padding(
                   padding: const EdgeInsets.only(right: 24.0),
