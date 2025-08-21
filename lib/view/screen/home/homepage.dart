@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tasawoqi/core/constant/imagess.dart';
 import 'package:tasawoqi/data/datasource/categoy.dart';
-import 'package:tasawoqi/view/screen/home/category_type.dart';
-import 'package:tasawoqi/view/widget/home/appbar_home.dart';
 import 'package:tasawoqi/view/widget/home/category_type_widget.dart';
 import 'package:tasawoqi/view/widget/home/recommstore_list.dart';
 import 'package:tasawoqi/view/widget/home/row_textbuttom_home.dart';

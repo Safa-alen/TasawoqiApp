@@ -35,31 +35,6 @@ class ObjctModle {
   });
 }
 
-class RecommstoresModle {
-  final String title1;
-  final String title2;
-
-  final String image;
-
-  RecommstoresModle(
-      {required this.title1, required this.title2, required this.image});
-}
-
-class BestCategoryModle {
-  final String id;
-  final String image;
-  final String title1;
-  final String title2;
-  final String title3;
-
-  BestCategoryModle(
-      {required this.id,
-      required this.image,
-      required this.title1,
-      required this.title2,
-      required this.title3});
-}
-
 class OffersModle {
   final String imageo;
   final String title1o;

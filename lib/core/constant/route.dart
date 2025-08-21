@@ -10,6 +10,8 @@ class AppRoute {
 
   static const String offersHome = "/offershome";
   static const String storesHome = "/storeshome";
+  static const String storeDetails = "/storedetails";
+
   static const String personalPofileHome = "/personalprofilehome";
   static const String merchantProfile = "/merchantProfile";
 

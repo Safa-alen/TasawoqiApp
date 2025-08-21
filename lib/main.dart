@@ -29,6 +29,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       theme: themeapp,
+
       initialBinding: MyBinding(),
       getPages: routes,
 

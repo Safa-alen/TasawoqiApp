@@ -24,9 +24,12 @@ Widget buildHeader(
               homeController.isMerchant = false;
               homeController.changPage(4);
             },
-            child: Text(
-              "الملف الشخصي",
-              style: Theme.of(context).textTheme.bodyMedium,
+            child: Padding(
+              padding: const EdgeInsets.only(right: 24.0),
+              child: Text(
+                "الملف الشخصي",
+                style: Theme.of(context).textTheme.bodyMedium,
+              ),
             ),
           ),
           Column(
@@ -41,7 +44,7 @@ Widget buildHeader(
                 ),
               ),
               if (homeController.isMerchant)
-                Container(height: 1, width: 121, color: Colors.teal),
+                Container(height: 1, width: 140, color: Colors.teal),
             ],
           ),
         ],

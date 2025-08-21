@@ -164,24 +164,29 @@ class CategoryTypeWidget extends StatelessWidget {
                 height: 4,
               ),
               //const Spacer(),
+
+              SizedBox(
+                height: 5,
+              ),
               Padding(
-                padding: const EdgeInsets.only(right: 12.0, bottom: 10),
-                child: Container(
-                  height: 28,
-                  width: 150,
-                  decoration: BoxDecoration(
-                    color: Appcolor.aqua,
-                    borderRadius: BorderRadius.circular(6),
-                  ),
-                  child: IconButton(
-                    icon: const Icon(Icons.add, color: Colors.white),
-                    onPressed: () {},
+                padding: const EdgeInsets.only(bottom: 10),
+                child: Align(
+                  alignment: Alignment.center, // لتوسيط الزر
+                  child: Container(
+                    height: 30,
+                    width: 150, // عرض مناسب داخل الكارد
+                    decoration: BoxDecoration(
+                      color: Appcolor.aqua,
+                      borderRadius: BorderRadius.circular(6),
+                    ),
+                    child: IconButton(
+                      icon: const Icon(Icons.add, color: Colors.white),
+                      onPressed: () {},
+                      padding: EdgeInsets.zero,
+                    ),
                   ),
                 ),
               ),
-              SizedBox(
-                height: 5,
-              )
             ],
           ),
 

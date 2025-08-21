@@ -18,7 +18,7 @@ Widget buildProfileImage() {
           child: controller.profileImage == null
               ? Container(
                   height: 312,
-                  width: 312,
+                  width: 400,
                   color: Colors.grey.shade200,
                   child: const Icon(Icons.store, size: 100, color: Colors.grey),
                 )
@@ -26,7 +26,7 @@ Widget buildProfileImage() {
                   ? Image.asset(
                       controller.profileImage!,
                       height: 312,
-                      width: 312,
+                      width: 400,
                       fit: BoxFit.cover,
                     )
                   : Image.file(

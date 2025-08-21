@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:tasawoqi/view/widget/home/appbar_home.dart';
+import 'package:get/get.dart';
+import 'package:tasawoqi/core/constant/route.dart';
+import 'package:tasawoqi/data/datasource/categoy.dart';
 
 import 'package:tasawoqi/view/widget/home/recommstore_list.dart';
 import 'package:tasawoqi/view/widget/home/search_home.dart';

@@ -24,11 +24,12 @@ class MerchantProfile extends GetView<MerchantController> {
     final homeController = Get.find<HomeScreenControllerImp>();
 
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 24),
+      padding: EdgeInsets.only(right: 24, left: 24, bottom: 80),
       child: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            const SizedBox(height: 24),
             buildHeader(context, homeController),
             const SizedBox(height: 24),
             buildProfileImage(),

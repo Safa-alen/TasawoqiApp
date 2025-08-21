@@ -2,6 +2,7 @@ import 'dart:core';
 
 import 'package:tasawoqi/core/constant/imagess.dart';
 import 'package:tasawoqi/data/model/category_modle.dart';
+import 'package:tasawoqi/data/model/recomm_stores_modle.dart';
 
 List<CategoryModle> categories = [
   CategoryModle(
@@ -341,25 +342,6 @@ List<ObjctModle> object = [
     point: '',
     colorHexes: [],
   ),
-];
-
-List<RecommstoresModle> Recommstores = [
-  RecommstoresModle(
-      title1: "العائلة للخضراوات",
-      title2: "كافة أنواع الخضراوات والفواكه",
-      image: AppImagess.reco1),
-  RecommstoresModle(
-      title1: "برغر كينغ",
-      title2: "كافة الوجبات السريعة الغربية ",
-      image: AppImagess.reco2),
-  RecommstoresModle(
-      title1: "برغر كينغ",
-      title2: "كافة الوجبات السريعة الغربية ",
-      image: AppImagess.reco2),
-  RecommstoresModle(
-      title1: "برغر كينغ",
-      title2: "كافة الوجبات السريعة الغربية ",
-      image: AppImagess.reco2),
 ];
 
 List<BestCategoryModle> BestCategories = [
