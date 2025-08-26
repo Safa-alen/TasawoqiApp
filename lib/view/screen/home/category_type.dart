@@ -19,72 +19,64 @@ class CategoryTypeHome extends StatelessWidget {
     final filterCategory = object.where((category) {
       return category.id.toString() == categoryId;
     }).toList();
-    return Scaffold(
-      appBar: AppBar(
-        title:
-            Align(alignment: Alignment.centerRight, child: Text(categoryTitle)),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(20.0),
-        child: ListView(
-          children: [
-            SizedBox(
-              height: 24,
-            ),
-            search_home(),
-            SizedBox(
-              height: 24,
-            ),
-            GridView.builder(
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisSpacing: 10,
-                crossAxisCount: 2,
-                mainAxisExtent: 265.0,
+    return Directionality(
+      textDirection: TextDirection.ltr,
+      child: Scaffold(
+        appBar: AppBar(
+          //automaticallyImplyLeading: false,
+          title: Align(
+              alignment: Alignment.centerRight, child: Text(categoryTitle)),
+          // leading: IconButton(
+          //   icon: Icon(Icons.arrow_back),
+          //   onPressed: () {
+          //     Get.back(); // ترجع للصفحة السابقة
+          //   },
+          // ),
+        ),
+        body: Padding(
+          padding: const EdgeInsets.all(20.0),
+          child: ListView(
+            children: [
+              SizedBox(
+                height: 24,
               ),
-              shrinkWrap: true,
-              physics: NeverScrollableScrollPhysics(),
-              itemCount: filterCategory.length,
-              itemBuilder: (context, index) {
-                final product = filterCategory[index];
-                final originalIndex =
-                    BestCategories.indexWhere((p) => p.id == product.id);
-                // المنتج الحالي في الفهرس
-                return InkWell(
-                  onTap: () {
-                    Get.toNamed(
-                      AppRoute.productDetails,
-                      arguments: product, // تمرير المنتج المضغوط فقط
-                    );
-                  },
-                  // child: CategoryTypeWidget(
-                  //   images: [product.Image], // لو الكلاس widget يحتاج قائمة
-                  //   titles1: [product.title1],
-                  //   titles2: [product.title2],
-                  //   titles3: [product.title3],
-                  // ),
-                  child: CategoryTypeWidget(
-                    image: product.Image,
-                    title1: product.title1,
-                    title2: product.title2,
-                    title3: product.title3,
-                    index: originalIndex,
-                  ),
-                );
-              },
-            ),
-
-            // InkWell(
-            //   onTap: () {
-            //     Get.toNamed(AppRoute.productDetails );
-            //   },
-            //   child: CategoryTypeWidget(
-            //     images: filterCategory.map((e) => e.Image).toList(),
-            //     titles1: filterCategory.map((e) => e.title1).toList(),
-            //     titles2: filterCategory.map((e) => e.title2).toList(),
-            //     titles3: filterCategory.map((e) => e.title3).toList(),
-            //   ),
-            // ),
-          ],
+              search_home(),
+              SizedBox(
+                height: 24,
+              ),
+              GridView.builder(
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisSpacing: 10,
+                  crossAxisCount: 2,
+                  mainAxisExtent: 265.0,
+                ),
+                shrinkWrap: true,
+                physics: NeverScrollableScrollPhysics(),
+                itemCount: filterCategory.length,
+                itemBuilder: (context, index) {
+                  final product = filterCategory[index];
+                  final originalIndex =
+                      BestCategories.indexWhere((p) => p.id == product.id);
+                  // المنتج الحالي في الفهرس
+                  return InkWell(
+                    onTap: () {
+                      Get.toNamed(
+                        AppRoute.productDetails,
+                        arguments: product, // تمرير المنتج المضغوط فقط
+                      );
+                    },
+                    child: CategoryTypeWidget(
+                      image: product.Image,
+                      title1: product.title1,
+                      title2: product.title2,
+                      title3: product.title3,
+                      index: originalIndex,
+                    ),
+                  );
+                },
+              ),
+            ],
+          ),
         ),
       ),
     );

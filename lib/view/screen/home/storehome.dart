@@ -14,7 +14,7 @@ class StoresHome extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(24),
-      child: Column(
+      child: ListView(
         children: [
           SizedBox(
             height: 24,

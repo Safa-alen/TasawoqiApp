@@ -25,7 +25,7 @@ class ScheduleOption extends StatelessWidget {
     final text = Text(label, style: TextStyle(color: Appcolor.grey));
 
     return Row(
-      children: reversed ? [text, radio] : [radio, text],
+      children: reversed ? [radio, text] : [text, radio],
     );
   }
 }

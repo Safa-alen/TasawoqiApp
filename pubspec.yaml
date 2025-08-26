@@ -98,6 +98,7 @@ dependencies:
   flutter_svg: ^2.1.6
   get: ^4.6.5
   image_picker: ^1.2.0
+  intl: ^0.20.2
   latlong2: ^0.9.1
   permission_handler: ^11.3.1
   shared_preferences: ^2.1.1

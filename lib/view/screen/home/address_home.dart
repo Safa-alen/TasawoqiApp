@@ -2,8 +2,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
-import 'package:tasawoqi/core/constant/color.dart';
-import 'package:tasawoqi/core/constant/imagess.dart';
 import 'package:tasawoqi/core/constant/route.dart';
 import 'package:tasawoqi/view/widget/address/build_address_card.dart';
 import 'package:tasawoqi/view/widget/buttom.dart';
@@ -45,13 +43,14 @@ class AddressHome extends StatelessWidget {
                 buildAddressCard(
                   context: context,
                   title: "منزل",
-                  controller: controller,
+                controller: controller,
                   selectedValue: 'home',
                   focusNode: homeFocusNode,
                   textController: homeController,
                   hintText:
                       "+971 123 456 789\nمعرة مصرين, شارع الجميل, جانب حلويات الاحمد, الطابق الثالث",
-                  onChanged: controller.updateHomeNote,
+                onChanged: (val) {},
+  useRadio: false,
                 ),
                 const SizedBox(height: 16),
                 buildAddressCard(
@@ -63,7 +62,8 @@ class AddressHome extends StatelessWidget {
                   textController: officeController,
                   hintText:
                       "+971 987 654 321\nعنوان المكتب, شارع التجاري, الطابق الثاني",
-                  onChanged: controller.updateOfficeNote,
+                  onChanged: (val) {},
+  useRadio: false,
                 ),
                 const SizedBox(height: 236),
                 Buttom(

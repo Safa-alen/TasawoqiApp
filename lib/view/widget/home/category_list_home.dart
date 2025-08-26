@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:tasawoqi/core/constant/color.dart';
+import 'package:tasawoqi/core/constant/route.dart';
 
 import '../../../data/datasource/categoy.dart';
 
@@ -16,16 +17,23 @@ class category_list_home extends StatelessWidget {
       height: 32,
       child: ListView.builder(
           itemCount: categories.length,
+          reverse: true,
           scrollDirection: Axis.horizontal,
           itemBuilder: (context, i) => Row(
                 children: [
                   InkWell(
                     onTap: () {
-                      // Get.toNamed(page)
+                      Get.toNamed(
+                        AppRoute.catogerType,
+                        parameters: {
+                          'id': categories[i].id,
+                          'title': categories[i].title,
+                        },
+                      );
                     },
                     child: Container(
                         width: 85,
-                        // height: 32,
+                        //  height: 50,
                         decoration: BoxDecoration(
                             border: Border.all(
                                 color: Appcolor.medigrey, width: 0.31),

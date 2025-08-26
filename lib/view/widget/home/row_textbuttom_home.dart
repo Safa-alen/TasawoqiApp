@@ -16,11 +16,13 @@ class Row_textbuttom extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        TitleOnly(
-          title: 'الفئات',
-        ),
         Row(
           children: [
+            Icon(
+              Icons.chevron_left,
+              color: Appcolor.grey,
+            ),
+            SizedBox(width: 1),
             TextButton(
               style: TextButton.styleFrom(
                 padding: EdgeInsets.zero,
@@ -36,12 +38,10 @@ class Row_textbuttom extends StatelessWidget {
                       .bodyMedium!
                       .copyWith(fontSize: 16)),
             ),
-            Icon(
-              Icons.chevron_right,
-              color: Appcolor.grey,
-            ),
-            SizedBox(width: 1),
           ],
+        ),
+        TitleOnly(
+          title: 'الفئات',
         ),
       ],
     );

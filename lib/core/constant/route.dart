@@ -20,8 +20,20 @@ class AppRoute {
 
   static const String favoriteHome = "/favoritehome";
   static const String paymentHome = "/paymanthome";
+  static const String tmHome = "/tmhome";
+
   static const String addressHome = "/adreeshome";
   static const String addAddressHome = "/addaddresshome";
+  static const String notificationsHome = "/notificationshome";
+  static const String controlPanelHome = "/controlpanelhome";
+//panel controller
+  static const String productPanelHome = "/productpanelhome";
+  static const String orderpanelHome = "/orderpanelhome";
+  static const String balancepanelHome = "/balancepanelhome";
+  static const String addProductPanel = "/addproductpanel";
+
+  static const String ordersHome = "/ordershome";
+  static const String orderDetailsScreen = "/orderdetailsScreen";
 
   static const String onboarding = "/onboarding";
 }

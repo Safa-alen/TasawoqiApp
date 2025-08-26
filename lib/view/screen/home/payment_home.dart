@@ -1,277 +1,190 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
+import 'package:tasawoqi/controller/home/order_controller.dart';
+import 'package:tasawoqi/controller/home/payment_controller.dart';
 import 'package:tasawoqi/core/constant/color.dart';
 import 'package:tasawoqi/core/constant/imagess.dart';
+import 'package:tasawoqi/core/constant/route.dart';
 import 'package:tasawoqi/view/widget/buttom.dart';
 import 'package:tasawoqi/view/widget/home/title_only.dart';
 
-import '../../../controller/home/payment_controller.dart';
-
 class PaymentHome extends StatelessWidget {
   PaymentHome({super.key});
+
   final TextEditingController homeController = TextEditingController();
   final TextEditingController officeController = TextEditingController();
   final FocusNode homeFocusNode = FocusNode();
   final FocusNode officeFocusNode = FocusNode();
 
+  final totalPrice = (Get.arguments?['totalPrice']) ?? 0.0;
+
   @override
   Widget build(BuildContext context) {
-    final PaymentController controller = Get.put(PaymentController());
+    final PaymentController controller = Get.find<PaymentController>();
+    final OrderController orderCtrl = Get.find<OrderController>();
+
+    Widget addressField({
+      required String type,
+      required String label,
+      required String hint,
+      required FocusNode focusNode,
+      required TextEditingController textController,
+    }) {
+      return Stack(
+        children: [
+          Container(
+            height: 180,
+            width: double.infinity,
+            decoration: BoxDecoration(
+              border: Border.all(color: Colors.grey.shade300, width: 1),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withOpacity(0.1),
+                  spreadRadius: 5,
+                  blurRadius: 15,
+                  offset: const Offset(0, 4),
+                ),
+              ],
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(12),
+            ),
+            child: Column(
+              children: [
+                RadioListTile<String>(
+                  value: type,
+                  groupValue: controller.selectedOption1,
+                  onChanged: (value) => controller.selectOption1(value!),
+                  title: Text(label,
+                      textAlign: TextAlign.right,
+                      style: Theme.of(context)
+                          .textTheme
+                          .bodySmall!
+                          .copyWith(fontSize: 15)),
+                  controlAffinity: ListTileControlAffinity.trailing,
+                  activeColor: Appcolor.aqua,
+                ),
+                TextField(
+                  focusNode: focusNode,
+                  controller: textController,
+                  maxLines: 3,
+                  textAlign: TextAlign.right,
+                  enabled: controller.selectedOption1 == type,
+                  onChanged: type == 'home'
+                      ? controller.updateHomeNote
+                      : controller.updateOfficeNote,
+                  decoration: InputDecoration(
+                    hintText: hint,
+                    hintStyle: TextStyle(fontSize: 14, color: Appcolor.grey),
+                    border: InputBorder.none,
+                    contentPadding:
+                        const EdgeInsets.symmetric(vertical: 2, horizontal: 19),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Positioned(
+            top: type == 'home' ? 15 : 25,
+            left: type == 'home' ? 15 : 25,
+            child: InkWell(
+              onTap: () => FocusScope.of(context).requestFocus(focusNode),
+              child: SvgPicture.asset(AppImagess.icon22, color: Appcolor.grey),
+            ),
+          ),
+        ],
+      );
+    }
 
     return Directionality(
       textDirection: TextDirection.ltr,
       child: Scaffold(
-          appBar: AppBar(
-            title: Align(
+        appBar: AppBar(
+          title: const Align(
               alignment: Alignment.centerRight,
               child: Padding(
-                padding: const EdgeInsets.only(right: 24.0),
-                child: TitleOnly(
-                  title: "الدفع",
+                padding: EdgeInsets.only(right: 24.0),
+                child: TitleOnly(title: "الدفع"),
+              )),
+        ),
+        body: Padding(
+          padding: const EdgeInsets.only(right: 24.0, left: 24, top: 40),
+          child: GetBuilder<PaymentController>(
+            builder: (_) => ListView(
+              children: [
+                const Align(
+                  alignment: Alignment.centerRight,
+                  child: Text("العنوان", style: TextStyle(fontSize: 15)),
                 ),
-              ),
+                const SizedBox(height: 12),
+                addressField(
+                  type: 'home',
+                  label: 'منزل',
+                  hint:
+                      "+971 123 456 789\n,معرة مصرين, شارع الجميل, جانب حلويات الاحمد, الطابق الثالث",
+                  focusNode: homeFocusNode,
+                  textController: homeController,
+                ),
+                const SizedBox(height: 16),
+                addressField(
+                  type: 'office',
+                  label: 'مكتب',
+                  hint:
+                      "+971 987 654 321\n,عنوان المكتب, شارع التجاري, الطابق الثاني",
+                  focusNode: officeFocusNode,
+                  textController: officeController,
+                ),
+                const SizedBox(height: 24),
+                Align(
+                  alignment: Alignment.centerRight,
+                  child: Text("طريقة الدفع",
+                      style: TextStyle(fontSize: 18, color: Appcolor.black)),
+                ),
+                RadioListTile<String>(
+                  value: 'cash',
+                  groupValue: controller.selectedOption2,
+                  onChanged: (value) => controller.selectOption2(value!),
+                  title: Text("عند الاستلام",
+                      style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                            fontSize: 15,
+                          ),
+                      textAlign: TextAlign.right),
+                  controlAffinity: ListTileControlAffinity.trailing,
+                  activeColor: Appcolor.aqua,
+                ),
+                RadioListTile<String>(
+                  value: 'app',
+                  groupValue: controller.selectedOption2,
+                  onChanged: (value) => controller.selectOption2(value!),
+                  title: Text("التطبيق",
+                      style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                            fontSize: 15,
+                          ),
+                      textAlign: TextAlign.right),
+                  controlAffinity: ListTileControlAffinity.trailing,
+                  activeColor: Appcolor.aqua,
+                ),
+                const SizedBox(height: 72),
+                Buttom(
+                    text: "ارسال الطلب",
+                    onPressed: () {
+                      // تمرير البيانات مباشرة للكونترولر
+                      orderCtrl.createOrder(
+                        orderAddress: controller.selectedOption1 == 'home'
+                            ? controller.homeNote
+                            : controller.officeNote,
+                        orderPayment: controller.selectedOption2 ?? "—",
+                        orderTotal: totalPrice,
+                      );
+
+                      // الانتقال لصفحة التأكيد
+                      Get.offAllNamed(AppRoute.tmHome);
+                    })
+              ],
             ),
           ),
-          body: Padding(
-            padding: const EdgeInsets.only(right: 24.0, left: 24, top: 40),
-            child: GetBuilder<PaymentController>(
-              builder: (_) => ListView(
-                // crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Align(
-                    alignment: Alignment.centerRight,
-                    child: Text(
-                      "العنوان  ",
-                      style: Theme.of(context)
-                          .textTheme
-                          .bodySmall!
-                          .copyWith(fontSize: 15),
-                    ),
-                  ),
-                  const SizedBox(height: 12),
-
-                  Stack(
-                    children: [
-                      Container(
-                        height: 180,
-                        width: double.infinity,
-                        decoration: BoxDecoration(
-                          border: Border.all(
-                            color: Colors.grey.shade300, // لون فاتح للإطار
-                            width: 1, // سمك الإطار
-                          ),
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.black
-                                  .withOpacity(0.1), // لون الظل وشفافيته
-                              spreadRadius: 5, // مدى انتشار الظل
-                              blurRadius: 15, // مدى تليين الظل
-                              offset: Offset(0, 4), // موقع الظل (x, y)
-                            ),
-                          ],
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(12),
-                        ),
-                        child: Column(
-                          children: [
-                            RadioListTile<String>(
-                              value: 'home',
-                              groupValue: controller.selectedOption1,
-                              onChanged: (value) {
-                                controller.selectOption1(value!);
-                              },
-                              title: Text(
-                                "منزل",
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .bodySmall!
-                                    .copyWith(fontSize: 15),
-                                textAlign: TextAlign.right,
-                              ),
-                              controlAffinity: ListTileControlAffinity.trailing,
-                              activeColor: Appcolor.aqua,
-                            ),
-                            TextField(
-                              focusNode: homeFocusNode,
-                              maxLines: 3,
-                              textAlign: TextAlign.right,
-                              onChanged: controller.updateHomeNote,
-                              enabled: controller.selectedOption1 == 'home',
-                              decoration: InputDecoration(
-                                hintText:
-                                    "+971 123 456 789\n,معرة مصرين, شارع الجميل, جانب حلويات \nالاحمد, الطابق الثالث",
-                                hintStyle: TextStyle(
-                                    fontSize: 14, color: Appcolor.grey),
-                                border: InputBorder.none,
-                                contentPadding: EdgeInsets.symmetric(
-                                    vertical: 2, horizontal: 19),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Positioned(
-                        top: 15,
-                        left: 15,
-                        child: IconButton(
-                            onPressed: () {
-                              FocusScope.of(context)
-                                  .requestFocus(homeFocusNode);
-                            },
-                            icon: SvgPicture.asset(
-                              AppImagess.icon22,
-                              color: Appcolor.grey,
-                            )),
-                      ),
-                    ],
-                  ),
-
-                  SizedBox(
-                    height: 16,
-                  ),
-
-                  // الخيار الثاني: مكت// الخيار الثاني: مكتب
-                  Stack(
-                    children: [
-                      Container(
-                        height: 180,
-                        width: double.infinity,
-                        decoration: BoxDecoration(
-                          border: Border.all(
-                            color: Colors.grey.shade300, // لون فاتح للإطار
-                            width: 1, // سمك الإطار
-                          ),
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.black
-                                  .withOpacity(0.1), // لون الظل وشفافيته
-                              spreadRadius: 5, // مدى انتشار الظل
-                              blurRadius: 15, // مدى تليين الظل
-                              offset: Offset(0, 4), // موقع الظل (x, y)
-                            ),
-                          ],
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(12),
-                        ),
-                        child: Column(
-                          children: [
-                            RadioListTile<String>(
-                              value: 'office',
-                              groupValue: controller.selectedOption1,
-                              onChanged: (value) {
-                                controller.selectOption1(value!);
-                              },
-                              title: Text(
-                                "مكتب",
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .bodySmall!
-                                    .copyWith(fontSize: 15),
-                                textAlign:
-                                    TextAlign.right, // محاذاة العنوان لليمين
-                              ),
-                              controlAffinity: ListTileControlAffinity
-                                  .trailing, // الراديو على اليمين
-                              activeColor: Appcolor.aqua,
-                            ),
-                            TextField(
-                              focusNode: officeFocusNode,
-                              controller: officeController,
-                              maxLines: 3,
-                              textAlign: TextAlign.right,
-                              onChanged: controller.updateOfficeNote,
-                              enabled: controller.selectedOption1 ==
-                                  'office', // ✅ هنا
-
-                              decoration: InputDecoration(
-                                hintText:
-                                    "+971 987 654 321\n,عنوان المكتب, شارع التجاري, الطابق الثاني",
-                                hintStyle: TextStyle(
-                                    fontSize: 14, color: Appcolor.grey),
-                                border: InputBorder.none,
-                                contentPadding: EdgeInsets.symmetric(
-                                    vertical: 2, horizontal: 19),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Positioned(
-                        top: 25,
-                        left: 25,
-                        child: InkWell(
-                            onTap: () {
-                              FocusScope.of(context)
-                                  .requestFocus(officeFocusNode);
-                            },
-                            child: SvgPicture.asset(
-                              AppImagess.icon22,
-                              color: Appcolor.grey,
-                            )),
-                      ),
-                    ],
-                  ),
-
-                  SizedBox(
-                    height: 24,
-                  ),
-                  Align(
-                    alignment: Alignment.centerRight,
-                    child: Text(
-                      " طريقة الدفع ",
-                      style: Theme.of(context)
-                          .textTheme
-                          .bodySmall!
-                          .copyWith(fontSize: 15),
-                    ),
-                  ),
-
-                  RadioListTile<String>(
-                    controlAffinity:
-                        ListTileControlAffinity.trailing, // الراديو على اليمين
-
-                    activeColor: Appcolor.aqua,
-                    value: 'uu',
-                    groupValue: controller.selectedOption2,
-                    onChanged: (value) {
-                      controller.selectOption2(value!);
-                    },
-                    title: Text(
-                      textAlign: TextAlign.right,
-                      "عند الاستلام",
-                      style: Theme.of(context)
-                          .textTheme
-                          .bodySmall!
-                          .copyWith(fontSize: 15),
-                    ),
-                  ),
-                  RadioListTile<String>(
-                    controlAffinity: ListTileControlAffinity.trailing,
-                    activeColor: Appcolor.aqua,
-                    value: 'app',
-                    groupValue: controller.selectedOption2,
-                    onChanged: (value) {
-                      controller.selectOption2(value!);
-                    },
-                    title: Text(
-                      textAlign: TextAlign.right,
-                      "التطبيق ",
-                      style: Theme.of(context)
-                          .textTheme
-                          .bodySmall!
-                          .copyWith(fontSize: 15),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 72,
-                  ),
-                  Buttom(text: "ارسال الطلب")
-                ],
-              ),
-            ),
-          )),
+        ),
+      ),
     );
   }
 }

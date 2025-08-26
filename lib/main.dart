@@ -13,9 +13,9 @@ import 'package:tasawoqi/route.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   Get.put(SignupcontrollerImp(), permanent: true);
-  Get.put(HomeScreenControllerImp()); // <-- تأكدي من هذا السطر
+  Get.put(HomeScreenControllerImp());
 
-  Get.put(FavoriteController()); // تسجيل الكونترولر لمرة وحدة
+  Get.put(FavoriteController());
 
   await initialservices();
   runApp(const MyApp());

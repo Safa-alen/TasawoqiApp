@@ -61,6 +61,8 @@ class TextfieldLocation extends StatelessWidget {
     this.controller,
     this.readOnly = false,
     this.onTap,
+    this.verticalPadding = 12, // الافتراضي 12
+    //this.textAlignVertical = TextAlignVertical.top, // الافتراضي: منتصف
   });
 
   final String hinttext;
@@ -68,6 +70,9 @@ class TextfieldLocation extends StatelessWidget {
   final TextEditingController? controller;
   final bool readOnly;
   final VoidCallback? onTap;
+  final double verticalPadding;
+  //final TextAlignVertical textAlignVertical; // للتحكم بمكان النص عموديًا
+  // هنا التحكم بالارتفاع
 
   @override
   Widget build(BuildContext context) {
@@ -81,14 +86,21 @@ class TextfieldLocation extends StatelessWidget {
         readOnly: readOnly,
         onTap: onTap,
         textAlign: TextAlign.right,
-        textAlignVertical: TextAlignVertical.center,
+        textAlignVertical: TextAlignVertical.top, // يخلي النص فوق
+
+        // textAlignVertical: textAlignVertical, // هنا طبقنا المتغير
         decoration: InputDecoration(
           hintText: hinttext,
           hintStyle: Theme.of(context).textTheme.bodyMedium!.copyWith(
                 fontSize: 12,
               ),
-          contentPadding:
-              const EdgeInsets.symmetric(vertical: 12, horizontal: 30),
+          contentPadding: EdgeInsets.only(
+              top: verticalPadding, // فقط من الأعلى
+              bottom: 12,
+              right: 20 // مسافة صغيرة من الأسفل
+              ),
+          // contentPadding: EdgeInsets.symmetric(
+          //   vertical: verticalPadding, horizontal: 30), // اس
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(15),
             borderSide: BorderSide(color: Colors.white),

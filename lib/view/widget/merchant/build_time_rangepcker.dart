@@ -31,7 +31,7 @@ Widget buildTimeRangePicker() {
                   ),
                 ),
               ),
-              const Icon(Icons.arrow_forward_ios, size: 24, color: Colors.grey),
+              const Icon(Icons.arrow_back_ios, size: 24, color: Colors.grey),
               Expanded(
                 child: InkWell(
                   onTap: () => controller.pickEndTime(Get.context!),

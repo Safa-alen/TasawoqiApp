@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart' show Get;
 import 'package:tasawoqi/controller/home/home_screen_controller.dart';
+import 'package:tasawoqi/core/constant/color.dart';
 import 'package:tasawoqi/view/screen/home/buttom_navi_bar.dart';
 
 Widget buildHeader(
@@ -18,6 +19,21 @@ Widget buildHeader(
       Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
+          Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text(
+                "ملف التاجر",
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                  color: Appcolor.aqua,
+                ),
+              ),
+              if (homeController.isMerchant)
+                Container(height: 1, width: 150, color: Colors.teal),
+            ],
+          ),
           InkWell(
             onTap: () {
               Get.offAll(() => ButtomNaviBar());
@@ -31,21 +47,6 @@ Widget buildHeader(
                 style: Theme.of(context).textTheme.bodyMedium,
               ),
             ),
-          ),
-          Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              const Text(
-                "ملف التاجر",
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.teal,
-                ),
-              ),
-              if (homeController.isMerchant)
-                Container(height: 1, width: 140, color: Colors.teal),
-            ],
           ),
         ],
       ),

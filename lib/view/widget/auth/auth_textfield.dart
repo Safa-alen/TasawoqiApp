@@ -21,6 +21,7 @@ class AuthTextfield extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Material(
+      color: Colors.white,
       elevation: 3, // درجة الظل
       shadowColor: Colors.black26,
       borderRadius: BorderRadius.circular(15),
@@ -37,8 +38,9 @@ class AuthTextfield extends StatelessWidget {
           hintStyle: Theme.of(context).textTheme.bodyMedium!.copyWith(
                 fontSize: 12,
               ),
+          contentPadding:
+              const EdgeInsets.symmetric(vertical: 12, horizontal: 30),
           floatingLabelBehavior: FloatingLabelBehavior.always,
-          contentPadding: EdgeInsets.symmetric(vertical: 5, horizontal: 30),
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(15),
             borderSide: BorderSide(color: Colors.white),

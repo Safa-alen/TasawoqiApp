@@ -13,10 +13,10 @@ import 'package:tasawoqi/view/screen/home/buttom_navi_bar.dart';
 import 'package:tasawoqi/view/widget/auth/textfield_location.dart';
 import 'package:tasawoqi/view/widget/buttom.dart';
 import 'package:tasawoqi/view/widget/merchant/build_header.dart';
-import 'package:tasawoqi/view/widget/merchant/build_profileImage.dart';
+import 'package:tasawoqi/view/widget/merchant/profile_Image_widget.dart';
 import 'package:tasawoqi/view/widget/merchant/build_time_rangepcker.dart';
 
-class MerchantProfile extends GetView<MerchantController> {
+class MerchantProfile extends StatelessWidget {
   const MerchantProfile({super.key});
 
   @override
@@ -32,7 +32,12 @@ class MerchantProfile extends GetView<MerchantController> {
             const SizedBox(height: 24),
             buildHeader(context, homeController),
             const SizedBox(height: 24),
-            buildProfileImage(),
+            ProfileImageWidget(
+              controller: MerchantImageController(),
+              type: 'merchant',
+            ),
+
+            //   buildProfileImage(),
             const SizedBox(height: 24),
             const TextfieldLocation(hinttext: "اسم المتجر"),
             const SizedBox(height: 16),
@@ -44,7 +49,10 @@ class MerchantProfile extends GetView<MerchantController> {
               icon: AppImagess.icon1,
             ),
             const SizedBox(height: 16),
-            Text("اوقات الدوام", style: TextStyle(color: Appcolor.blacklight)),
+            Align(
+                alignment: AlignmentGeometry.centerRight,
+                child: Text("اوقات الدوام",
+                    style: TextStyle(color: Appcolor.blacklight))),
             const SizedBox(height: 6),
             buildTimeRangePicker(),
             const SizedBox(height: 25),

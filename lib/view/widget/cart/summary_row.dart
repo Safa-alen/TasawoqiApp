@@ -19,8 +19,8 @@ class SummaryRow extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text(title, style: TextStyle(color: Appcolor.blacklight)),
           Text("${value.toStringAsFixed(2)} \$", style: style),
+          Text(title, style: TextStyle(color: Appcolor.blacklight)),
         ],
       ),
     );

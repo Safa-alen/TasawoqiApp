@@ -18,7 +18,7 @@ Widget buildCardStore(BuildContext context, int i) {
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.end,
           children: [
             ClipRRect(
               borderRadius: const BorderRadius.vertical(

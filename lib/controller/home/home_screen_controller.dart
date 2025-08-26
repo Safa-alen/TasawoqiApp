@@ -4,6 +4,7 @@ import 'package:get/get_connect/http/src/utils/utils.dart';
 import 'package:tasawoqi/core/constant/imagess.dart';
 import 'package:tasawoqi/data/model/category_modle.dart';
 import 'package:tasawoqi/view/screen/home/Personal_profile.dart';
+import 'package:tasawoqi/view/screen/home/control_panel_home.dart';
 import 'package:tasawoqi/view/screen/home/homepage.dart';
 import 'package:tasawoqi/view/screen/home/merchant_profile.dart';
 import 'package:tasawoqi/view/screen/home/storehome.dart';
@@ -23,6 +24,18 @@ class HomeScreenControllerImp extends HomeScreenController {
 
   // قائمة المنتجات في السلة
   List<ObjctModle> cartProducts = [];
+  double lastTotalPrice = 0.0;
+  String lastAddress = "غير محدد";
+  String lastPayment = "غير محدد";
+  void saveLastOrder({
+    required double totalPrice,
+    required String address,
+    required String payment,
+  }) {
+    lastTotalPrice = totalPrice;
+    lastAddress = address;
+    lastPayment = payment;
+  }
 
   List<Widget Function()> get listpage => [
         () => Homepage(),
@@ -30,6 +43,7 @@ class HomeScreenControllerImp extends HomeScreenController {
         () => CartHome(),
         () => StoresHome(),
         () => isMerchant ? MerchantProfile() : PersonalProfile(),
+        () => ControlPanelHome(),
       ];
   // تغيير الصفحة الحالية
   @override
@@ -38,14 +52,6 @@ class HomeScreenControllerImp extends HomeScreenController {
     update();
   }
 
-  // تغيير صورة البروفايل
-  // @override
-  // void changeProfileImage(String newPath) {
-  //   profileImage = newPath;
-  //   update();
-  // }
-
-  // إضافة منتج للسلة والانتقال لصفحة السلة
   @override
   void addProductToCart(ObjctModle product) {
     // تحقق إذا المنتج موجود مسبقاً

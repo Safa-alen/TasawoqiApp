@@ -11,7 +11,7 @@ class ObjctModle {
   final String id;
   final String title1;
   final String title2;
-  final int title3;
+  final double title3;
   final String title4;
   final String point;
   final List<String> sizes;

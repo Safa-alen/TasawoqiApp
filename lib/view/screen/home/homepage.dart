@@ -27,27 +27,24 @@ class Homepage extends StatelessWidget {
               width: double.infinity,
               child: Image.asset(AppImagess.home, fit: BoxFit.cover),
             ),
+            const SizedBox(height: 24),
+            Row_textbuttom(),
           ],
         ),
       ),
-      const SizedBox(height: 24),
       Padding(
-        padding: const EdgeInsets.only(right: 20.0),
+        padding: const EdgeInsets.only(right: 24.0),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.end,
           children: [
-            Row_textbuttom(),
             const SizedBox(height: 10),
             category_list_home(),
             const SizedBox(height: 30),
-            const Align(
-                alignment: Alignment.centerRight,
-                child: TitleOnly(title: "متاجر موصى بها")),
+            TitleOnly(title: "متاجر موصى بها"),
             const SizedBox(height: 16),
             RecommstoreList(),
             const SizedBox(height: 25),
-            const Align(
-                alignment: Alignment.centerRight,
-                child: TitleOnly(title: "المنتجات الأكثر طلبا  ")),
+            TitleOnly(title: "المنتجات الأكثر طلبا  "),
             const SizedBox(height: 25),
             Padding(
               padding: const EdgeInsets.only(left: 20),

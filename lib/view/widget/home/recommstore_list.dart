@@ -33,6 +33,7 @@ class RecommstoreList extends StatelessWidget {
       return SizedBox(
         height: 210,
         child: ListView.builder(
+          reverse: true,
           shrinkWrap: true,
           scrollDirection: Axis.horizontal,
           itemCount: Recommstores.length,

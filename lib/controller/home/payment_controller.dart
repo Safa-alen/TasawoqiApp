@@ -1,13 +1,15 @@
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-// 1️⃣ Controller
 class PaymentController extends GetxController {
+  // الخيارات
   String selectedOption1 = ''; // 'home' أو 'office'
+  String selectedOption2 = ''; // 'cash' أو 'app'
+
+  // الملاحظات
   String homeNote = '';
   String officeNote = '';
-  String selectedOption2 = '';
 
+  // تحديثات
   void selectOption1(String option) {
     selectedOption1 = option;
     update();
@@ -26,5 +28,21 @@ class PaymentController extends GetxController {
   void updateOfficeNote(String value) {
     officeNote = value;
     update();
+  }
+
+  // Getters لسهولة عرض البيانات
+  String get address {
+    if (selectedOption1 == 'home') {
+      return homeNote.isNotEmpty ? homeNote : "المنزل";
+    } else if (selectedOption1 == 'office') {
+      return officeNote.isNotEmpty ? officeNote : "المكتب";
+    }
+    return "غير محدد";
+  }
+
+  String get paymentMethod {
+    if (selectedOption2 == 'cash') return "عند الاستلام";
+    if (selectedOption2 == 'app') return "التطبيق";
+    return "غير محدد";
   }
 }

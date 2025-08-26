@@ -13,6 +13,9 @@ import 'package:tasawoqi/controller/auth/signup_controller.dart';
 import 'package:tasawoqi/controller/home/Personal_controller.dart';
 import 'package:tasawoqi/controller/home/home_screen_controller.dart';
 import 'package:tasawoqi/controller/home/merchant_controller.dart';
+import 'package:tasawoqi/controller/home/order_controller.dart';
+import 'package:tasawoqi/controller/home/payment_controller.dart';
+import 'package:tasawoqi/controller/home/productImage_controller.dart';
 
 class MyBinding extends Bindings {
   @override
@@ -25,6 +28,9 @@ class MyBinding extends Bindings {
     Get.lazyPut(() => PersonalController(), fenix: true);
 
     // Controllers الخاص بالتاجر
-    Get.lazyPut(() => MerchantController(), fenix: true);
+    Get.lazyPut(() => MerchantImageController(), fenix: true);
+    Get.lazyPut<PaymentController>(() => PaymentController(), fenix: true);
+    Get.lazyPut(() => OrderController(), fenix: true);
+    Get.lazyPut(() => ProductImageController(), fenix: true);
   }
 }
