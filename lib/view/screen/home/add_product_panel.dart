@@ -38,10 +38,7 @@ class AddProductPanel extends StatelessWidget {
                 SizedBox(
                   height: 16,
                 ),
-                ImageSelectorWidget(),
-                SizedBox(
-                  height: 16,
-                ),
+
                 //    MeasurementScreen(),
                 TextfieldLocation(hinttext: "اسم المنتج"),
                 SizedBox(
@@ -77,44 +74,50 @@ class AddProductPanel extends StatelessWidget {
   }
 }
 
-class ImageSelectorWidget extends StatelessWidget {
-//  final ProductImageController controller = Get.put(ProductImageController());
-  final productimagecontroller = Get.find<ProductImageController>();
+// class ImageSelectorWidget extends StatelessWidget {
+// //  final ProductImageController controller = Get.put(ProductImageController());
+//   final productimagecontroller = Get.find<ProductImageController>();
 
-  @override
-  Widget build(BuildContext context) {
-    return GetBuilder<ProductImageController>(
-      builder: (_) {
-        return InkWell(
-          onTap: productimagecontroller.toggleSelection,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [
-              Text(
-                "إضافة صورة أخرى ",
-                style: TextStyle(
-                    color: productimagecontroller.isSelected
-                        ? Appcolor.aqua
-                        : Colors.grey[300]),
-              ),
-              Container(
-                width: 25,
-                height: 20,
-                decoration: BoxDecoration(
-                  color: productimagecontroller.isSelected
-                      ? Appcolor.aqua
-                      : Colors.grey[300],
-                  //   borderRadius: BorderRadius.circular(8),
-                ),
-                child: Icon(Icons.add, size: 16, color: Appcolor.white),
-              ),
-            ],
-          ),
-        );
-      },
-    );
-  }
-}
+//   @override
+//   Widget build(BuildContext context) {
+//     return GetBuilder<ProductImageController>(
+//       builder: (_) {
+//         return InkWell(
+//           onTap: () async {
+//             // اختيار صورة من المعرض عند الضغط على النص
+//             await productimagecontroller.pickImageFromGallery();
+//           },
+
+//           child: Row(
+//             mainAxisAlignment: MainAxisAlignment.end,
+//                         mainAxisSize: MainAxisSize.min, // إضافة هذا السطر
+
+//             children: [
+//               Text(
+//                 "إضافة صورة أخرى ",
+//                 style: TextStyle(
+//                     color: productimagecontroller.isSelected
+//                         ? Appcolor.aqua
+//                         : Colors.grey[300]),
+//               ),
+//               Container(
+//                 width: 25,
+//                 height: 20,
+//                 decoration: BoxDecoration(
+//                   color: productimagecontroller.isSelected
+//                       ? Appcolor.aqua
+//                       : Colors.grey[300],
+//                   //   borderRadius: BorderRadius.circular(8),
+//                 ),
+//                 child: Icon(Icons.add, size: 16, color: Appcolor.white),
+//               ),
+//             ],
+//           ),
+//         );
+//       },
+//     );
+//   }
+// }
 
 // class MeasurementScreen extends StatelessWidget {
 //   final productimagecontroller = Get.find<ProductImageController>();
