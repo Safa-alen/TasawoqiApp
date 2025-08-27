@@ -11,5 +11,9 @@ class Appcolor {
   static Color blacklight = Color(0xFF1A1A1A);
   // أسود داكن قريب من الأسود الفاتح
 
+  static Color textGrey = const Color(0xFF5A5A5A);
+  static Color lightGrey = const Color(0xFFAEAEAE);
+  static Color switchcolor = Color(0xFFD9D9D9);
+
   static Color blacktext = Color(0xFF737373);
 }

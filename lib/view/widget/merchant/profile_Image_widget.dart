@@ -6,7 +6,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:tasawoqi/core/constant/color.dart';
 import 'package:tasawoqi/core/constant/imagess.dart';
 import 'package:tasawoqi/controller/home/merchant_controller.dart';
-import 'package:tasawoqi/controller/home/productImage_controller.dart';
+import 'package:tasawoqi/controller/home/productpanel_controller.dart';
 
 class ProfileImageWidget extends StatelessWidget {
   final GetxController controller;
@@ -33,7 +33,7 @@ class ProfileImageWidget extends StatelessWidget {
         if (type == 'merchant') {
           imageFile = (ctrl as MerchantImageController).profileImage;
         } else if (type == 'product') {
-          imageFile = (ctrl as ProductImageController).productImage;
+          imageFile = (ctrl as ProductPanelController).productImage;
         }
 
         return Column(
@@ -118,7 +118,7 @@ class ProfileImageWidget extends StatelessWidget {
             if (type == 'product' && allowPickImage)
               InkWell(
                 onTap: () async {
-                  final ctrlC = ctrl as ProductImageController;
+                  final ctrlC = ctrl as ProductPanelController;
                   ctrlC.isSelected = true; // فور الضغط يتحول اللون
                   ctrlC.update();
                   await ctrlC.pickImageFromGallery(); // بعدين تختارين الصورة
@@ -131,9 +131,9 @@ class ProfileImageWidget extends StatelessWidget {
                     Text(
                       " إضافة صورة أخرى ",
                       style: TextStyle(
-                        color: (ctrl as ProductImageController).isSelected
+                        color: (ctrl as ProductPanelController).isSelected
                             ? Appcolor.aqua
-                            : Appcolor.grey,
+                            : Appcolor.lightGrey,
                         fontSize: 14,
                         //  decoration: TextDecoration.underline,
                       ),
@@ -143,11 +143,11 @@ class ProfileImageWidget extends StatelessWidget {
                       width: 20,
                       height: 20,
                       decoration: BoxDecoration(
-                        color: (ctrl as ProductImageController).isSelected
-                            ? Appcolor.aqua
-                            : Colors.grey[300],
-                        //   borderRadius: BorderRadius.circular(5),
-                      ),
+                          color: (ctrl as ProductPanelController).isSelected
+                              ? Appcolor.aqua
+                              : Appcolor.lightGrey
+                          //   borderRadius: BorderRadius.circular(5),
+                          ),
                       child:
                           const Icon(Icons.add, size: 16, color: Colors.white),
                     ),
