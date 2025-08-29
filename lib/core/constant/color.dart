@@ -16,4 +16,5 @@ class Appcolor {
   static Color switchcolor = Color(0xFFD9D9D9);
 
   static Color blacktext = Color(0xFF737373);
+  static Color border = Color(0xFFFCFCFC);
 }

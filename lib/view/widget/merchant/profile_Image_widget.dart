@@ -119,10 +119,49 @@ class ProfileImageWidget extends StatelessWidget {
               InkWell(
                 onTap: () async {
                   final ctrlC = ctrl as ProductPanelController;
-                  ctrlC.isSelected = true; // فور الضغط يتحول اللون
+                  ctrlC.isSelected = true; // يتغير اللون
                   ctrlC.update();
-                  await ctrlC.pickImageFromGallery(); // بعدين تختارين الصورة
-                  // (ctrl as ProductImageController).pickImageFromGallery();
+
+                  await Get.bottomSheet(
+                    Container(
+                      color: Colors.white,
+                      child: Wrap(
+                        children: [
+                          ListTile(
+                            leading: const Icon(Icons.camera_alt),
+                            title: const Text('الكاميرا'),
+                            onTap: () async {
+                              Get.back();
+                              final pickedFile = await ImagePicker()
+                                  .pickImage(source: ImageSource.camera);
+                              if (pickedFile != null) {
+                                ctrlC.productImage = File(pickedFile.path);
+                                ctrlC.update();
+                              }
+                            },
+                          ),
+                          ListTile(
+                            leading: const Icon(Icons.photo_library),
+                            title: const Text('الاستوديو'),
+                            onTap: () async {
+                              Get.back();
+                              final pickedFile = await ImagePicker()
+                                  .pickImage(source: ImageSource.gallery);
+                              if (pickedFile != null) {
+                                ctrlC.productImage = File(pickedFile.path);
+                                ctrlC.update();
+                              }
+                            },
+                          ),
+                        ],
+                      ),
+                    ),
+                  );
+                  // final ctrlC = ctrl as ProductPanelController;
+                  // ctrlC.isSelected = true; // فور الضغط يتحول اللون
+                  // ctrlC.update();
+                  //   await ctrlC.pickImageFromGallery(); // بعدين تختارين الصورةz
+                  //  (ctrl as ProductImageController).pickImageFromGallery();
                 },
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.end,
