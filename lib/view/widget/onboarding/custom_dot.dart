@@ -4,7 +4,7 @@ import 'package:get/state_manager.dart';
 import 'package:tasawoqi/controller/onboarding_controller.dart';
 import 'package:tasawoqi/core/constant/color.dart';
 
-import '../../../data/datasource/static/static.dart';
+import '../../../data/datasource/static/onboarding.dart';
 
 class CustomDot extends StatelessWidget {
   const CustomDot({super.key});

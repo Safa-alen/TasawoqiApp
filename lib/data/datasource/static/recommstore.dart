@@ -3,6 +3,7 @@ import 'package:tasawoqi/data/model/recomm_stores_modle.dart'
     show RecommstoresModle, Product;
 
 List<RecommstoresModle> Recommstores = [
+  ///////////////////////المتاجر الموصى بهااا////////////////////////////
   RecommstoresModle(
     title1: "العائلة للخضراوات",
     title2: "كافة أنواع الخضراوات والفواكه",

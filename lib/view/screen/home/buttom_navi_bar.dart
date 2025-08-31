@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:tasawoqi/controller/home/home_screen_controller.dart';
+import 'package:tasawoqi/controller/home/search_controller.dart';
 import 'package:tasawoqi/core/constant/color.dart';
 import 'package:tasawoqi/core/constant/imagess.dart';
 import 'package:tasawoqi/view/screen/home/control_panel_home.dart';

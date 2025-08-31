@@ -4,7 +4,7 @@ import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 import 'package:tasawoqi/core/constant/route.dart';
 import 'package:tasawoqi/core/services/services.dart';
-import 'package:tasawoqi/data/datasource/static/static.dart';
+import 'package:tasawoqi/data/datasource/static/onboarding.dart';
 
 abstract class OnBordingController extends GetxController {
   Naxt();

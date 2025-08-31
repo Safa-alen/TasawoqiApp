@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:tasawoqi/data/datasource/categoy.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:tasawoqi/controller/home/search_controller.dart';
+import 'package:tasawoqi/data/datasource/static/categoy.dart';
 import 'package:tasawoqi/view/widget/home/appbar_home.dart';
 import 'package:tasawoqi/view/widget/home/category_type_widget.dart';
 
@@ -7,7 +10,7 @@ import 'package:tasawoqi/view/widget/home/search_home.dart';
 import 'package:tasawoqi/view/widget/home/title_only.dart';
 
 class OffersHome extends StatelessWidget {
-  const OffersHome({super.key});
+  OffersHome({super.key});
 
   @override
   Widget build(BuildContext context) {

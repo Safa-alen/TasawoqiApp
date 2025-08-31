@@ -4,20 +4,32 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
+import 'package:tasawoqi/controller/home/home_screen_controller.dart';
 import 'package:tasawoqi/controller/home/productpanel_controller.dart';
 import 'package:tasawoqi/core/constant/color.dart';
 import 'package:tasawoqi/core/constant/route.dart';
 import 'package:tasawoqi/view/widget/buttom.dart';
-import 'package:tasawoqi/view/widget/home/search_home.dart';
 import 'package:tasawoqi/view/widget/home/title_only.dart';
+import 'package:tasawoqi/view/widget/panel/search_panel.dart';
 
 class ProductPanelHome extends StatelessWidget {
   const ProductPanelHome({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final productCtrl = Get.put(ProductPanelController());
+    productCtrl.setShowFilters(false);
+
     final args = Get.arguments as Map<String, dynamic>?;
+// إذا جت فلترة من البحث، حطها مباشرة كـ selectedUnit3
+    if (args != null && args.containsKey('filterCategory')) {
+      productCtrl.selectedUnit3 = args['filterCategory'];
+      productCtrl.filterProductsByCategory(productCtrl.selectedUnit3);
+    }
+
+    // final args = Get.arguments as Map<String, dynamic>?;
     final title = args?['title'] ?? 'المنتجات';
+
     return Directionality(
         textDirection: TextDirection.ltr,
         child: Scaffold(
@@ -31,8 +43,11 @@ class ProductPanelHome extends StatelessWidget {
             child: ListView(
               children: [
                 Row(
+                  crossAxisAlignment:
+                      CrossAxisAlignment.start, // ✅ خليه ثابت بالأعلى
+
                   //   mainAxisAlignment: MainAxisAlignment.end,
-                  crossAxisAlignment: CrossAxisAlignment.center, // وسط عمودياً
+                  //  crossAxisAlignment: CrossAxisAlignment.center, // وسط عمودياً
 
                   children: [
                     Container(
@@ -56,19 +71,7 @@ class ProductPanelHome extends StatelessWidget {
                     SizedBox(
                       width: 16,
                     ),
-                    Expanded(
-                      child: search_home(
-                        height: 40,
-                        width: 240,
-                        showPrefixIcon: false,
-                      ),
-                    ),
-                    // SizedBox(
-                    //   width: 16,
-                    // ),
-                    // SizedBox(
-                    //   height: 16,
-                    // ),
+                    Flexible(child: SearchPanel()),
                   ],
                 ),
                 SizedBox(
@@ -76,7 +79,14 @@ class ProductPanelHome extends StatelessWidget {
                 ),
                 GetBuilder<ProductPanelController>(
                   builder: (controller) {
-                    final products = controller.addedProducts;
+                    // final productsToShow =
+                    //     controller.filteredProducts.isNotEmpty
+                    //         ? controller.filteredProducts
+                    //         : controller.addedProducts;
+                    final productsToShow = controller.selectedOption.isEmpty ||
+                            controller.selectedOption == 'لاشيئ'
+                        ? controller.addedProducts // كل المنتجات
+                        : controller.filteredProducts; // المنتجات المطابقة
 
                     return ListView.separated(
                       shrinkWrap: true, // مهم
@@ -84,10 +94,10 @@ class ProductPanelHome extends StatelessWidget {
                           NeverScrollableScrollPhysics(), // منع التمرير المزدوج
 
                       // scrollDirection: Axis.vertical,
-                      itemCount: products.length,
+                      itemCount: productsToShow.length,
                       separatorBuilder: (_, __) => SizedBox(height: 16),
                       itemBuilder: (context, index) {
-                        final product = products[index];
+                        final product = productsToShow[index];
                         return CartPanelProduct(
                           product: product,
                           index: index,
@@ -183,14 +193,9 @@ class CartPanelProduct extends StatelessWidget {
                   ),
                   Expanded(
                     child: Column(
-                      // crossAxisAlignment:
-                      //     CrossAxisAlignment.end, // النصوص تبدأ من اليمين
-
                       textDirection:
                           TextDirection.ltr, // الاتجاه من اليمين لليسار
 
-                      //  mainAxisAlignment: MainAxisAlignment.end,
-                      //crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
                         Text(productName,
                             overflow: TextOverflow.ellipsis,

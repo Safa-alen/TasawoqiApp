@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tasawoqi/data/datasource/categoy.dart';
+import 'package:tasawoqi/data/datasource/static/categoy.dart';
 import 'package:tasawoqi/view/widget/home/list_images.dart';
 import 'package:tasawoqi/view/widget/home/title_only.dart';
 

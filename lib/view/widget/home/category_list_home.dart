@@ -1,10 +1,13 @@
+////الفئاااااااات بالصفحة الرئيسية
+
 import 'package:flutter/material.dart';
+
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:tasawoqi/core/constant/color.dart';
 import 'package:tasawoqi/core/constant/route.dart';
 
-import '../../../data/datasource/categoy.dart';
+import '../../../data/datasource/static/categoy.dart';
 
 class category_list_home extends StatelessWidget {
   const category_list_home({

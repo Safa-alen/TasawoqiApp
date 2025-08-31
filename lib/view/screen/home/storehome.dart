@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:tasawoqi/controller/home/search_controller.dart';
 import 'package:tasawoqi/core/constant/route.dart';
-import 'package:tasawoqi/data/datasource/categoy.dart';
+import 'package:tasawoqi/data/datasource/static/categoy.dart';
 
 import 'package:tasawoqi/view/widget/home/recommstore_list.dart';
 import 'package:tasawoqi/view/widget/home/search_home.dart';
 import 'package:tasawoqi/view/widget/home/title_only.dart';
 
 class StoresHome extends StatelessWidget {
-  const StoresHome({super.key});
+  StoresHome({super.key});
 
   @override
   Widget build(BuildContext context) {

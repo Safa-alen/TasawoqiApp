@@ -4,6 +4,7 @@ import 'package:tasawoqi/core/constant/imagess.dart';
 import 'package:tasawoqi/data/model/category_modle.dart';
 import 'package:tasawoqi/data/model/recomm_stores_modle.dart';
 
+////////////////للفئات/////////////
 List<CategoryModle> categories = [
   CategoryModle(
     title: "مأكولات",
@@ -48,9 +49,10 @@ List<CategoryModle> categories = [
   CategoryModle(title: "ساعات", image: AppImagess.cat29, id: '29'),
 ];
 
-List<ObjctModle> object = [
+///////////////////////للمنتجات///////////////////////////////
+List<ObjctModle> products = [
   ObjctModle(
-    id: "2",
+    id: "29",
     title1: 'عصير ايكرفون',
     title2: 'عصائر الملك',
     title3: 60,
@@ -344,6 +346,8 @@ List<ObjctModle> object = [
   ),
 ];
 
+///////////////////////////////المنتجات الاكثر طلباا///////////////////////////////////
+
 List<BestCategoryModle> BestCategories = [
   BestCategoryModle(
       image: AppImagess.reco3,
@@ -371,6 +375,7 @@ List<BestCategoryModle> BestCategories = [
       id: '5'),
 ];
 
+/////////////////////////العروض//////////////////////////////////////////
 List<OffersModle> Offers = [
   OffersModle(
       imageo: AppImagess.reco2,

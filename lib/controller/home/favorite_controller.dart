@@ -9,7 +9,7 @@ class FavoriteController extends GetxController {
     } else {
       favorites.add(index);
     }
-    update(); // تنبيه الواجهات
+    update(); // تحديث الواجهات
   }
 
   bool isFavorite(int index) {

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_state_manager/src/simple/get_view.dart';
 import 'package:tasawoqi/controller/onboarding_controller.dart';
-import 'package:tasawoqi/data/datasource/static/static.dart';
+import 'package:tasawoqi/data/datasource/static/onboarding.dart';
 
 class CustomSlider extends GetView<OnBordingControllerImp> {
   const CustomSlider({super.key});

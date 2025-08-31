@@ -101,7 +101,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:tasawoqi/core/constant/color.dart';
-import 'package:tasawoqi/data/datasource/categoy.dart';
+import 'package:tasawoqi/data/datasource/static/categoy.dart';
 import 'package:tasawoqi/data/model/category_modle.dart';
 import 'package:tasawoqi/data/model/recomm_stores_modle.dart';
 import 'package:tasawoqi/view/widget/home/category_type_widget.dart';

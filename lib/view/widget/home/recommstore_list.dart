@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tasawoqi/data/datasource/categoy.dart';
+import 'package:tasawoqi/data/datasource/static/categoy.dart';
 import 'package:tasawoqi/data/datasource/static/recommstore.dart';
 import 'package:tasawoqi/view/widget/home/build_card_store.dart';
 

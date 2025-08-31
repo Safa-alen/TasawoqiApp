@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_instance/get_instance.dart';
+import 'package:tasawoqi/controller/home/search_controller.dart';
 import 'package:tasawoqi/core/constant/imagess.dart';
-import 'package:tasawoqi/data/datasource/categoy.dart';
+import 'package:tasawoqi/data/datasource/static/categoy.dart';
 import 'package:tasawoqi/view/widget/home/category_type_widget.dart';
 import 'package:tasawoqi/view/widget/home/recommstore_list.dart';
 import 'package:tasawoqi/view/widget/home/row_textbuttom_home.dart';
@@ -9,7 +12,7 @@ import 'package:tasawoqi/view/widget/home/title_only.dart';
 import '../../widget/home/category_list_home.dart';
 
 class Homepage extends StatelessWidget {
-  const Homepage({super.key});
+  Homepage({super.key});
 
   @override
   Widget build(BuildContext context) {

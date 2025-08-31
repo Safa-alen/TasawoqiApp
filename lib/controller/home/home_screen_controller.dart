@@ -37,6 +37,15 @@ class HomeScreenControllerImp extends HomeScreenController {
     lastPayment = payment;
   }
 
+  void handleSearchOption(String option) {
+    if (option == "عروض") {
+      changPage(1);
+    } else if (option == "متاجر") {
+      changPage(3);
+    }
+    // باقي الخيارات يمكن التعامل معها لاحقًا
+  }
+
   List<Widget Function()> get listpage => [
         () => Homepage(),
         () => OffersHome(),

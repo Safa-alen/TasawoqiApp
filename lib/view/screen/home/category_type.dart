@@ -1,22 +1,28 @@
+///////////////نوع المنتج وتحتو المنتجات على شكل كروت////////////////////
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:tasawoqi/core/constant/route.dart';
-import 'package:tasawoqi/data/datasource/categoy.dart';
+import 'package:tasawoqi/data/datasource/static/categoy.dart';
 import 'package:tasawoqi/view/widget/home/category_type_widget.dart';
 import 'package:tasawoqi/view/widget/home/search_home.dart';
 
+import '../../../controller/home/search_controller.dart'
+    show HomeSearchController;
+
 class CategoryTypeHome extends StatelessWidget {
-  const CategoryTypeHome(
+  CategoryTypeHome(
       {super.key, required this.categoryId, required this.categoryTitle});
   final String categoryId;
   final String categoryTitle;
+
   @override
   Widget build(BuildContext context) {
     final categoryId = Get.parameters['id'] ?? '';
     final categoryTitle = Get.parameters['title'] ?? '';
 
-    final filterCategory = object.where((category) {
+    final filterCategory = products.where((category) {
       return category.id.toString() == categoryId;
     }).toList();
     return Directionality(
@@ -26,12 +32,6 @@ class CategoryTypeHome extends StatelessWidget {
           //automaticallyImplyLeading: false,
           title: Align(
               alignment: Alignment.centerRight, child: Text(categoryTitle)),
-          // leading: IconButton(
-          //   icon: Icon(Icons.arrow_back),
-          //   onPressed: () {
-          //     Get.back(); // ترجع للصفحة السابقة
-          //   },
-          // ),
         ),
         body: Padding(
           padding: const EdgeInsets.all(20.0),

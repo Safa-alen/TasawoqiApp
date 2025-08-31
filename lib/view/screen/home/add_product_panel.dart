@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:tasawoqi/controller/home/productpanel_controller.dart';
 import 'package:tasawoqi/core/constant/imagess.dart';
-import 'package:tasawoqi/core/constant/route.dart';
 import 'package:tasawoqi/view/widget/auth/textfield_location.dart';
 import 'package:tasawoqi/view/widget/buttom.dart';
 import 'package:tasawoqi/view/widget/home/title_only.dart';
@@ -12,7 +11,6 @@ import 'package:tasawoqi/view/widget/panel/option_selector_widget.dart';
 import 'package:tasawoqi/view/widget/panel/switch_color.dart';
 import 'package:tasawoqi/view/widget/panel/switch_discount.dart';
 import 'package:tasawoqi/view/widget/panel/switch_size.dart';
-import '../../../core/constant/color.dart' show Appcolor;
 
 class AddProductPanel extends StatelessWidget {
   AddProductPanel({super.key});
@@ -34,7 +32,12 @@ class AddProductPanel extends StatelessWidget {
       nameController.text = args['name'] ?? '';
       descriptionController.text = args['description'] ?? '';
       priceController.text = args['price'] ?? '';
+      //  categoryController.text = args['category'] ?? '';
       controller.productImage = args['image'];
+      controller.selectedUnit3 = args['gender'] ?? "لاشيئ"; // استرجاع الفئة
+    } else {
+      // إضافة جديد → خلي الفئة فارغة
+      controller.selectedUnit3 = '';
     }
 
     return Directionality(
@@ -61,7 +64,7 @@ class AddProductPanel extends StatelessWidget {
                     title: "وحدة قياس",
                     options: ["كمية وسعر", "قطعة"],
                     selectedValue: controller.selectedUnit1,
-                    onChanged: (value) => controller.selectUnit1(value),
+                    onChanged: controller.selectUnit1,
                   );
                 },
               ),
@@ -99,7 +102,7 @@ class AddProductPanel extends StatelessWidget {
                     title: "العملة",
                     options: ["دولار", "تركي"],
                     selectedValue: controller.selectedUnit2,
-                    onChanged: (value) => controller.selectUnit2(value),
+                    onChanged: controller.selectUnit2,
                   );
                 },
               ),
@@ -116,10 +119,10 @@ class AddProductPanel extends StatelessWidget {
               GetBuilder<ProductPanelController>(
                 builder: (controller) {
                   return OptionSelectorWidget(
-                    title: "",
+                    title: "الفئة",
                     options: ["لاشيئ", "ولادي", "رجالي", "نسائي"],
                     selectedValue: controller.selectedUnit3,
-                    onChanged: (value) => controller.selectUnit3(value),
+                    onChanged: controller.selectUnit3,
                   );
                 },
               ),
@@ -130,12 +133,15 @@ class AddProductPanel extends StatelessWidget {
                   final productName = nameController.text;
                   final description = descriptionController.text;
                   final price = priceController.text;
+                  //  final category = categoryController.text;
+                  final gender = controller.selectedUnit3;
                   final image = controller.productImage;
 
                   if (productName.isEmpty ||
                       description.isEmpty ||
                       price.isEmpty ||
-                      image == null) {
+                      image == null ||
+                      gender.isEmpty) {
                     Get.snackbar(
                       "خطأ",
                       "الرجاء إدخال الاسم، الوصف، السعر واختيار صورة",
@@ -148,6 +154,8 @@ class AddProductPanel extends StatelessWidget {
                     'name': productName,
                     'description': description,
                     'price': price,
+                    //  'category': category,
+                    'gender': gender, // حفظ الفئة
                     'image': image,
                   };
 
@@ -158,6 +166,8 @@ class AddProductPanel extends StatelessWidget {
                       name: productName,
                       description: description,
                       price: price,
+                      //   category: category,
+                      gender: gender,
                       image: image,
                     );
                   }

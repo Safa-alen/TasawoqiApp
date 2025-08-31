@@ -17,6 +17,7 @@ import 'package:tasawoqi/controller/home/merchant_controller.dart';
 import 'package:tasawoqi/controller/home/order_controller.dart';
 import 'package:tasawoqi/controller/home/payment_controller.dart';
 import 'package:tasawoqi/controller/home/productpanel_controller.dart';
+import 'package:tasawoqi/controller/home/search_controller.dart';
 
 class MyBinding extends Bindings {
   @override
@@ -32,7 +33,9 @@ class MyBinding extends Bindings {
     Get.lazyPut(() => MerchantImageController(), fenix: true);
     Get.lazyPut<PaymentController>(() => PaymentController(), fenix: true);
     Get.lazyPut(() => OrderController(), fenix: true);
-    Get.lazyPut(() => ProductPanelController(), fenix: true);
+    Get.put(ProductPanelController(), permanent: true);
+    Get.put(SearchFilterController(), permanent: true);
+
     Get.lazyPut(() => ColorController(), fenix: true);
   }
 }

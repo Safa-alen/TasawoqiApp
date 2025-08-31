@@ -10,10 +10,12 @@ import 'package:tasawoqi/view/widget/buttom.dart';
 import 'package:tasawoqi/view/widget/cart/product_card.dart';
 import 'package:tasawoqi/view/widget/cart/schedule_option.dart';
 import 'package:tasawoqi/view/widget/home/search_home.dart';
+import '../../../controller/home/search_controller.dart'
+    show HomeSearchController;
 import '../../widget/cart/summary_row.dart';
 
 class CartHome extends StatelessWidget {
-  const CartHome({super.key});
+  CartHome({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +40,7 @@ class CartHome extends StatelessWidget {
         const SizedBox(height: 16),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 24),
-          child: const search_home(),
+          child: search_home(),
         ),
         const SizedBox(height: 32),
         ...homeController.cartProducts
