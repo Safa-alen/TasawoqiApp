@@ -38,20 +38,23 @@ class Buttom extends StatelessWidget {
   final String text;
   final void Function()? onPressed;
   final double? fontSize; // حجم الخط اختياري
-
+  final double? height; // ارتفاع الزر اختياري
+  final double? width; // عرض الزر اختياري
   const Buttom({
     super.key,
     required this.text,
     this.onPressed,
     this.fontSize, // إذا مش محدد، يستخدم 18
+    this.height = 56, // إذا مش محدد، يستخدم 56
+    this.width = double.infinity, // إذا مش محدد، يستخدم double.infinity
   });
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 56,
+      height: height ?? 56,
       margin: const EdgeInsets.only(top: 16),
-      width: double.infinity,
+      width: width ?? double.infinity,
       decoration: BoxDecoration(
         color: Appcolor.aqua,
         borderRadius: BorderRadius.circular(15),

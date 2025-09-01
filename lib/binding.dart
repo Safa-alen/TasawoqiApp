@@ -31,8 +31,11 @@ class MyBinding extends Bindings {
 
     // Controllers الخاص بالتاجر
     Get.lazyPut(() => MerchantImageController(), fenix: true);
+
     Get.lazyPut<PaymentController>(() => PaymentController(), fenix: true);
-    Get.lazyPut(() => OrderController(), fenix: true);
+
+    Get.put(OrderController(), permanent: true);
+
     Get.put(ProductPanelController(), permanent: true);
     Get.put(SearchFilterController(), permanent: true);
 

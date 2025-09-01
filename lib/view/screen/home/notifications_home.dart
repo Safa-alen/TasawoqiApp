@@ -81,9 +81,9 @@ class NotificationsHome extends StatelessWidget {
                           //  margin:
                           //    EdgeInsets.only(right: 24, left: 24, bottom: 8),
                           child: Padding(
-                            padding: const EdgeInsets.all(12.0),
+                            padding: const EdgeInsets.all(10.0),
                             child: Row(
-                              crossAxisAlignment: CrossAxisAlignment.start,
+                              //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
                                 // زر الحذف (X)
                                 IconButton(
@@ -97,19 +97,20 @@ class NotificationsHome extends StatelessWidget {
                                 // النصوص
                                 Expanded(
                                   child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
+                                    crossAxisAlignment: CrossAxisAlignment.end,
                                     children: [
                                       Text(
                                         item["title"],
                                         style: TextStyle(
-                                            fontSize: 12, color: Appcolor.grey),
+                                            fontSize: 12,
+                                            color: Appcolor.myGrey),
                                       ),
                                       SizedBox(height: 4),
                                       Text(
                                         item["subtitle"],
                                         style: TextStyle(
-                                            fontSize: 14, color: Appcolor.grey),
+                                            fontSize: 12,
+                                            color: Appcolor.myGrey),
                                       ),
                                       SizedBox(height: 6),
                                       Text(
@@ -124,9 +125,13 @@ class NotificationsHome extends StatelessWidget {
                                   ),
                                 ),
                                 // صورة
-                                CircleAvatar(
-                                  backgroundImage: NetworkImage(item["image"]),
-                                  radius: 22,
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 5.0),
+                                  child: CircleAvatar(
+                                    backgroundImage:
+                                        NetworkImage(item["image"]),
+                                    radius: 22,
+                                  ),
                                 ),
                               ],
                             ),
