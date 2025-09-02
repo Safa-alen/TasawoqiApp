@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
+import 'package:tasawoqi/core/constant/imagess.dart';
 import 'package:tasawoqi/core/constant/route.dart';
 
 import 'package:tasawoqi/view/widget/auth/logoauth.dart';
@@ -43,6 +45,7 @@ class Location extends StatelessWidget {
                     height: 64,
                   ),
                   const TextfieldLocation(
+                    icon: AppImagess.icon1,
                     hinttext: "المدينة",
                   ),
                   const SizedBox(

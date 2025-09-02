@@ -9,9 +9,12 @@ import 'package:get/get_instance/get_instance.dart';
 import 'package:intl/intl.dart';
 import 'package:tasawoqi/core/constant/color.dart';
 import 'package:tasawoqi/view/widget/buttom.dart' show Buttom;
+import 'package:tasawoqi/view/widget/order/build_order_row.dart'
+    show buildOrderRow;
+import 'package:tasawoqi/view/widget/order/build_detail_row.dart';
 
 import '../../../controller/home/order_controller.dart';
-import '../previous_request_order.dart';
+import 'previous_request_order.dart';
 
 class CardOrder extends StatelessWidget {
   final order;
@@ -48,11 +51,11 @@ class CardOrder extends StatelessWidget {
           padding: const EdgeInsets.all(16),
           child:
               Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-            _buildOrderRow(order.number, order.date),
-            if (isCurrent) _buildDetailRow("حالة الطلب", order.status),
-            _buildDetailRow("العنوان", displayAddress),
-            _buildDetailRow("طريقة الدفع", displayPayment),
-            _buildDetailRow(
+            buildOrderRow(order.number, order.date),
+            if (isCurrent) buildDetailRow("حالة الطلب", order.status),
+            buildDetailRow("العنوان", displayAddress),
+            buildDetailRow("طريقة الدفع", displayPayment),
+            buildDetailRow(
                 "المبلغ الإجمالي", "₺${order.totalPrice.toStringAsFixed(2)}",
                 valueColor: Appcolor.aqua),
             const SizedBox(height: 16),
@@ -69,47 +72,6 @@ class CardOrder extends StatelessWidget {
             if (!isCurrent) PreviousRequestOrder(order: order),
           ]),
         ),
-      ),
-    );
-  }
-
-  Widget _buildDetailRow(String title, String value, {Color? valueColor}) {
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 8.0),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Text(value,
-              style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 16,
-                  color: valueColor ?? Appcolor.grey)),
-          Text(title,
-              style: const TextStyle(fontSize: 16, color: Colors.black)),
-        ],
-      ),
-    );
-  }
-
-  Widget _buildOrderRow(String number, DateTime date) {
-    final dateString = DateFormat("d MMM yyyy, hh:mm a").format(date);
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 8.0),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        textDirection: ui.TextDirection.rtl,
-        children: [
-          Text("رقم الطلب $number",
-              style: const TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 16,
-                  color: Colors.black)),
-          Text(dateString,
-              style: const TextStyle(
-                  fontWeight: FontWeight.bold,
-                  color: Colors.grey,
-                  fontSize: 16)),
-        ],
       ),
     );
   }

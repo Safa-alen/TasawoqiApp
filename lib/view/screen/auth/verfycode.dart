@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:tasawoqi/controller/auth/verfy_controller.dart';
 import 'package:tasawoqi/core/constant/color.dart';
-import 'package:tasawoqi/core/constant/route.dart';
 import 'package:tasawoqi/view/widget/auth/authtext.dart';
 import 'package:tasawoqi/view/widget/auth/logoauth.dart';
 import 'package:tasawoqi/view/widget/buttom.dart';
@@ -14,7 +12,8 @@ class Verfycode extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final controller = Get.put(VeryfircodeControllerImp());
+    final controller = Get.find<VeryfircodeControllerImp>();
+
     return Directionality(
       textDirection: TextDirection.ltr,
       child: Scaffold(

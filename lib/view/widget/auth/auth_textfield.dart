@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tasawoqi/core/constant/color.dart';
 
 class AuthTextfield extends StatelessWidget {
   final String hinttext;
@@ -26,6 +27,7 @@ class AuthTextfield extends StatelessWidget {
       shadowColor: Colors.black26,
       borderRadius: BorderRadius.circular(15),
       child: TextFormField(
+        style: TextStyle(color: Appcolor.medigrey, fontSize: 17),
         textAlign: TextAlign.right,
         obscureText: obscuretext == null || obscuretext == false ? false : true,
         keyboardType: isNumber

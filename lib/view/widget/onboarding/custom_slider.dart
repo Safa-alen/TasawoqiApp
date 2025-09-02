@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_state_manager/src/simple/get_view.dart';
 import 'package:tasawoqi/controller/onboarding_controller.dart';
+import 'package:tasawoqi/core/constant/color.dart';
 import 'package:tasawoqi/data/datasource/static/onboarding.dart';
 
 class CustomSlider extends GetView<OnBordingControllerImp> {
@@ -27,11 +28,9 @@ class CustomSlider extends GetView<OnBordingControllerImp> {
           SizedBox(
             height: 24,
           ),
-          Text(
-            onboardingList[index].body!,
-            textAlign: TextAlign.center,
-            style: Theme.of(context).textTheme.bodyMedium,
-          )
+          Text(onboardingList[index].body!,
+              textAlign: TextAlign.center,
+              style: TextStyle(color: Appcolor.medigrey))
         ],
       ),
     );

@@ -1,6 +1,7 @@
-// التاب
+// // التاب
 
 import 'package:flutter/material.dart';
+import 'package:get/get_state_manager/src/simple/get_state.dart';
 
 import 'package:tasawoqi/controller/home/order_controller.dart'
     show OrderController;
@@ -9,22 +10,26 @@ import '../../../core/constant/color.dart';
 
 class TabOrder extends StatelessWidget {
   final OrderController orderCtrl;
-  const TabOrder({required this.orderCtrl});
+  const TabOrder({required this.orderCtrl, super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      alignment: Alignment.bottomCenter,
-      children: [
-        Container(height: 1, color: Colors.grey.shade300),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    return GetBuilder<OrderController>(
+      builder: (_) {
+        return Stack(
+          alignment: Alignment.bottomCenter,
           children: [
-            _buildTab("الطلبات السابقة", 0),
-            _buildTab("الطلبات الحالية", 1),
+            Container(height: 1, color: Colors.grey.shade300),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                _buildTab("الطلبات السابقة", 0),
+                _buildTab("الطلبات الحالية", 1),
+              ],
+            ),
           ],
-        ),
-      ],
+        );
+      },
     );
   }
 

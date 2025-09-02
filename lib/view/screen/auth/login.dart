@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:tasawoqi/controller/auth/login_controller.dart';
 import 'package:tasawoqi/core/constant/color.dart';
 import 'package:tasawoqi/core/constant/imagess.dart';
-import 'package:tasawoqi/core/constant/route.dart';
 import 'package:tasawoqi/core/function/validateput.dart';
 import 'package:tasawoqi/view/widget/auth/auth_textfield.dart';
 import 'package:tasawoqi/view/widget/auth/text_buttom.dart';
@@ -17,7 +16,7 @@ class Login extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final controller = Get.put(LogincontrollerImp());
+    final controller = Get.find<LogincontrollerImp>();
     return Directionality(
       textDirection: TextDirection.ltr,
       child: Scaffold(

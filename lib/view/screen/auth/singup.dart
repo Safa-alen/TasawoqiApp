@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:tasawoqi/controller/auth/signup_controller.dart';
 import 'package:tasawoqi/core/constant/imagess.dart';
-import 'package:tasawoqi/core/constant/route.dart';
 import 'package:tasawoqi/core/function/validateput.dart';
 import 'package:tasawoqi/view/widget/auth/auth_textfield.dart';
 import 'package:tasawoqi/view/widget/auth/text_buttom.dart';
@@ -17,12 +15,13 @@ class Signup extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final controller = Get.put(SignupcontrollerImp());
+    final controller = Get.find<SignupcontrollerImp>();
+
     return Directionality(
       textDirection: TextDirection.ltr,
       child: Scaffold(
         appBar: AppBar(
-          title: Center(
+          title: const Center(
             child: Logoauth(),
           ),
         ),
@@ -69,33 +68,32 @@ class Signup extends StatelessWidget {
                         mycontroller: controller.email,
                         isNumber: false),
                     const SizedBox(height: 16),
-                    GetBuilder<SignupcontrollerImp>(
-                        builder: (controller) => AuthTextfield(
-                              valid: (Value) {
-                                return ValidatInp(Value!, 5, 30, "password");
-                              },
-                              hinttext: "كلمة المرور ",
-                              obscuretext: controller.isshowpassword,
-                              onTapIcon: () {
-                                controller.showpassword();
-                              },
-                              isNumber: true,
-                              mycontroller: controller.password,
-                            )),
+                    AuthTextfield(
+                      valid: (Value) {
+                        return ValidatInp(Value!, 5, 30, "password");
+                      },
+                      hinttext: "كلمة المرور ",
+                      obscuretext: controller.isshowpassword,
+                      onTapIcon: () {
+                        controller.showpassword();
+                      },
+                      isNumber: true,
+                      mycontroller: controller.password,
+                    ),
                     Buttom(
                       text: 'متابعة',
                       onPressed: () {
                         controller.Signup();
                       },
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 40,
                     ),
                     Image.asset(AppImagess.google),
-                    SizedBox(
+                    const SizedBox(
                       height: 24,
                     ),
-                    TextButtom(
+                    const TextButtom(
                       text: " إذا كان لديك حساب بالفعل قم بتسجيل الدخول من",
                     ),
                   ],
