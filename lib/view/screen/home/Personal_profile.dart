@@ -45,7 +45,7 @@ class PersonalProfile extends StatelessWidget {
               icon: AppImagess.icon1,
               hinttext: "المدينة",
             ),
-            const SizedBox(height: 220),
+            const SizedBox(height: 90),
             Buttom(
               text: "حفظ البيانات",
               onPressed: () {

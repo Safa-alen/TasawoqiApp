@@ -4,7 +4,7 @@ import 'package:tasawoqi/controller/home/notification_controller.dart';
 import 'package:tasawoqi/core/constant/color.dart';
 
 class NotificationsHome extends StatelessWidget {
-  final NotificationController controller = Get.put(NotificationController());
+  final NotificationController controller = Get.find<NotificationController>();
 
   // مؤقتاً قائمة بيانات ثابتة
   final List<Map<String, dynamic>> notifications = [

@@ -6,11 +6,11 @@ import 'package:tasawoqi/view/widget/auth/textfield_location.dart';
 import 'package:tasawoqi/view/widget/buttom.dart';
 import 'package:tasawoqi/view/widget/home/title_only.dart';
 import 'package:tasawoqi/view/widget/merchant/profile_Image_widget.dart';
-import 'package:tasawoqi/view/widget/panel/divider_widget.dart';
-import 'package:tasawoqi/view/widget/panel/option_selector_widget.dart';
-import 'package:tasawoqi/view/widget/panel/switch_color.dart';
-import 'package:tasawoqi/view/widget/panel/switch_discount.dart';
-import 'package:tasawoqi/view/widget/panel/switch_size.dart';
+import 'package:tasawoqi/view/widget/product_panel/divider_widget.dart';
+import 'package:tasawoqi/view/widget/product_panel/option_selector_widget.dart';
+import 'package:tasawoqi/view/widget/product_panel/switch_color.dart';
+import 'package:tasawoqi/view/widget/product_panel/switch_discount.dart';
+import 'package:tasawoqi/view/widget/product_panel/switch_size.dart';
 
 class AddProductPanel extends StatelessWidget {
   AddProductPanel({super.key});

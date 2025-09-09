@@ -93,7 +93,11 @@ class TmHome extends StatelessWidget {
             SizedBox(
               height: 88,
               width: 88,
-              child: CircularProgressIndicator(color: Appcolor.aqua),
+              child: Icon(
+                Icons.check_circle, // أيقونة الصح
+                color: Appcolor.aqua, // لون أخضر
+                size: 100, // الحجم نفسه مثل الدائرة السابقة
+              ),
             ),
             const SizedBox(height: 144),
             Padding(

@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:get/get_instance/get_instance.dart';
-import 'package:tasawoqi/controller/home/search_controller.dart';
 import 'package:tasawoqi/core/constant/imagess.dart';
 import 'package:tasawoqi/data/datasource/static/categoy.dart';
 import 'package:tasawoqi/view/widget/home/category_type_widget.dart';
@@ -21,7 +18,7 @@ class Homepage extends StatelessWidget {
         padding: const EdgeInsets.only(left: 24, right: 24),
         child: Column(
           children: [
-            SizedBox(
+            const SizedBox(
               height: 16,
             ),
             search_home(),

@@ -32,7 +32,6 @@ class AddAddressHome extends StatelessWidget {
                 width: 400,
                 height: 200,
                 child: GetBuilder<MapGetxController>(
-                  init: MapGetxController(),
                   builder: (mapController) => FlutterMap(
                     mapController: flutterMapController,
                     options: MapOptions(

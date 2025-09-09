@@ -14,7 +14,7 @@ Widget buildCardStore(BuildContext context, int i) {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(12),
       ),
-      elevation: 4,
+      elevation: 1,
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(

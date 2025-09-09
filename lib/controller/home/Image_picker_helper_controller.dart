@@ -1,21 +1,3 @@
-// import 'dart:io';
-// import 'package:get/get_state_manager/src/simple/get_controllers.dart';
-// import 'package:image_picker/image_picker.dart';
-
-// /// Helper مستقل لاختيار الصور
-// class ImagePickerHelper {
-//   static final ImagePicker _picker = ImagePicker();
-
-//   /// يفتح الكاميرا أو المعرض ويرجع File؟
-//   static Future<File?> pickImage({bool fromCamera = false}) async {
-//     final XFile? pickedFile = await _picker.pickImage(
-//       source: fromCamera ? ImageSource.camera : ImageSource.gallery,
-//     );
-//     if (pickedFile != null) {
-//       return File(pickedFile.path);
-//     }
-//     return null;
-//   }
 // }
 import 'dart:io';
 import 'package:flutter/material.dart';

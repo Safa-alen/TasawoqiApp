@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 
@@ -6,7 +7,12 @@ class ProductController extends GetxController {
   int selectedColorHex = 0;
   String selectedQuantity = '';
   int count = 1;
+
+  // للجدولة
   String scheduleOption = ""; // "now" أو "datetime"
+  DateTime? scheduledDate;
+  TimeOfDay? scheduledTime;
+
   String selectedInput = "";
   String selectedWeight = ""; // لتخزين الوزن أو القيمة المدخلة
   final inputController = TextEditingController();
@@ -63,6 +69,18 @@ class ProductController extends GetxController {
   void changeOption(String value) {
     // للجدولة
     scheduleOption = value;
+    update();
+  }
+
+  // ✅ جديد: تخزين التاريخ
+  void setScheduledDate(DateTime date) {
+    scheduledDate = date;
+    update();
+  }
+
+  // ✅ جديد: تخزين الوقت
+  void setScheduledTime(TimeOfDay time) {
+    scheduledTime = time;
     update();
   }
 }

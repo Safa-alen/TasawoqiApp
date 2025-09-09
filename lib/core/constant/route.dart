@@ -33,6 +33,8 @@ class AppRoute {
   static const String addProductPanel = "/addproductpanel";
 
   static const String ordersHome = "/ordershome";
+  static const String ordersHome2 = "/ordershome2";
+
   static const String orderDetailsScreen = "/orderdetailsScreen";
 
   static const String onboarding = "/onboarding";

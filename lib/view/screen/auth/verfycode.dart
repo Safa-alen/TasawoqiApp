@@ -50,7 +50,10 @@ class Verfycode extends StatelessWidget {
 
                 onCodeChanged: (String code) {},
 
-                onSubmit: (String verificationCode) {}, // end onSubmit
+                onSubmit: (String verificationCode) {
+                  controller.Verfycode =
+                      verificationCode; // خزّن الكود في controller
+                }, // end onSubmit
               ),
               SizedBox(
                 height: 113,
@@ -63,7 +66,8 @@ class Verfycode extends StatelessWidget {
                   child: Buttom(
                     text: 'متابعة',
                     onPressed: () {
-                      controller.GoToLocation();
+                      controller.Veryfy(controller
+                          .Verfycode); // استدعاء دالة التحقق مع الـ API
                     },
                   ),
                 ),

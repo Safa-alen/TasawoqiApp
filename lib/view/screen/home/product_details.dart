@@ -15,12 +15,14 @@ import 'package:tasawoqi/view/widget/detalis/counter.dart';
 import 'package:tasawoqi/view/widget/home/title_only.dart';
 
 class ProductDetails extends StatelessWidget {
-  const ProductDetails({Key? key}) : super(key: key);
+  const ProductDetails({
+    Key? key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final ObjctModle product = Get.arguments;
-    final ProductController controller = Get.put(ProductController());
+    final ProductController controller = Get.find<ProductController>();
 
     return Directionality(
       textDirection: TextDirection.ltr,

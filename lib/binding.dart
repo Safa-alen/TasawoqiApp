@@ -5,7 +5,9 @@ import 'package:tasawoqi/controller/auth/verfy_controller.dart';
 import 'package:tasawoqi/controller/home/Color_controller.dart';
 import 'package:tasawoqi/controller/home/Personal_controller.dart';
 import 'package:tasawoqi/controller/home/home_screen_controller.dart';
+import 'package:tasawoqi/controller/home/map_controller.dart';
 import 'package:tasawoqi/controller/home/merchant_controller.dart';
+import 'package:tasawoqi/controller/home/notification_controller.dart';
 import 'package:tasawoqi/controller/home/order_controller.dart';
 import 'package:tasawoqi/controller/home/payment_controller.dart';
 import 'package:tasawoqi/controller/home/productpanel_controller.dart';
@@ -58,5 +60,11 @@ class MyBinding extends Bindings {
     // Controllers الدفع
     // =======================
     Get.lazyPut(() => PaymentController(), fenix: true);
+
+    Get.lazyPut<MapGetxController>(() => MapGetxController());
+    Get.lazyPut<NotificationController>(
+      () => NotificationController(),
+      fenix: true,
+    );
   }
 }

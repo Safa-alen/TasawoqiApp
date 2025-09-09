@@ -42,10 +42,15 @@ class ProductPanelController extends GetxController {
     update();
   }
 
+  // void setShowFilters(bool value) {
+  //   showFilters = value;
+  //   if (value) selectedOption = '';
+  //   update();
+  // }
   void setShowFilters(bool value) {
     showFilters = value;
     if (value) selectedOption = '';
-    update();
+    Future.microtask(() => update()); // التأجيل لبعد البناء
   }
 
   void filterProductsByCategory(String? category) {

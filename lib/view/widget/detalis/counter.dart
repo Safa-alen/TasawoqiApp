@@ -11,7 +11,8 @@ class Counter extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final ProductController controller = Get.put(ProductController());
+    final ProductController controller =
+        Get.put(ProductController()); //تفاصيل المنتج
 
     return Container(
       margin: EdgeInsets.all(4),
@@ -35,7 +36,7 @@ class Counter extends StatelessWidget {
           children: [
             // زر زيادة
             IconButton(
-              icon: Icon(Icons.remove, color: Appcolor.medigrey),
+              icon: Icon(Icons.add, color: Appcolor.medigrey),
               onPressed: controller.decrement,
             ),
             // الرقم بالنص
@@ -49,7 +50,7 @@ class Counter extends StatelessWidget {
             // زر إنقاص
 
             IconButton(
-              icon: Icon(Icons.add, color: Appcolor.medigrey),
+              icon: Icon(Icons.remove, color: Appcolor.medigrey),
               onPressed: controller.increment,
             ),
           ],

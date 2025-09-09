@@ -1,14 +1,153 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
+import 'package:tasawoqi/controller/home/home_screen_controller.dart';
 import 'package:tasawoqi/controller/home/order_controller.dart';
 import 'package:tasawoqi/controller/home/payment_controller.dart';
 import 'package:tasawoqi/core/constant/color.dart';
-import 'package:tasawoqi/core/constant/imagess.dart';
 import 'package:tasawoqi/core/constant/route.dart';
 import 'package:tasawoqi/view/widget/buttom.dart';
+import 'package:tasawoqi/view/widget/cart/product_card.dart';
 import 'package:tasawoqi/view/widget/home/title_only.dart';
+import 'package:tasawoqi/view/widget/payment/Address_field.dart';
+import 'package:tasawoqi/view/widget/payment/payment_option.dart';
 
+// class PaymentHome extends StatelessWidget {
+//   PaymentHome({super.key});
+
+//   final TextEditingController homeController = TextEditingController();
+//   final TextEditingController officeController = TextEditingController();
+//   final FocusNode homeFocusNode = FocusNode();
+//   final FocusNode officeFocusNode = FocusNode();
+
+//   final double totalPrice = (Get.arguments?['totalPrice']) ?? 0.0;
+
+//   @override
+//   Widget build(BuildContext context) {
+
+//     final products = homeController.CartProductCard.map((p) => {
+//   "image": p.Image,
+//   "title1": p.title1,
+//   "title2": p.title2,
+//   "price": p.title3,
+//   "quantity": p.quantity,
+// }).toList();
+
+//     // جلب البيانات من arguments
+//     // final List<Map<String, dynamic>> products =
+//     //     (Get.arguments?['products'] as List?)?.map((item) {
+//     //           return Map<String, dynamic>.from(item);
+//     //         }).toList() ??
+//     //         [];
+//     // جلب الكونترولر باستخدام GetX
+//     final PaymentController controller = Get.find<PaymentController>();
+//     final OrderController orderCtrl = Get.find<OrderController>();
+
+//     return Directionality(
+//       textDirection: TextDirection.ltr,
+//       child: Scaffold(
+//         appBar: AppBar(
+//           title: const Align(
+//               alignment: Alignment.centerRight,
+//               child: Padding(
+//                 padding: EdgeInsets.only(right: 24.0),
+//                 child: TitleOnly(title: "الدفع"),
+//               )),
+//         ),
+//         body: Padding(
+//           padding: const EdgeInsets.only(right: 24.0, left: 24, top: 40),
+//           child: GetBuilder<PaymentController>(
+//             builder: (_) => ListView(
+//               children: [
+//                 const Align(
+//                   alignment: Alignment.centerRight,
+//                   child: Text("العنوان", style: TextStyle(fontSize: 15)),
+//                 ),
+//                 const SizedBox(height: 12),
+//                 // حقل المنزل
+//                 AddressField(
+//                   type: 'home',
+//                   label: 'منزل',
+//                   hint:
+//                       "+971 123 456 789\nمعرة مصرين, شارع الجميل, جانب حلويات الاحمد, الطابق الثالث",
+//                   controllerText: homeController,
+//                   focusNode: homeFocusNode,
+//                 ),
+//                 const SizedBox(height: 16),
+//                 // حقل المكتب
+//                 AddressField(
+//                   type: 'office',
+//                   label: 'مكتب',
+//                   hint:
+//                       "+971 987 654 321\nعنوان المكتب, شارع التجاري, الطابق الثاني",
+//                   controllerText: officeController,
+//                   focusNode: officeFocusNode,
+//                 ),
+//                 const SizedBox(height: 24),
+//                 Align(
+//                   alignment: Alignment.centerRight,
+//                   child: Text(
+//                     "طريقة الدفع",
+//                     style: TextStyle(fontSize: 18, color: Appcolor.black),
+//                   ),
+//                 ),
+//                 // خيارات الدفع
+//                 PaymentOption(value: 'cash', label: "عند الاستلام"),
+//                 PaymentOption(value: 'app', label: "التطبيق"),
+//                 const SizedBox(height: 72),
+//                 Buttom(
+//                   text: "ارسال الطلب",
+//                   onPressed: () {
+//                     String selectedAddressType = controller.selectedOption1;
+//                     String? selectedPayment = controller.selectedOption2;
+
+//                     if (selectedAddressType.isEmpty) {
+//                       Get.snackbar(
+//                         "خطأ",
+//                         "الرجاء تحديد العنوان",
+//                         snackPosition: SnackPosition.BOTTOM,
+//                         backgroundColor: Appcolor.aqua.withOpacity(0.7),
+//                         colorText: Colors.white,
+//                       );
+//                       return;
+//                     }
+
+//                     if (selectedPayment == null || selectedPayment.isEmpty) {
+//                       Get.snackbar(
+//                         "خطأ",
+//                         "الرجاء تحديد طريقة الدفع",
+//                         snackPosition: SnackPosition.BOTTOM,
+//                         backgroundColor: Appcolor.aqua.withOpacity(0.7),
+//                         colorText: Colors.white,
+//                       );
+//                       return;
+//                     }
+
+//                     // إنشاء الطلب
+//                     orderCtrl.createOrder(
+//                       orderAddress: selectedAddressType,
+//                       orderPayment: selectedPayment,
+//                       orderTotal: totalPrice,
+//                       products: products,
+//                     );
+
+//                     // للتجربة: تحديث آخر طلب
+//                     final last = orderCtrl.lastOrder;
+//                     if (last != null) {
+//                       orderCtrl.updateOrderStatus(last, 'تم الاستلام');
+//                     }
+
+//                     // العودة للصفحة الرئيسية
+//                     Get.offAllNamed(AppRoute.tmHome);
+//                   },
+//                 )
+//               ],
+//             ),
+//           ),
+//         ),
+//       ),
+//     );
+//   }
+// }
 class PaymentHome extends StatelessWidget {
   PaymentHome({super.key});
 
@@ -17,98 +156,37 @@ class PaymentHome extends StatelessWidget {
   final FocusNode homeFocusNode = FocusNode();
   final FocusNode officeFocusNode = FocusNode();
 
-  final totalPrice = (Get.arguments?['totalPrice']) ?? 0.0;
-
   @override
   Widget build(BuildContext context) {
+    // جلب البيانات من arguments
+    final args = Get.arguments ?? {};
+    final double totalPrice = args['totalPrice'] ?? 0.0;
+    final double subtotal = args['subtotal'] ?? 0.0;
+    final double shipping = args['shipping'] ?? 0.0;
+    final double discount = args['discount'] ?? 0.0;
+
+    final List<Map<String, dynamic>> products =
+        (args['products'] as List?)?.map((item) {
+              return Map<String, dynamic>.from(item);
+            }).toList() ??
+            [];
+
     final PaymentController controller = Get.find<PaymentController>();
     final OrderController orderCtrl = Get.find<OrderController>();
-
-    Widget addressField({
-      required String type,
-      required String label,
-      required String hint,
-      required FocusNode focusNode,
-      required TextEditingController textController,
-    }) {
-      return Stack(
-        children: [
-          Container(
-            height: 180,
-            width: double.infinity,
-            decoration: BoxDecoration(
-              border: Border.all(color: Colors.grey.shade300, width: 1),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.black.withOpacity(0.1),
-                  spreadRadius: 5,
-                  blurRadius: 15,
-                  offset: const Offset(0, 4),
-                ),
-              ],
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(12),
-            ),
-            child: Column(
-              children: [
-                RadioListTile<String>(
-                  value: type,
-                  groupValue: controller.selectedOption1,
-                  onChanged: (value) => controller.selectOption1(value!),
-                  title: Text(label,
-                      textAlign: TextAlign.right,
-                      style: Theme.of(context)
-                          .textTheme
-                          .bodySmall!
-                          .copyWith(fontSize: 15)),
-                  controlAffinity: ListTileControlAffinity.trailing,
-                  activeColor: Appcolor.aqua,
-                ),
-                TextField(
-                  focusNode: focusNode,
-                  controller: type == 'home'
-                      ? TextEditingController(text: controller.homeNote)
-                      : TextEditingController(text: controller.officeNote),
-                  maxLines: 3,
-                  textAlign: TextAlign.right,
-                  style: TextStyle(fontSize: 14, color: Appcolor.grey),
-                  enabled: controller.selectedOption1 == type,
-                  onChanged: type == 'home'
-                      ? controller.updateHomeNote
-                      : controller.updateOfficeNote,
-                  decoration: InputDecoration(
-                    hintText: hint,
-                    hintStyle: TextStyle(fontSize: 14, color: Appcolor.grey),
-                    border: InputBorder.none,
-                    contentPadding:
-                        const EdgeInsets.symmetric(vertical: 2, horizontal: 19),
-                  ),
-                ),
-              ],
-            ),
-          ),
-          Positioned(
-            top: type == 'home' ? 15 : 25,
-            left: type == 'home' ? 15 : 25,
-            child: InkWell(
-              onTap: () => FocusScope.of(context).requestFocus(focusNode),
-              child: SvgPicture.asset(AppImagess.icon22, color: Appcolor.grey),
-            ),
-          ),
-        ],
-      );
-    }
+    final HomeScreenControllerImp homeScreenController =
+        Get.find<HomeScreenControllerImp>();
 
     return Directionality(
       textDirection: TextDirection.ltr,
       child: Scaffold(
         appBar: AppBar(
           title: const Align(
-              alignment: Alignment.centerRight,
-              child: Padding(
-                padding: EdgeInsets.only(right: 24.0),
-                child: TitleOnly(title: "الدفع"),
-              )),
+            alignment: Alignment.centerRight,
+            child: Padding(
+              padding: EdgeInsets.only(right: 24.0),
+              child: TitleOnly(title: "الدفع"),
+            ),
+          ),
         ),
         body: Padding(
           padding: const EdgeInsets.only(right: 24.0, left: 24, top: 40),
@@ -120,58 +198,37 @@ class PaymentHome extends StatelessWidget {
                   child: Text("العنوان", style: TextStyle(fontSize: 15)),
                 ),
                 const SizedBox(height: 12),
-                addressField(
+                AddressField(
                   type: 'home',
                   label: 'منزل',
                   hint:
-                      "+971 123 456 789\n,معرة مصرين, شارع الجميل, جانب حلويات الاحمد, الطابق الثالث",
+                      "+971 123 456 789\nمعرة مصرين, شارع الجميل, جانب حلويات الاحمد, الطابق الثالث",
+                  controllerText: homeController,
                   focusNode: homeFocusNode,
-                  textController: homeController,
                 ),
                 const SizedBox(height: 16),
-                addressField(
+                AddressField(
                   type: 'office',
                   label: 'مكتب',
                   hint:
-                      "+971 987 654 321\n,عنوان المكتب, شارع التجاري, الطابق الثاني",
+                      "+971 987 654 321\nعنوان المكتب, شارع التجاري, الطابق الثاني",
+                  controllerText: officeController,
                   focusNode: officeFocusNode,
-                  textController: officeController,
                 ),
                 const SizedBox(height: 24),
                 Align(
                   alignment: Alignment.centerRight,
-                  child: Text("طريقة الدفع",
-                      style: TextStyle(fontSize: 18, color: Appcolor.black)),
+                  child: Text(
+                    "طريقة الدفع",
+                    style: TextStyle(fontSize: 18, color: Appcolor.black),
+                  ),
                 ),
-                RadioListTile<String>(
-                  value: 'cash',
-                  groupValue: controller.selectedOption2,
-                  onChanged: (value) => controller.selectOption2(value!),
-                  title: Text("عند الاستلام",
-                      style: Theme.of(context).textTheme.bodySmall!.copyWith(
-                            fontSize: 15,
-                          ),
-                      textAlign: TextAlign.right),
-                  controlAffinity: ListTileControlAffinity.trailing,
-                  activeColor: Appcolor.aqua,
-                ),
-                RadioListTile<String>(
-                  value: 'app',
-                  groupValue: controller.selectedOption2,
-                  onChanged: (value) => controller.selectOption2(value!),
-                  title: Text("التطبيق",
-                      style: Theme.of(context).textTheme.bodySmall!.copyWith(
-                            fontSize: 15,
-                          ),
-                      textAlign: TextAlign.right),
-                  controlAffinity: ListTileControlAffinity.trailing,
-                  activeColor: Appcolor.aqua,
-                ),
+                PaymentOption(value: 'cash', label: "عند الاستلام"),
+                PaymentOption(value: 'app', label: "التطبيق"),
                 const SizedBox(height: 72),
                 Buttom(
                   text: "ارسال الطلب",
                   onPressed: () {
-                    // هذا هو نوع العنوان: 'home' أو 'office'
                     String selectedAddressType = controller.selectedOption1;
                     String? selectedPayment = controller.selectedOption2;
 
@@ -197,18 +254,26 @@ class PaymentHome extends StatelessWidget {
                       return;
                     }
 
+                    // إنشاء الطلب
                     orderCtrl.createOrder(
-                      orderAddress: selectedAddressType, // النوع فقط
+                      orderAddress: selectedAddressType,
                       orderPayment: selectedPayment,
                       orderTotal: totalPrice,
+                      products: homeScreenController.cartProducts
+                          .map((p) => {
+                                "image": p.Image,
+                                "title1": p.title1,
+                                "title2": p.title2,
+                                "price": p.title3,
+                                "quantity": p.quantity,
+                              })
+                          .toList(),
+                      subtotal: subtotal,
+                      shipping: shipping,
+                      discount: discount,
                     );
 
-// للتجربة: تحويل آخر طلب مباشرة إلى الطلبات السابقة
-                    final last = orderCtrl.lastOrder;
-                    if (last != null) {
-                      orderCtrl.updateOrderStatus(last, 'تم الاستلام  ');
-                    }
-
+                    // العودة للصفحة الرئيسية
                     Get.offAllNamed(AppRoute.tmHome);
                   },
                 )

@@ -85,7 +85,9 @@ List<GetPage<dynamic>>? routes = [
 
   // ================= ORDERS =================
   GetPage(name: AppRoute.ordersHome, page: () => OrderHome()),
-  GetPage(name: AppRoute.orderDetailsScreen, page: () => OrderDetailsScreen()),
+  GetPage(name: AppRoute.ordersHome2, page: () => Order2Home()),
+
+//  GetPage(name: AppRoute.orderDetailsScreen, page: () => OrderDetailsScreen()),
   GetPage(name: AppRoute.orderpanelHome, page: () => OrderpanelHome()),
 
   // ================= PANEL =================

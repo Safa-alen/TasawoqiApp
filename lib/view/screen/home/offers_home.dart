@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:tasawoqi/controller/home/search_controller.dart';
 import 'package:tasawoqi/data/datasource/static/categoy.dart';
-import 'package:tasawoqi/view/widget/home/appbar_home.dart';
 import 'package:tasawoqi/view/widget/home/category_type_widget.dart';
 
 import 'package:tasawoqi/view/widget/home/search_home.dart';
@@ -18,19 +14,20 @@ class OffersHome extends StatelessWidget {
       padding: EdgeInsets.all(24),
       child: ListView(
         children: [
-          SizedBox(
+          const SizedBox(
             height: 24,
           ),
-          Align(alignment: Alignment.center, child: TitleOnly(title: "العروض")),
-          SizedBox(
+          const Align(
+              alignment: Alignment.center, child: TitleOnly(title: "العروض")),
+          const SizedBox(
             height: 24,
           ),
-          search_home(),
-          SizedBox(
+          const search_home(),
+          const SizedBox(
             height: 24,
           ),
           GridView.builder(
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisSpacing: 10,
               mainAxisSpacing: 10,
               crossAxisCount: 2,

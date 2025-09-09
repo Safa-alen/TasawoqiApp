@@ -6,9 +6,6 @@ import 'package:tasawoqi/view/widget/home/category_type_widget.dart';
 import 'package:tasawoqi/view/widget/home/search_home.dart';
 import 'package:tasawoqi/view/widget/home/title_only.dart';
 
-import '../../../controller/home/search_controller.dart'
-    show HomeSearchController;
-
 class FavoritesHome extends StatelessWidget {
   const FavoritesHome({super.key});
 
@@ -20,7 +17,7 @@ class FavoritesHome extends StatelessWidget {
       textDirection: TextDirection.ltr,
       child: Scaffold(
         appBar: AppBar(
-          title: Align(
+          title: const Align(
             alignment: Alignment.centerRight,
             child: TitleOnly(title: "المفضلة"),
           ),
@@ -30,7 +27,7 @@ class FavoritesHome extends StatelessWidget {
           child: Column(
             children: [
               const SizedBox(height: 24),
-              search_home(),
+              const search_home(),
               const SizedBox(height: 24),
               Expanded(
                 child: GetBuilder<FavoriteController>(
