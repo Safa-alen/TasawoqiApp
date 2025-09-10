@@ -14,7 +14,7 @@ class Order {
   final List<Map<String, dynamic>>
       products; // قائمة المنتجات (صورة + عناوين + سعر)
 
-  String status; // قيد التحضير، قيد التوصيل، تم الاستلام
+  String status; // قيد التحضير، قيد التوصيل، تم الارسال
 
   Order({
     required this.number,
@@ -26,7 +26,7 @@ class Order {
     required this.payment,
     required this.totalPrice,
     required this.products,
-    this.status = ' قيد التحضير ', // الحالة الافتراضية
+    this.status = 'قيد التحضير ', // الحالة الافتراضية
   });
 }
 
@@ -99,7 +99,7 @@ class OrderController extends GetxController {
 
   // الحصول على الطلبات السابقة
   List<Order> get previousOrders =>
-      orders.where((order) => order.status == 'تم الاستلام  ').toList();
+      orders.where((order) => order.status == 'تم الارسال').toList();
 
   // آخر طلب
   Order? get lastOrder => orders.isNotEmpty ? orders.last : null;

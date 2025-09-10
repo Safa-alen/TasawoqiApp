@@ -39,18 +39,22 @@ class category_list_home extends StatelessWidget {
                         //  height: 50,
                         decoration: BoxDecoration(
                             border: Border.all(
-                                color: Appcolor.medigrey, width: 0.31),
+                                color: const Color.fromARGB(255, 201, 200, 200),
+                                width: 1),
                             borderRadius: BorderRadius.circular(25)),
                         child: Center(
-                            child: Text(
-                          categories[i].title,
-                          style: Theme.of(context)
-                              .textTheme
-                              .titleSmall!
-                              .copyWith(
-                                  fontFamily: 'Poppins',
-                                  fontWeight: FontWeight.w500),
-                        ))),
+                            child: Text(categories[i].title,
+                                style: TextStyle(
+                                    color: Appcolor.medigrey,
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w500)
+                                // Theme.of(context)
+                                //     .textTheme
+                                //     .titleSmall!
+                                //     .copyWith(
+                                //         fontFamily: 'Poppins',
+                                //         fontWeight: FontWeight.w500),
+                                ))),
                   ),
                   SizedBox(
                     width: 10,

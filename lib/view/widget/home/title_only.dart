@@ -14,7 +14,7 @@ class TitleOnly extends StatelessWidget {
       // maxLines: 1,
       //  textAlign: TextAlign.right,
       title,
-      style: Theme.of(context).textTheme.titleMedium!.copyWith(fontSize: 20),
+      style: Theme.of(context).textTheme.titleMedium!.copyWith(fontSize: 17),
     );
   }
 }

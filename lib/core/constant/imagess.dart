@@ -48,6 +48,7 @@ class AppImagess {
   static const String icon22 = "$rootImage2/icon22.svg";
   static const String icon23 = "$rootImage2/icon23.svg";
   static const String icon24 = "$rootImage2/icon24.svg";
+  static const String icon25 = "$rootImage2/icon25.svg";
 
   //json
 

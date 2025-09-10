@@ -272,6 +272,11 @@ class PaymentHome extends StatelessWidget {
                       shipping: shipping,
                       discount: discount,
                     );
+                    // للتجربة: تحديث آخر طلب
+                    final last = orderCtrl.lastOrder;
+                    if (last != null) {
+                      orderCtrl.updateOrderStatus(last, 'تم الارسال');
+                    }
 
                     // العودة للصفحة الرئيسية
                     Get.offAllNamed(AppRoute.tmHome);

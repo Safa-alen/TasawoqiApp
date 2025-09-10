@@ -17,7 +17,7 @@ class PersonalProfile extends StatelessWidget {
     final signupController = Get.find<SignupcontrollerImp>();
 
     return Directionality(
-      textDirection: TextDirection.rtl,
+      textDirection: TextDirection.ltr,
       child: Padding(
         padding: const EdgeInsets.only(right: 24.0, left: 24),
         child: ListView(
@@ -41,10 +41,12 @@ class PersonalProfile extends StatelessWidget {
               isNumber: true,
             ),
             const SizedBox(height: 16),
-            const TextfieldLocation(
-              icon: AppImagess.icon1,
-              hinttext: "المدينة",
-            ),
+            // const TextfieldLocation(
+            //   icon: AppImagess.icon1,
+            //   hinttext: "المدينة",
+            // ),
+            TextfieldLocation(hinttext: "المدينة", icon: AppImagess.icon1),
+
             const SizedBox(height: 90),
             Buttom(
               text: "حفظ البيانات",

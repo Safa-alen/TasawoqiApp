@@ -11,7 +11,7 @@ class DividerWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Divider(
       color: Appcolor.switchcolor, // لون الخط
-      thickness: 1, // سمك الخط
+      thickness: 0.5, // سمك الخط
       height: 20, // المسافة العمودية حول الخط
       indent: 0, // بداية الخط من اليسار
       endIndent: 0, // نهاية الخط على اليمين

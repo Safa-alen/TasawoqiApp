@@ -41,11 +41,11 @@ class Homepage extends StatelessWidget {
             category_list_home(),
             const SizedBox(height: 30),
             TitleOnly(title: "متاجر موصى بها"),
-            const SizedBox(height: 16),
+            const SizedBox(height: 10),
             RecommstoreList(),
             const SizedBox(height: 25),
-            TitleOnly(title: "المنتجات الأكثر طلبا  "),
-            const SizedBox(height: 25),
+            TitleOnly(title: "المنتجات الأكثر طلباً "),
+            const SizedBox(height: 10),
             Padding(
               padding: const EdgeInsets.only(left: 20),
               child: GridView.builder(
@@ -54,6 +54,7 @@ class Homepage extends StatelessWidget {
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
                   crossAxisSpacing: 10,
+                  mainAxisSpacing: 10,
                   mainAxisExtent: 265,
                 ),
                 itemCount: BestCategories.length,

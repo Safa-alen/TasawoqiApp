@@ -51,7 +51,7 @@ class DrawerWidget extends StatelessWidget {
                     .copyWith(color: Appcolor.medigrey, fontSize: 16),
               ),
               SizedBox(
-                height: 56,
+                height: 30,
               )
             ],
           ),
@@ -107,22 +107,22 @@ class DrawerWidget extends StatelessWidget {
             },
           ),
           SizedBox(
-            height: 80,
+            height: 30,
           ),
           Padding(
             padding: EdgeInsets.only(right: 16, left: 66),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                SvgPicture.asset(AppImagess.icon11),
-                SvgPicture.asset(AppImagess.icon13),
-                SvgPicture.asset(AppImagess.icon13),
                 SvgPicture.asset(AppImagess.icon14),
+                SvgPicture.asset(AppImagess.icon13),
+                SvgPicture.asset(AppImagess.icon13),
+                SvgPicture.asset(AppImagess.icon11),
               ],
             ),
           ),
           SizedBox(
-            height: 55,
+            height: 30,
           ),
           ListTileWidget(
             icon: Icon(Icons.logout),
@@ -163,14 +163,16 @@ class ListTileWidget extends StatelessWidget {
         data: IconThemeData(color: iconColor ?? Appcolor.black),
         child: icon,
       ),
-      title: Text(
-        text,
-        textAlign: TextAlign.right,
-        style: Theme.of(context)
-            .textTheme
-            .bodySmall!
-            .copyWith(fontSize: 16, color: textColor ?? Appcolor.black),
-      ),
+      title: Text(text,
+          textAlign: TextAlign.right,
+          style:
+              TextStyle(color: textColor ?? Appcolor.blacklight, fontSize: 16)
+          //
+          // Theme.of(context)
+          //     .textTheme
+          //     .bodySmall!
+          //     .copyWith(fontSize: 16, color: textColor ?? Appcolor.black),
+          ),
       onTap: onTap,
     );
   }
