@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_connect/http/src/utils/utils.dart';
 import 'package:tasawoqi/core/constant/imagess.dart';
 import 'package:tasawoqi/data/model/category_modle.dart';
 import 'package:tasawoqi/view/screen/home/Personal_profile.dart';
@@ -70,5 +69,25 @@ class HomeScreenControllerImp extends HomeScreenController {
     }
     //currentpage = 2; // انتقل للسلة
     update();
+  }
+
+  List<ObjctModle> products = [];
+
+  // محاكاة جلب البيانات من الباك
+  Future<void> fetchProducts() async {
+    await Future.delayed(const Duration(seconds: 2)); // simulate API
+    products = [
+      ObjctModle(
+        id: "29",
+        title1: 'عصير ايكرفون',
+        title2: 'عصائر الملك',
+        title3: 60,
+        Image: AppImagess.drink1,
+        title4: 'لوريم ابسوم ...',
+        point: '5 نقاط',
+      ),
+      // ضيفي منتجات تانية من الباك أو Firebase
+    ];
+    update(); // 🔥 تحدّث الـ UI
   }
 }

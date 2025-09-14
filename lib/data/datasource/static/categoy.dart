@@ -2,7 +2,6 @@ import 'dart:core';
 
 import 'package:tasawoqi/core/constant/imagess.dart';
 import 'package:tasawoqi/data/model/category_modle.dart';
-import 'package:tasawoqi/data/model/recomm_stores_modle.dart';
 
 ////////////////للفئات/////////////
 List<CategoryModle> categories = [
@@ -52,16 +51,16 @@ List<CategoryModle> categories = [
 ///////////////////////للمنتجات///////////////////////////////
 List<ObjctModle> products = [
   ObjctModle(
-    id: "29",
+    id: "1",
     title1: 'عصير ايكرفون',
     title2: 'عصائر الملك',
     title3: 60,
     Image: AppImagess.drink1,
-    title4: 'لوريم ابسوم ...',
+    title4: "kjhgfghj",
     point: '5 نقاط',
   ),
   ObjctModle(
-    id: "2",
+    id: "1",
     title1: 'عصائر الملك',
     title2: 'عصائر الآغا',
     title3: 60,
@@ -75,7 +74,7 @@ List<ObjctModle> products = [
     title2: 'سوبر ماركت العائلة',
     title3: 80,
     Image: AppImagess.madar,
-    title4: 'لوريم ابسوم ...',
+    title4: 'ناعم على الملابس رائحة جميلة',
     point: '5 نقاط',
     colorHexes: [],
   ),
@@ -348,63 +347,25 @@ List<ObjctModle> products = [
 
 ///////////////////////////////المنتجات الاكثر طلباا///////////////////////////////////
 
-List<BestCategoryModle> BestCategories = [
-  BestCategoryModle(
-      image: AppImagess.reco3,
-      title1: "برغر لحمة",
-      title2: "برغر كينغ للوجبات السريعة",
-      title3: "60/قطعة",
-      id: '2'),
-  BestCategoryModle(
-      image: AppImagess.reco1,
-      title1: "برغر لحمة",
-      title2: "برغر كينغ للوجبات السريعة",
-      title3: "60/قطعة",
-      id: '3'),
-  BestCategoryModle(
-      image: AppImagess.reco3,
-      title1: "برغر لحمة",
-      title2: "برغر كينغ للوجبات السريعة",
-      title3: "60/قطعة",
-      id: '4'),
-  BestCategoryModle(
-      image: AppImagess.reco1,
-      title1: "برغر لحمة",
-      title2: "برغر كينغ للوجبات السريعة",
-      title3: "60/قطعة",
-      id: '5'),
+List<ObjctModle> BestCategories = [
+  ObjctModle(
+    id: "29",
+    title1: '',
+    title2: '',
+    title3: 30,
+    Image: AppImagess.drink2,
+    title4: '',
+    point: '',
+    colorHexes: [],
+  ),
+  ObjctModle(
+    id: "29",
+    title1: "برغر لحمة",
+    title2: "برغر كينغ للوجبات السريعة",
+    title3: 30,
+    Image: AppImagess.reco1,
+    title4: '',
+    point: '',
+    colorHexes: [],
+  ),
 ];
-
-/////////////////////////العروض//////////////////////////////////////////
-List<OffersModle> Offers = [
-  OffersModle(
-      imageo: AppImagess.reco2,
-      title1o: "برغر لحمة",
-      title2o: "برغر كينغ للوجبات السريعة",
-      title3o: "/قطعة"),
-  OffersModle(
-      imageo: AppImagess.reco2,
-      title1o: "برغر لحمة",
-      title2o: "برغر كينغ للوجبات السريعة",
-      title3o: "/قطعة"),
-  OffersModle(
-      imageo: AppImagess.reco2,
-      title1o: "برغر لحمة",
-      title2o: "برغر كينغ للوجبات السريعة",
-      title3o: "/قطعة"),
-  OffersModle(
-      imageo: AppImagess.reco2,
-      title1o: "برغر لحمة",
-      title2o: "برغر كينغ للوجبات السريعة",
-      title3o: "/قطعة"),
-];
-// //Text(
-//   "2000 ل.س",
-//   style: const TextStyle(
-//     fontSize: 18,
-//     color: Colors.grey,
-//     decoration: TextDecoration.lineThrough, // هون بتعمل الشطب
-//     decorationThickness: 2, // سماكة الخط
-//     decorationColor: Colors.red, // لون الخط
-//   ),
-// ),

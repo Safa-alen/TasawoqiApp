@@ -2,20 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:tasawoqi/binding.dart';
-import 'package:tasawoqi/controller/auth/signup_controller.dart'
-    show SignupcontrollerImp;
-import 'package:tasawoqi/controller/home/favorite_controller.dart';
-import 'package:tasawoqi/controller/home/home_screen_controller.dart';
 import 'package:tasawoqi/core/constant/apptheme.dart';
 import 'package:tasawoqi/core/services/services.dart';
 import 'package:tasawoqi/route.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  Get.put(SignupcontrollerImp(), permanent: true);
-  Get.put(HomeScreenControllerImp());
-
-  Get.put(FavoriteController());
 
   await initialservices();
   runApp(const MyApp());
@@ -29,14 +21,12 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       theme: themeapp,
-
-      initialBinding: MyBinding(),
+      initialBinding: MyBinding(), // ✅ هاد بيربط الكنترولرز كلها
       getPages: routes,
-
-      locale: const Locale('ar'), // لغة التطبيق الافتراضية: العربية
+      locale: const Locale('ar'),
       supportedLocales: const [
-        Locale('ar'), // العربية
-        Locale('en'), // الإنجليزية لو حبيت تضيف دعم لغات ثانية
+        Locale('ar'),
+        Locale('en'),
       ],
       localizationsDelegates: const [
         GlobalMaterialLocalizations.delegate,

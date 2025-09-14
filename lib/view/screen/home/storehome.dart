@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:tasawoqi/controller/home/search_controller.dart';
-import 'package:tasawoqi/core/constant/route.dart';
-import 'package:tasawoqi/data/datasource/static/categoy.dart';
+import 'package:tasawoqi/data/datasource/static/recommstore.dart';
 
 import 'package:tasawoqi/view/widget/home/recommstore_list.dart';
 import 'package:tasawoqi/view/widget/home/search_home.dart';
@@ -14,19 +11,16 @@ class StoresHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(24),
+      padding: EdgeInsets.only(right: 24, left: 24, bottom: 24, top: 24),
       child: ListView(
         children: [
-          SizedBox(
-            height: 24,
-          ),
-          Align(
+          const Align(
               alignment: Alignment.center, child: TitleOnly(title: "المتاجر")),
-          SizedBox(
+          const SizedBox(
             height: 24,
           ),
           search_home(),
-          SizedBox(
+          const SizedBox(
             height: 24,
           ),
           RecommstoreList(

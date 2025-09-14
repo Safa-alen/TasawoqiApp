@@ -1,4 +1,7 @@
-import 'package:flutter/material.dart' show ListTile, Theme, Drawer, Icons;
+import 'dart:io' show File;
+
+import 'package:flutter/material.dart'
+    show ListTile, Theme, Drawer, Icons, CircleAvatar, Colors;
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/svg.dart' show SvgPicture;
 import 'package:get/get.dart';
@@ -28,28 +31,48 @@ class DrawerWidget extends StatelessWidget {
               SizedBox(
                 height: 30,
               ),
+              // GetBuilder<PersonalController>(
+              //   builder: (controller) => ClipRRect(
+              //     borderRadius: BorderRadius.circular(50),
+              //     child: controller.fileImage != null
+              //         ? Image.file(
+              //             controller.fileImage!,
+              //             height: 80,
+              //             width: 80,
+              //             fit: BoxFit.cover,
+              //           )
+              //         : Image.asset(
+              //             controller.assetImage ?? AppImagess.Logo,
+              //             height: 80,
+              //             width: 80,
+              //             fit: BoxFit.cover,
+              //           ),
+              //   ),
+              // ),
               GetBuilder<PersonalController>(
-                builder: (controller) => ClipRRect(
-                  borderRadius: BorderRadius.circular(50),
-                  child: Image.asset(
-                    controller.profileImage,
-                    height: 80,
-                    width: 80,
-                    fit: BoxFit.cover,
-                  ),
-                ),
-              ),
+                  init: PersonalController(),
+                  builder: (personalController) => Column(children: [
+                        CircleAvatar(
+                          radius: 40,
+                          backgroundColor: Colors.grey[300],
+                          backgroundImage: personalController.profileImage !=
+                                  null
+                              ? FileImage(
+                                      File(personalController.profileImage!))
+                                  as ImageProvider
+                              : null,
+                          child: personalController.profileImage == null
+                              ? Icon(Icons.person,
+                                  size: 40, color: Colors.white)
+                              : null,
+                        )
+                      ])),
               SizedBox(
                 height: 12,
               ),
               TitleOnly(title: "الاسم الثلاثي"),
-              Text(
-                "example@gmail.com",
-                style: Theme.of(context)
-                    .textTheme
-                    .bodyMedium!
-                    .copyWith(color: Appcolor.medigrey, fontSize: 16),
-              ),
+              Text("example@gmail.com",
+                  style: TextStyle(color: Appcolor.medigrey, fontSize: 14)),
               SizedBox(
                 height: 30,
               )
@@ -116,7 +139,10 @@ class DrawerWidget extends StatelessWidget {
               children: [
                 SvgPicture.asset(AppImagess.icon14),
                 SvgPicture.asset(AppImagess.icon13),
-                SvgPicture.asset(AppImagess.icon13),
+                SvgPicture.asset(
+                  AppImagess.icon25,
+                  color: Appcolor.aqua,
+                ),
                 SvgPicture.asset(AppImagess.icon11),
               ],
             ),
@@ -165,8 +191,7 @@ class ListTileWidget extends StatelessWidget {
       ),
       title: Text(text,
           textAlign: TextAlign.right,
-          style:
-              TextStyle(color: textColor ?? Appcolor.blacklight, fontSize: 16)
+          style: TextStyle(color: textColor ?? Appcolor.black, fontSize: 16)
           //
           // Theme.of(context)
           //     .textTheme

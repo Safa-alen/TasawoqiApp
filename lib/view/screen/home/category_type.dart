@@ -71,6 +71,7 @@ class CategoryTypeHome extends StatelessWidget {
                       title2: product.title2,
                       title3: product.title3,
                       index: originalIndex,
+                      //  product: product
                     ),
                   );
                 },

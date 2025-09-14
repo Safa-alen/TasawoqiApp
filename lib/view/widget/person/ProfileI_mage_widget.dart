@@ -18,28 +18,33 @@ class ProfileImageWidget extends StatelessWidget {
         init: PersonalController(),
         builder: (controller) => Stack(
           children: [
-            ClipRRect(
-              borderRadius: BorderRadius.circular(50),
-              child: controller.profileImage.startsWith('assets')
-                  ? Container(
-                      height: 140,
-                      width: 140,
-                      child: Image.asset(
-                        controller.profileImage,
-                        fit: BoxFit.cover,
-                      ),
-                    )
-                  : Container(
-                      height: 140,
-                      width: 140,
-                      child: Image.file(
-                        File(controller.profileImage),
-                        fit: BoxFit.cover,
-                        height: 140,
-                        width: 140,
-                      ),
-                    ),
+            // ClipRRect(
+            //   borderRadius: BorderRadius.circular(50),
+            //   child: controller.fileImage != null
+            //       ? Image.file(
+            //           controller.fileImage!,
+            //           height: 140,
+            //           width: 140,
+            //           fit: BoxFit.cover,
+            //         )
+            //       : Image.asset(
+            //           controller.assetImage ?? AppImagess.Logo,
+            //           height: 140,
+            //           width: 140,
+            //           fit: BoxFit.cover,
+            //         ),
+            // ),
+            CircleAvatar(
+              radius: 70,
+              backgroundColor: Colors.grey[300], // خلفية رمادية
+              backgroundImage: controller.profileImage != null
+                  ? FileImage(File(controller.profileImage!))
+                  : null,
+              child: controller.profileImage == null
+                  ? Icon(Icons.person, size: 70, color: Colors.white)
+                  : null,
             ),
+
             Positioned(
               bottom: 0,
               right: 0,

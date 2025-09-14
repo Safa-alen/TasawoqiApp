@@ -16,111 +16,115 @@ class ButtomNaviBar extends StatelessWidget {
     // تسجيل الكنترولر
     final controller = Get.put(HomeScreenControllerImp());
 
-    return GetBuilder<HomeScreenControllerImp>(
-      builder: (_) => Directionality(
-        textDirection: TextDirection.ltr,
-        child: Scaffold(
-          // AppBarHome يظهر في كل الصفحات
-          appBar: const PreferredSize(
-            preferredSize: Size.fromHeight(kToolbarHeight),
-            child: appbar_home(),
-          ),
-          // Drawer موجود في Scaffold الرئيسي
-          drawer: DrawerWidget(
-              // منع السحب من اليسار
+    return RefreshIndicator(
+      onRefresh: controller.fetchProducts, // 🔥 سحب لتحديث البيانات
 
-              // controller: controller
-              ),
-          // drawerEnableOpenDragGesture: true, // منع السحب من اليسار
-
-          extendBody: true,
-          floatingActionButton: FloatingActionButton(
-            shape: const CircleBorder(),
-            backgroundColor: Appcolor.aqua,
-            onPressed: () => controller.changPage(2),
-            child: SvgPicture.asset(
-              AppImagess.icon7,
-              color: Colors.white,
-              height: 28,
+      child: GetBuilder<HomeScreenControllerImp>(
+        builder: (_) => Directionality(
+          textDirection: TextDirection.ltr,
+          child: Scaffold(
+            // AppBarHome يظهر في كل الصفحات
+            appBar: const PreferredSize(
+              preferredSize: Size.fromHeight(kToolbarHeight),
+              child: appbar_home(),
             ),
-          ),
-          floatingActionButtonLocation:
-              FloatingActionButtonLocation.centerDocked,
-          bottomNavigationBar: SizedBox(
-            height: 88,
-            child: Stack(
-              clipBehavior: Clip.none,
-              children: [
-                BottomAppBar(
-                  shape: const CircularNotchedRectangle(),
-                  notchMargin: 8,
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 12),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        // أيقونة البداية على اليمين
-                        buildNavButton(
-                          icon: SvgPicture.asset(
-                            AppImagess.icon9,
-                            color: Appcolor.medigrey,
-                            height: 26,
-                          ),
-                          index: 4,
-                          controller: controller,
-                        ),
-                        buildNavButton(
-                          icon: SvgPicture.asset(
-                            AppImagess.icon6,
-                            color: Appcolor.medigrey,
-                            height: 26,
-                          ),
-                          index: 3,
-                          controller: controller,
-                        ),
-                        const SizedBox(width: 60), // مساحة لمكان الـ FAB
-                        buildNavButton(
-                          icon: Icon(
-                            Icons.color_lens_outlined,
-                            color: Appcolor.medigrey,
-                            size: 26,
-                          ),
-                          index: 1,
-                          controller: controller,
-                        ),
-                        buildNavButton(
-                          icon: SvgPicture.asset(
-                            AppImagess.icon8,
-                            color: Appcolor.medigrey,
-                            height: 26,
-                          ),
-                          index: 0,
-                          controller: controller,
-                        ),
-                      ],
-                    ),
-                  ),
+            // Drawer موجود في Scaffold الرئيسي
+            drawer: DrawerWidget(
+                // منع السحب من اليسار
+
+                // controller: controller
                 ),
-                if (controller.currentpage == 2)
-                  Positioned(
-                    bottom: 25,
-                    left: MediaQuery.of(context).size.width / 2 - 5,
-                    child: Container(
-                      height: 6,
-                      width: 6,
-                      decoration: BoxDecoration(
-                        color: Appcolor.aqua,
-                        shape: BoxShape.circle,
+            // drawerEnableOpenDragGesture: true, // منع السحب من اليسار
+
+            extendBody: true,
+            floatingActionButton: FloatingActionButton(
+              shape: const CircleBorder(),
+              backgroundColor: Appcolor.aqua,
+              onPressed: () => controller.changPage(2),
+              child: SvgPicture.asset(
+                AppImagess.icon7,
+                color: Colors.white,
+                height: 28,
+              ),
+            ),
+            floatingActionButtonLocation:
+                FloatingActionButtonLocation.centerDocked,
+            bottomNavigationBar: SizedBox(
+              height: 88,
+              child: Stack(
+                clipBehavior: Clip.none,
+                children: [
+                  BottomAppBar(
+                    shape: const CircularNotchedRectangle(),
+                    notchMargin: 8,
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 12),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          // أيقونة البداية على اليمين
+                          buildNavButton(
+                            icon: SvgPicture.asset(
+                              AppImagess.icon9,
+                              color: Appcolor.medigrey,
+                              height: 26,
+                            ),
+                            index: 4,
+                            controller: controller,
+                          ),
+                          buildNavButton(
+                            icon: SvgPicture.asset(
+                              AppImagess.icon6,
+                              color: Appcolor.medigrey,
+                              height: 26,
+                            ),
+                            index: 3,
+                            controller: controller,
+                          ),
+                          const SizedBox(width: 60), // مساحة لمكان الـ FAB
+                          buildNavButton(
+                            icon: Icon(
+                              Icons.color_lens_outlined,
+                              color: Appcolor.medigrey,
+                              size: 26,
+                            ),
+                            index: 1,
+                            controller: controller,
+                          ),
+                          buildNavButton(
+                            icon: SvgPicture.asset(
+                              AppImagess.icon8,
+                              color: Appcolor.medigrey,
+                              height: 26,
+                            ),
+                            index: 0,
+                            controller: controller,
+                          ),
+                        ],
                       ),
                     ),
                   ),
-              ],
+                  if (controller.currentpage == 2)
+                    Positioned(
+                      bottom: 25,
+                      left: MediaQuery.of(context).size.width / 2 - 5,
+                      child: Container(
+                        height: 6,
+                        width: 6,
+                        decoration: BoxDecoration(
+                          color: Appcolor.aqua,
+                          shape: BoxShape.circle,
+                        ),
+                      ),
+                    ),
+                ],
+              ),
             ),
-          ),
-          // عرض الصفحة الحالية من listpage
-          body: KeyedSubtree(
-            key: ValueKey(controller.currentpage),
-            child: controller.listpage[controller.currentpage](),
+            // عرض الصفحة الحالية من listpage
+            body: KeyedSubtree(
+              key: ValueKey(controller.currentpage),
+              child: controller.listpage[controller.currentpage](),
+            ),
           ),
         ),
       ),

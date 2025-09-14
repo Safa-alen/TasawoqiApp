@@ -36,7 +36,7 @@ class search_home extends StatelessWidget {
             children: [
               // TextField البحث
               Container(
-                color: Appcolor.white,
+                //  color: Appcolor.white,
                 height: height,
                 width: width,
                 child: TextField(
@@ -54,62 +54,11 @@ class search_home extends StatelessWidget {
 
                   cursorHeight: 16,
                   cursorWidth: 1.5,
-                  // decoration: InputDecoration(
-                  //   hintText: "بحث",
-                  //   hintStyle: TextStyle(color: Appcolor.grey, fontSize: 10),
-                  //   prefixIcon: showPrefixIcon
-                  //       ? Padding(
-                  //           padding: const EdgeInsets.all(8.0),
-                  //           child: SvgPicture.asset(
-                  //             AppImagess.icon3,
-                  //             width: 20,
-                  //             height: 20,
-                  //           ),
-                  //         )
-                  //       : null,
-                  //   suffixIcon: Padding(
-                  //     padding: const EdgeInsets.all(8.0),
-                  //     child: Row(
-                  //       mainAxisSize: MainAxisSize.min,
-                  //       children: [
-                  //         //   const Text("بحث", style: TextStyle(fontSize: 15)),
-                  //         const SizedBox(width: 4),
-                  //         SvgPicture.asset(
-                  //           AppImagess.icon2,
-                  //           width: 20,
-                  //           height: 20,
-                  //         ),
-                  //       ],
-                  //     ),
-                  //   ),
 
-                  //   // لما ما يكون مضغوط عليه (فيه إطار كامل)
-                  //   enabledBorder: OutlineInputBorder(
-                  //     borderRadius: const BorderRadius.only(
-                  //       topLeft: Radius.circular(12),
-                  //       topRight: Radius.circular(12),
-                  //       bottomLeft: Radius.circular(12),
-                  //       bottomRight: Radius.circular(12),
-                  //     ),
-                  //     borderSide: const BorderSide(
-                  //       color: Color(0xFFE0E0E0),
-                  //     ),
-                  //   ),
-
-                  //   // لما يصير مضغوط عليه (Focus) --> بدون حد سفلي
-                  //   focusedBorder: OutlineInputBorder(
-                  //     borderRadius: const BorderRadius.only(
-                  //       topLeft: Radius.circular(12),
-                  //       topRight: Radius.circular(12),
-                  //     ),
-                  //     borderSide: const BorderSide(
-                  //       color: Color(0xFFE0E0E0),
-                  //     ),
-                  //   ),
-                  // ),
                   decoration: InputDecoration(
                     hintText: "بحث",
-                    hintStyle: TextStyle(color: Appcolor.grey, fontSize: 10),
+                    hintStyle:
+                        TextStyle(color: Appcolor.lightGrey, fontSize: 14),
                     prefixIcon: showPrefixIcon
                         ? Padding(
                             padding: const EdgeInsets.all(8.0),
@@ -128,8 +77,8 @@ class search_home extends StatelessWidget {
                           const SizedBox(width: 4),
                           SvgPicture.asset(
                             AppImagess.icon2,
-                            width: 20,
-                            height: 20,
+                            width: 16,
+                            height: 16,
                           ),
                         ],
                       ),

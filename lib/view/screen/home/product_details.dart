@@ -23,6 +23,7 @@ class ProductDetails extends StatelessWidget {
   Widget build(BuildContext context) {
     final ObjctModle product = Get.arguments;
     final ProductController controller = Get.find<ProductController>();
+    // final product = Get.arguments; // 🔥 المنتج الذي تم تمريره
 
     return Directionality(
       textDirection: TextDirection.ltr,
@@ -54,8 +55,7 @@ class ProductDetails extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text("${product.point}",
-                      style: TextStyle(color: Appcolor.aqua)),
+                  Text(product.point, style: TextStyle(color: Appcolor.aqua)),
                   Row(
                     children: [
                       SvgPicture.asset(AppImagess.icon20),
@@ -73,12 +73,20 @@ class ProductDetails extends StatelessWidget {
               Align(
                 alignment: Alignment.centerRight,
                 child: Text(
-                  product.title4,
+                  product.title4.isNotEmpty ? product.title4 : 'لا يوجد وصف',
                   style: Theme.of(context)
                       .textTheme
                       .titleSmall!
                       .copyWith(fontFamily: "Poppins", fontSize: 15),
                 ),
+
+                // Text(
+                //   product.title4,
+                //   style: Theme.of(context)
+                //       .textTheme
+                //       .titleSmall!
+                //       .copyWith(fontFamily: "Poppins", fontSize: 15),
+                // ),
               ),
               const SizedBox(height: 5),
 

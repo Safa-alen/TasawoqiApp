@@ -53,7 +53,8 @@ class FavoritesHome extends StatelessWidget {
                         final product = BestCategories[productIndex];
 
                         return CategoryTypeWidget(
-                          image: product.image,
+                          // product: product
+                          image: product.Image,
                           title1: product.title1,
                           title2: product.title2,
                           title3: product.title3,

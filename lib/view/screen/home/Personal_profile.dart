@@ -41,12 +41,7 @@ class PersonalProfile extends StatelessWidget {
               isNumber: true,
             ),
             const SizedBox(height: 16),
-            // const TextfieldLocation(
-            //   icon: AppImagess.icon1,
-            //   hinttext: "المدينة",
-            // ),
             TextfieldLocation(hinttext: "المدينة", icon: AppImagess.icon1),
-
             const SizedBox(height: 90),
             Buttom(
               text: "حفظ البيانات",

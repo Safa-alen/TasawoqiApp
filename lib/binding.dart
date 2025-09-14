@@ -4,12 +4,15 @@ import 'package:tasawoqi/controller/auth/signup_controller.dart';
 import 'package:tasawoqi/controller/auth/verfy_controller.dart';
 import 'package:tasawoqi/controller/home/Color_controller.dart';
 import 'package:tasawoqi/controller/home/Personal_controller.dart';
+import 'package:tasawoqi/controller/home/cart_controller.dart';
+import 'package:tasawoqi/controller/home/favorite_controller.dart';
 import 'package:tasawoqi/controller/home/home_screen_controller.dart';
 import 'package:tasawoqi/controller/home/map_controller.dart';
 import 'package:tasawoqi/controller/home/merchant_controller.dart';
 import 'package:tasawoqi/controller/home/notification_controller.dart';
 import 'package:tasawoqi/controller/home/order_controller.dart';
 import 'package:tasawoqi/controller/home/payment_controller.dart';
+import 'package:tasawoqi/controller/home/product_controller.dart';
 import 'package:tasawoqi/controller/home/productpanel_controller.dart';
 import 'package:tasawoqi/controller/home/search_controller.dart';
 import 'package:tasawoqi/controller/onboarding_controller.dart';
@@ -42,6 +45,12 @@ class MyBinding extends Bindings {
     Get.lazyPut(() => MerchantImageController(), fenix: true);
 
     // =======================
+// Controllers الخاص بالمنتجات
+// =======================
+    Get.put(ProductController(), permanent: true); // 🔥 أضفيه هنا
+    Get.lazyPut(() => CartController(), fenix: true);
+
+    // =======================
     // Controllers الخاص بالطلبات
     // =======================
     Get.put(OrderController(), permanent: true);
@@ -60,6 +69,10 @@ class MyBinding extends Bindings {
     // Controllers الدفع
     // =======================
     Get.lazyPut(() => PaymentController(), fenix: true);
+
+    // Controllers الخاص بالمفضلة
+    // =======================
+    Get.lazyPut(() => FavoriteController(), fenix: true); // 🔥 أضفناه هنا
 
     Get.lazyPut<MapGetxController>(() => MapGetxController());
     Get.lazyPut<NotificationController>(
