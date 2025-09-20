@@ -63,7 +63,7 @@ class AddressField extends StatelessWidget {
                 controller: controllerText,
                 maxLines: 3,
                 textAlign: TextAlign.right,
-                style: TextStyle(fontSize: 14, color: Appcolor.grey),
+                style: TextStyle(fontSize: 14, color: Appcolor.myGrey),
                 enabled: controller.selectedOption1 == type,
                 onChanged: type == 'home'
                     ? controller.updateHomeNote

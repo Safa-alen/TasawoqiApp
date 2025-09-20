@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
+import 'package:tasawoqi/controller/home/api_product_controller.dart';
 import 'package:tasawoqi/controller/home/home_screen_controller.dart';
 import 'package:tasawoqi/core/constant/imagess.dart';
 import 'package:tasawoqi/data/datasource/static/categoy.dart';
@@ -67,16 +68,24 @@ class Homepage extends StatelessWidget {
                             mainAxisSpacing: 10,
                             mainAxisExtent: 265,
                           ),
+                          // itemCount: BestCategories.length,
+                          // itemBuilder: (context, index) {
+                          //   final product = BestCategories[index];
+                          //   return CategoryTypeWidget(
+                          //     image: product.Image,
+                          //     title1: product.title1,
+                          //     title2: product.title2,
+                          //     title3: product.title3,
+                          //     index: index,
+                          //     //product: product
+                          //   );
+                          // },
                           itemCount: BestCategories.length,
                           itemBuilder: (context, index) {
-                            final product = BestCategories[index];
+                            final bestCategories = BestCategories[index];
                             return CategoryTypeWidget(
-                              image: product.Image,
-                              title1: product.title1,
-                              title2: product.title2,
-                              title3: product.title3,
+                              product: bestCategories,
                               index: index,
-                              //product: product
                             );
                           },
                         ),

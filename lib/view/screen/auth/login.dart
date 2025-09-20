@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:tasawoqi/controller/auth/login_controller.dart';
 import 'package:tasawoqi/core/constant/color.dart';
 import 'package:tasawoqi/core/constant/imagess.dart';
+import 'package:tasawoqi/core/constant/route.dart';
 import 'package:tasawoqi/core/function/validateput.dart';
 import 'package:tasawoqi/view/widget/auth/auth_textfield.dart';
 import 'package:tasawoqi/view/widget/auth/text_buttom.dart';
@@ -12,7 +13,7 @@ import '../../widget/auth/authtext.dart';
 import '../../widget/buttom.dart';
 
 class Login extends StatelessWidget {
-  const Login({super.key});
+  Login({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -26,6 +27,7 @@ class Login extends StatelessWidget {
           ),
         ),
         body: GetBuilder<LogincontrollerImp>(
+          init: LogincontrollerImp(),
           builder: (controller) => SingleChildScrollView(
             child: Padding(
               padding: const EdgeInsets.all(20),
@@ -106,6 +108,9 @@ class Login extends StatelessWidget {
                       height: 24,
                     ),
                     TextButtom(
+                      onTap: () {
+                        controller.goToSignUp();
+                      },
                       text: "ليس لديك حساب؟ قم بإنشاء حساب جديد من ",
                     ),
                   ],

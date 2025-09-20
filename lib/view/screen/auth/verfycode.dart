@@ -66,8 +66,12 @@ class Verfycode extends StatelessWidget {
                   child: Buttom(
                     text: 'متابعة',
                     onPressed: () {
-                      controller.Veryfy(controller
-                          .Verfycode); // استدعاء دالة التحقق مع الـ API
+                      controller.GoToLocation();
+
+                      //   // Veryfy(controller
+                      //   //     .Verfycode
+
+                      //  //     ); // استدعاء دالة التحقق مع الـ API
                     },
                   ),
                 ),

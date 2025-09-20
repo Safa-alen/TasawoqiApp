@@ -48,7 +48,7 @@ import 'package:tasawoqi/view/screen/home/store_details.dart';
 
 List<GetPage<dynamic>>? routes = [
   // Root
-  GetPage(name: '/', page: () => ButtomNaviBar()),
+  GetPage(name: '/', page: () => Onboarding()),
 
   // ================= AUTH =================
   GetPage(name: AppRoute.login, page: () => Login()),

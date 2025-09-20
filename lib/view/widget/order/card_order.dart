@@ -8,6 +8,8 @@ import 'package:get/get.dart' show Get;
 import 'package:get/get_instance/get_instance.dart';
 import 'package:intl/intl.dart';
 import 'package:tasawoqi/core/constant/color.dart';
+import 'package:tasawoqi/core/constant/imagess.dart';
+import 'package:tasawoqi/core/constant/route.dart';
 import 'package:tasawoqi/view/widget/buttom.dart' show Buttom;
 import 'package:tasawoqi/view/widget/order/build_order_row.dart'
     show buildOrderRow;
@@ -69,7 +71,23 @@ class CardOrder extends StatelessWidget {
                   ),
                 ),
               ]),
-            if (!isCurrent) PreviousRequestOrder(order: order),
+            if (!isCurrent)
+              Column(
+                children: [
+                  PreviousRequestOrder(
+                    order: order,
+                    title: 'عصير ايكرفون',
+                    subtitle: 'قطعة\60',
+                    imagePath: AppImagess.cat1,
+                  ),
+                  PreviousRequestOrder(
+                    order: order,
+                    title: 'برغر لحمة',
+                    subtitle: 'قطعة\60',
+                    imagePath: AppImagess.cat10,
+                  ),
+                ],
+              ),
           ]),
         ),
       ),

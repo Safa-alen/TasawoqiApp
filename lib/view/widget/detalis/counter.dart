@@ -37,7 +37,7 @@ class Counter extends StatelessWidget {
             // زر زيادة
             IconButton(
               icon: Icon(Icons.add, color: Appcolor.medigrey),
-              onPressed: controller.decrement,
+              onPressed: controller.increment,
             ),
             // الرقم بالنص
             Text(
@@ -51,7 +51,7 @@ class Counter extends StatelessWidget {
 
             IconButton(
               icon: Icon(Icons.remove, color: Appcolor.medigrey),
-              onPressed: controller.increment,
+              onPressed: controller.decrement,
             ),
           ],
         ),

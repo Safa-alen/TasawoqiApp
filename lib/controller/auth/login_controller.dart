@@ -32,35 +32,29 @@ class LogincontrollerImp extends LoginController {
     update();
   }
 
-  // @override
-  // login() {
-  //   if (formstate.currentState!.validate()) {
-  //     Get.toNamed(AppRoute.location);
-  //     print("Valid");
-  //   } else {
-  //     print("Not Valid");
-  //   }
-  // }
   @override
   login() async {
     if (formstate.currentState!.validate()) {
       // استدعاء API لتسجيل الدخول
-      bool success = await api.login(email.text, password.text);
+      // bool success = await api.login(email.text, password.text);
 
-      if (success) {
-        // يمكن إضافة حفظ التوكن تلقائياً إذا remember=true
-        Get.snackbar("نجاح", "تم تسجيل الدخول بنجاح");
-        Get.offAllNamed(AppRoute.location); // الانتقال للشاشة الرئيسية
-      } else {
-        Get.snackbar("خطأ", "فشل تسجيل الدخول، تحقق من بياناتك");
-      }
+      // if (success) {
+      //   // يمكن إضافة حفظ التوكن تلقائياً إذا remember=true
+      //   Get.snackbar("نجاح", "تم تسجيل الدخول بنجاح");
+      Get.offAllNamed(AppRoute.buttomNavBar); // الانتقال للشاشة الرئيسية
     } else {
-      print("Not Valid");
+      Get.snackbar("خطأ", "فشل تسجيل الدخول، تحقق من بياناتك");
     }
+    //  }
+    // else {
+    //   print("Not Valid");
+    // }
   }
 
   @override
-  goToSignUp() {}
+  goToSignUp() {
+    Get.offNamed(AppRoute.signup);
+  }
 
   @override
   void onInit() {

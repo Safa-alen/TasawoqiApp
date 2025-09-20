@@ -2,12 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:tasawoqi/controller/home/favorite_controller.dart';
 import 'package:tasawoqi/data/datasource/static/categoy.dart';
+import 'package:tasawoqi/data/model/category_modle.dart';
 import 'package:tasawoqi/view/widget/home/category_type_widget.dart';
 import 'package:tasawoqi/view/widget/home/search_home.dart';
 import 'package:tasawoqi/view/widget/home/title_only.dart';
 
 class FavoritesHome extends StatelessWidget {
-  const FavoritesHome({super.key});
+  FavoritesHome({super.key});
+  List<ObjctModle> allProducts = [...products, ...BestCategories, ...Offers];
 
   @override
   Widget build(BuildContext context) {
@@ -50,15 +52,11 @@ class FavoritesHome extends StatelessWidget {
                       itemBuilder: (context, i) {
                         // نجيب الفهرس الأصلي للمنتج من قائمة المفضلة
                         final productIndex = controller.favorites[i];
-                        final product = BestCategories[productIndex];
+                        final product = allProducts[productIndex];
 
                         return CategoryTypeWidget(
-                          // product: product
-                          image: product.Image,
-                          title1: product.title1,
-                          title2: product.title2,
-                          title3: product.title3,
-                          index: productIndex, // نمرره للتحكم بالمفضلة
+                          product: product,
+                          index: productIndex,
                         );
                       },
                       reverse:

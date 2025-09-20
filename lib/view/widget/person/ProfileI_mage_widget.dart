@@ -18,22 +18,6 @@ class ProfileImageWidget extends StatelessWidget {
         init: PersonalController(),
         builder: (controller) => Stack(
           children: [
-            // ClipRRect(
-            //   borderRadius: BorderRadius.circular(50),
-            //   child: controller.fileImage != null
-            //       ? Image.file(
-            //           controller.fileImage!,
-            //           height: 140,
-            //           width: 140,
-            //           fit: BoxFit.cover,
-            //         )
-            //       : Image.asset(
-            //           controller.assetImage ?? AppImagess.Logo,
-            //           height: 140,
-            //           width: 140,
-            //           fit: BoxFit.cover,
-            //         ),
-            // ),
             CircleAvatar(
               radius: 70,
               backgroundColor: Colors.grey[300], // خلفية رمادية
@@ -44,7 +28,6 @@ class ProfileImageWidget extends StatelessWidget {
                   ? Icon(Icons.person, size: 70, color: Colors.white)
                   : null,
             ),
-
             Positioned(
               bottom: 0,
               right: 0,

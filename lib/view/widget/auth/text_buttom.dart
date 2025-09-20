@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:get/route_manager.dart';
 import 'package:tasawoqi/core/constant/color.dart';
-
-import '../../../core/constant/route.dart';
 
 class TextButtom extends StatelessWidget {
   const TextButtom({
     super.key,
     required this.text,
+    required this.onTap,
   });
   final String text;
+  final void Function()? onTap;
   @override
   Widget build(BuildContext context) {
     return Directionality(
@@ -26,9 +25,10 @@ class TextButtom extends StatelessWidget {
             ),
           ),
           GestureDetector(
-            onTap: () {
-              Get.toNamed(AppRoute.login); // اسم المسار حسب الموجود عندك
-            },
+            onTap: onTap,
+            // onTap: () {
+            //   Get.toNamed(AppRoute.login); // اسم المسار حسب الموجود عندك
+            // },
             child: Text(
               " هنا",
               textAlign: TextAlign.left,

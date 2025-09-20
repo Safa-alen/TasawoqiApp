@@ -36,28 +36,28 @@ class VeryfircodeControllerImp extends VeryfircodeController {
 
   @override
   GoToLocation() {
-    Get.offAllNamed(AppRoute.location); // انتقال دائم للشاشة
+    Get.offAllNamed(AppRoute.buttomNavBar); // انتقال دائم للشاشة
   }
 
   @override
   Veryfy(String code) async {
     Verfycode = code;
 
-    try {
-      // نفترض أن الباك يملك endpoint للتحقق من الكود
-      final response = await api.verifyCode(Verfycode);
+    // try {
+    //   // نفترض أن الباك يملك endpoint للتحقق من الكود
+    //   final response = await api.verifyCode(Verfycode);
 
-      if (response["success"] == true) {
-        // الكود صحيح، انتقل للـ location
-        GoToLocation();
-      } else {
-        // الكود غير صحيح
-        Get.snackbar("خطأ", "كود التحقق غير صحيح");
-      }
-    } catch (e) {
-      // أي خطأ أثناء الاتصال بالباك
-      Get.snackbar("خطأ", "حدث خطأ أثناء التحقق: $e");
-    }
+    //   if (response["success"] == true) {
+    //     // الكود صحيح، انتقل للـ location
+    //     GoToLocation();
+    //   } else {
+    //     // الكود غير صحيح
+    //     Get.snackbar("خطأ", "كود التحقق غير صحيح");
+    //   }
+    // } catch (e) {
+    //   // أي خطأ أثناء الاتصال بالباك
+    //   Get.snackbar("خطأ", "حدث خطأ أثناء التحقق: $e");
+    // }
   }
 
   @override

@@ -1,3 +1,5 @@
+enum ProductType { all, best, offer }
+
 class CategoryModle {
   final String id;
   final String title;
@@ -40,6 +42,7 @@ class ObjctModle {
   final String prepTime;
   final List<String> quantity;
   final String Image;
+  final ProductType type; // 👈 جديد
 
   ObjctModle({
     required this.id,
@@ -53,6 +56,7 @@ class ObjctModle {
     this.colorHexes = const [],
     this.prepTime = '',
     this.quantity = const [],
+    this.type = ProductType.all, // 👈 افتراضي
   });
 
   // 🔥 fromJson
@@ -69,7 +73,18 @@ class ObjctModle {
       colorHexes: List<int>.from(json['colorHexes'] ?? []),
       prepTime: json['prepTime'] ?? '',
       quantity: List<String>.from(json['quantity'] ?? []),
+      type: _mapType(json['type']), // 👈 حول النص لـ Enum
     );
+  }
+  static ProductType _mapType(String? type) {
+    switch (type) {
+      case 'best':
+        return ProductType.best;
+      case 'offer':
+        return ProductType.offer;
+      default:
+        return ProductType.all;
+    }
   }
 
   // 🔥 toJson
@@ -86,6 +101,7 @@ class ObjctModle {
       'colorHexes': colorHexes,
       'prepTime': prepTime,
       'quantity': quantity,
+      'type': type.name, // 👈 يخزن النص
     };
   }
 }

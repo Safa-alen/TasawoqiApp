@@ -31,26 +31,8 @@ class DrawerWidget extends StatelessWidget {
               SizedBox(
                 height: 30,
               ),
-              // GetBuilder<PersonalController>(
-              //   builder: (controller) => ClipRRect(
-              //     borderRadius: BorderRadius.circular(50),
-              //     child: controller.fileImage != null
-              //         ? Image.file(
-              //             controller.fileImage!,
-              //             height: 80,
-              //             width: 80,
-              //             fit: BoxFit.cover,
-              //           )
-              //         : Image.asset(
-              //             controller.assetImage ?? AppImagess.Logo,
-              //             height: 80,
-              //             width: 80,
-              //             fit: BoxFit.cover,
-              //           ),
-              //   ),
-              // ),
               GetBuilder<PersonalController>(
-                  init: PersonalController(),
+                  //  init: PersonalController(),
                   builder: (personalController) => Column(children: [
                         CircleAvatar(
                           radius: 40,
@@ -191,13 +173,7 @@ class ListTileWidget extends StatelessWidget {
       ),
       title: Text(text,
           textAlign: TextAlign.right,
-          style: TextStyle(color: textColor ?? Appcolor.black, fontSize: 16)
-          //
-          // Theme.of(context)
-          //     .textTheme
-          //     .bodySmall!
-          //     .copyWith(fontSize: 16, color: textColor ?? Appcolor.black),
-          ),
+          style: TextStyle(color: textColor ?? Appcolor.black, fontSize: 16)),
       onTap: onTap,
     );
   }

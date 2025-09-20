@@ -172,27 +172,23 @@ class StoreDetails extends StatelessWidget {
                   textAlign: TextAlign.end,
                   style: TextStyle(color: Appcolor.black, fontSize: 16)),
               const SizedBox(height: 16),
-              GridView.builder(
-                shrinkWrap: true,
-                physics: const NeverScrollableScrollPhysics(),
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  mainAxisSpacing: 12,
-                  crossAxisSpacing: 12,
-                  childAspectRatio: 0.7,
-                ),
-                itemCount: store.products.length,
-                itemBuilder: (context, index) {
-                  final product = store.products[index];
-                  return CategoryTypeWidget(
-                    index: index,
-                    image: product.image,
-                    title1: product.title1,
-                    title2: product.title2,
-                    title3: product.title3,
-                  );
-                },
-              ),
+              // GridView.builder(
+              //   shrinkWrap: true,
+              //   physics: const NeverScrollableScrollPhysics(),
+              //   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              //     crossAxisCount: 2,
+              //     mainAxisSpacing: 12,
+              //     crossAxisSpacing: 12,
+              //     childAspectRatio: 0.7,
+              //   ),
+              //   itemCount: store.products.length,
+              //   itemBuilder: (context, index) {
+              //     final product = store.products[index];
+              //     return CategoryTypeWidget(product: product,
+
+              //     );
+              //   },
+              // ),
             ],
           ),
         ),

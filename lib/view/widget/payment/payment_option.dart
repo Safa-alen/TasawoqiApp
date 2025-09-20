@@ -19,7 +19,7 @@ class PaymentOption extends StatelessWidget {
       onChanged: (val) => controller.selectOption2(val!),
       title: Text(
         label,
-        style: Theme.of(context).textTheme.bodySmall!.copyWith(fontSize: 15),
+        style: TextStyle(color: Appcolor.black, fontSize: 16),
         textAlign: TextAlign.right,
       ),
       controlAffinity: ListTileControlAffinity.trailing,

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:tasawoqi/controller/auth/signup_controller.dart';
 import 'package:tasawoqi/core/constant/imagess.dart';
+import 'package:tasawoqi/core/constant/route.dart';
 import 'package:tasawoqi/core/function/validateput.dart';
 import 'package:tasawoqi/view/widget/auth/auth_textfield.dart';
 import 'package:tasawoqi/view/widget/auth/text_buttom.dart';
@@ -93,7 +94,10 @@ class Signup extends StatelessWidget {
                     const SizedBox(
                       height: 24,
                     ),
-                    const TextButtom(
+                    TextButtom(
+                      onTap: () {
+                        Get.offNamed(AppRoute.login);
+                      },
                       text: " إذا كان لديك حساب بالفعل قم بتسجيل الدخول من",
                     ),
                   ],

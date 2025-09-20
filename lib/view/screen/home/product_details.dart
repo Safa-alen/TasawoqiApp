@@ -109,7 +109,10 @@ class ProductDetails extends StatelessWidget {
               // ملاحظات المستخدم
               Align(
                   alignment: Alignment.centerRight,
-                  child: TextWidget(title: "أضف ملاحظاتك")),
+                  child: Text(
+                    "أضف ملاحظاتك",
+                    style: TextStyle(color: Appcolor.black),
+                  )),
               buildNotesField(),
 
               const SizedBox(height: 20),
@@ -150,7 +153,10 @@ class ProductDetails extends StatelessWidget {
 
               Align(
                   alignment: Alignment.centerRight,
-                  child: TextWidget(title: 'منتجات ذات صلة')),
+                  child: Text(
+                    'منتجات ذات صلة',
+                    style: TextStyle(color: Appcolor.black),
+                  )),
             ],
           ),
         ),

@@ -1,8 +1,64 @@
 
+// plugins {
+//     id "com.android.application"
+//     id "kotlin-android"
+//     id "dev.flutter.flutter-gradle-plugin"
+//     id "com.google.gms.google-services"
+
+// }
+
+// android {
+//     namespace = "com.example.tasawoqi"
+//     compileSdk = 36 
+
+//     defaultConfig {
+//         applicationId = "com.tasawoqi.tasawoqi"
+//         minSdkVersion flutter.minSdkVersion
+//        targetSdkVersion flutter.targetSdkVersion
+
+//         versionCode 1
+//         versionName "1.0.0"
+//     }
+
+//     compileOptions {
+//         sourceCompatibility = JavaVersion.VERSION_17
+//         targetCompatibility = JavaVersion.VERSION_17
+//     }
+
+//     kotlinOptions {
+//         jvmTarget = "17"
+//     }
+
+//     buildTypes {
+//         release {
+//             minifyEnabled true
+//         shrinkResources true
+//         proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+//         // signingConfig signingConfigs.release // بعد ما تعملي keystore
+//         }
+//     }
+// }
+
+// flutter {
+//     source = "../.."
+// }
+// dependencies {
+//   // Firebase BoM يحدد نسخ المكتبات بشكل متوافق
+//     implementation platform('com.google.firebase:firebase-bom:34.3.0')
+
+//     // المنتجات اللي بدك تستخدميها
+//     implementation 'com.google.firebase:firebase-analytics'
+//     implementation 'com.google.firebase:firebase-auth'
+//     implementation 'com.google.android.gms:play-services-auth:21.2.0'
+  
+// }
+
+
 plugins {
     id "com.android.application"
     id "kotlin-android"
     id "dev.flutter.flutter-gradle-plugin"
+    id 'com.google.gms.google-services'
 }
 
 android {
@@ -10,7 +66,7 @@ android {
     compileSdk = 36 
 
     defaultConfig {
-        applicationId = "com.example.tasawoqi"
+        applicationId = "com.progtasawoqi.tasawoqi"
         minSdkVersion flutter.minSdkVersion
         targetSdk = 36  // أو flutter.targetSdkVersion
         versionCode 1
@@ -38,4 +94,21 @@ android {
 
 flutter {
     source = "../.."
+}
+
+
+
+
+dependencies {
+  // Import the Firebase BoM
+  implementation platform('com.google.firebase:firebase-bom:34.3.0')
+
+
+  // TODO: Add the dependencies for Firebase products you want to use
+  // When using the BoM, don't specify versions in Firebase dependencies
+  implementation 'com.google.firebase:firebase-analytics'
+
+
+  // Add the dependencies for any other desired Firebase products
+  // https://firebase.google.com/docs/android/setup#available-libraries
 }

@@ -66,12 +66,8 @@ class CategoryTypeHome extends StatelessWidget {
                       );
                     },
                     child: CategoryTypeWidget(
-                      image: product.Image,
-                      title1: product.title1,
-                      title2: product.title2,
-                      title3: product.title3,
-                      index: originalIndex,
-                      //  product: product
+                      product: product,
+                      index: index,
                     ),
                   );
                 },

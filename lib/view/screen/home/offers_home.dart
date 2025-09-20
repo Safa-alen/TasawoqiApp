@@ -58,7 +58,8 @@
 // }
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:tasawoqi/controller/home/offers_controller.dart';
+import 'package:tasawoqi/controller/home/api_product_controller.dart';
+import 'package:tasawoqi/data/datasource/static/categoy.dart';
 import 'package:tasawoqi/view/widget/home/category_type_widget.dart';
 import 'package:tasawoqi/view/widget/home/search_home.dart';
 import 'package:tasawoqi/view/widget/home/title_only.dart';
@@ -70,8 +71,8 @@ class OffersHome extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(right: 24, left: 24, bottom: 24, top: 2),
-      child: GetBuilder<OffersController>(
-        init: OffersController(), // نربط الكونترولر هون
+      child: GetBuilder<ApiProductController>(
+        init: ApiProductController(), // نربط الكونترولر هون
         builder: (controller) {
           if (controller.isLoading) {
             return const Center(child: CircularProgressIndicator());
@@ -96,17 +97,15 @@ class OffersHome extends StatelessWidget {
                 ),
                 shrinkWrap: true,
                 physics: const NeverScrollableScrollPhysics(),
-                itemCount: controller.offers.length,
+                itemCount: Offers.length,
+                //  itemCount: products.length,
                 itemBuilder: (context, index) {
-                  final offer = controller.offers[index];
+                  final offer = Offers[index];
+
                   return InkWell(
                     onTap: () {},
                     child: CategoryTypeWidget(
-                      // offer: offer
-                      image: offer.imageo,
-                      title1: offer.title1o,
-                      title2: offer.title2o,
-                      title3: offer.title3o,
+                      product: offer,
                       index: index,
                     ),
                   );

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:tasawoqi/core/constant/imagess.dart';
+import 'package:tasawoqi/data/datasource/static/categoy.dart';
 import 'package:tasawoqi/data/model/category_modle.dart';
 import 'package:tasawoqi/view/screen/home/Personal_profile.dart';
 import 'package:tasawoqi/view/screen/home/control_panel_home.dart';
@@ -20,6 +21,17 @@ class HomeScreenControllerImp extends HomeScreenController {
   int currentpage = 0;
   //String profileImage = AppImagess.personal;
   bool isMerchant = true; // إذا كان المستخدم تاجر
+
+  // ✅ مفتاح للتحكم بالـ Scaffold (Drawer)
+  final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
+
+  void openDrawer() {
+    scaffoldKey.currentState?.openDrawer();
+  }
+
+  void closeDrawer() {
+    scaffoldKey.currentState?.openEndDrawer();
+  }
 
   // قائمة المنتجات في السلة
   List<ObjctModle> cartProducts = [];
@@ -76,18 +88,5 @@ class HomeScreenControllerImp extends HomeScreenController {
   // محاكاة جلب البيانات من الباك
   Future<void> fetchProducts() async {
     await Future.delayed(const Duration(seconds: 2)); // simulate API
-    products = [
-      ObjctModle(
-        id: "29",
-        title1: 'عصير ايكرفون',
-        title2: 'عصائر الملك',
-        title3: 60,
-        Image: AppImagess.drink1,
-        title4: 'لوريم ابسوم ...',
-        point: '5 نقاط',
-      ),
-      // ضيفي منتجات تانية من الباك أو Firebase
-    ];
-    update(); // 🔥 تحدّث الـ UI
   }
 }

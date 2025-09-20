@@ -369,3 +369,47 @@ List<ObjctModle> BestCategories = [
     colorHexes: [],
   ),
 ];
+
+//////////////////////////////  للعروض///////////////////////////////////
+
+List<ObjctModle> Offers = [
+  ObjctModle(
+      id: '1',
+      title1: 'AppImagess.reco2',
+      title2: 'برغر كينغ للوجبات السريع',
+      title3: 30,
+      title4: '',
+      Image: AppImagess.reco1,
+      point: ''),
+  ObjctModle(
+    id: "29",
+    title1: "برغر لحمة",
+    title2: "برغر كينغ للوجبات السريعة",
+    title3: 30,
+    Image: AppImagess.reco1,
+    title4: '',
+    point: '',
+    colorHexes: [0xFFE91E63, 0xFF2196F3, 0xFFFFC107, 0xFF000000],
+  ),
+  ObjctModle(
+    id: "29",
+    title1: "برغر لحمة",
+    title2: "برغر كينغ للوجبات السريعة",
+    title3: 30,
+    Image: AppImagess.reco1,
+    title4: '',
+    point: '',
+    colorHexes: [0xFFE91E63, 0xFF2196F3, 0xFFFFC107, 0xFF000000],
+  ),
+  ObjctModle(
+    id: "23",
+    title1: 'حذاء رياضي',
+    title2: 'نايكي',
+    title3: 60,
+    Image: AppImagess.foot,
+    title4: 'لوريم ابسوم ...',
+    point: '5 نقاط',
+    colorHexes: [0xFFE91E63, 0xFF2196F3, 0xFFFFC107, 0xFF000000],
+    sizes: ["37", "38", "39", "40", "41"],
+  ),
+];

@@ -23,18 +23,16 @@ class ButtomNaviBar extends StatelessWidget {
         builder: (_) => Directionality(
           textDirection: TextDirection.ltr,
           child: Scaffold(
+            // key: controller
+            //     .scaffoldKey, // ✅ اربطي الـ Scaffold بالـ key من الكنترولر
+
             // AppBarHome يظهر في كل الصفحات
             appBar: const PreferredSize(
               preferredSize: Size.fromHeight(kToolbarHeight),
               child: appbar_home(),
             ),
             // Drawer موجود في Scaffold الرئيسي
-            drawer: DrawerWidget(
-                // منع السحب من اليسار
-
-                // controller: controller
-                ),
-            // drawerEnableOpenDragGesture: true, // منع السحب من اليسار
+            drawer: DrawerWidget(),
 
             extendBody: true,
             floatingActionButton: FloatingActionButton(
